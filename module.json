@@ -1,0 +1,248 @@
+{
+	"id": "garhis-grotto",
+	"title": "Garhi's Grotto",
+	"description": "A module containing various Items, Spells, Features, and Creatures.",
+	"version": "#{VERSION}#",
+	"library": "false",
+	"manifestPlusVersion": "1.2.0",
+	"compatibility": {
+		"minimum": 10,
+		"verified": 10,
+		"maximum": 10
+	},
+	"authors": [
+		{
+			"name": "Garhi",
+			"discord": "Garhi#3438",
+			"url": "https://www.garhisgrotto.com/"
+		}
+	],
+	"relationships": {
+		"systems": [
+			{
+				"id": "dnd5e",
+				"type": "system",
+				"compatibility": { "minimum": "2.1.5" }
+			}
+		],
+		"requires": [
+			{ 
+				"id": "lib-wrapper", 
+				"type": "module", 
+				"manifest": "https://github.com/ruipin/fvtt-lib-wrapper/releases/latest/download/module.json",
+				"compatibility": {
+					"verified": "1.12.12.0"
+				}
+			},
+			{ 
+				"id": "socketlib", 
+				"type": "module", 
+				"manifest": "https://raw.githubusercontent.com/manuelVo/foundryvtt-socketlib/master/module.json",
+				"compatibility": {
+					"verified": "1.0.12"
+				} 
+			},
+			{
+				"id": "dae",
+				"type": "module",
+				"manifest": "https://gitlab.com/tposney/dae/raw/v10/package/module.json",
+				"compatibility": {
+					"verified": "10.0.21"
+				}
+			},
+			{
+				"id": "midi-qol",
+				"type": "module",
+				"manifest": "https://gitlab.com/tposney/midi-qol/raw/v10/package/module.json",
+				"compatibility": {
+					"verified": "10.0.31"
+				}
+			},
+			{
+				"id": "dfreds-convenient-effects",
+				"type": "module",
+				"manifest": "https://github.com/DFreds/dfreds-convenient-effects/releases/latest/download/module.json",
+				"compatibility": {
+					"verified": "4.0.2"
+				}
+			},
+			{ 
+				"id": "ActiveAuras", 
+				"type": "module", 
+				"manifest": "https://github.com/kandashi/Active-Auras/releases/latest/download/module.json",
+				"compatibility": {
+					"verified": "v0.5.7"
+				}
+			},
+			{ 
+				"id": "times-up", 
+				"type": "module", 
+				"manifest": "https://gitlab.com/tposney/times-up/raw/v10/package/module.json",
+				"compatibility": {
+					"verified": "10.0.3"
+				}
+			},
+			{
+				"id": "warpgate",
+				"type": "module",
+				"manifest": "https://github.com/trioderegion/warpgate/releases/latest/download/module.json",
+				"compatibility": {
+					"verified": "1.16.0"
+				}
+			},
+			{
+				"id": "effectmacro",
+				"type": "module",
+				"manifest": "https://github.com/krbz999/effectmacro/releases/latest/download/module.json",
+				"compatibility": {
+					"verified": "10.0.15"
+				}
+			},
+			{
+				"id": "ATL",
+				"type": "module",
+				"manifest": "https://github.com/kandashi/Active-Token-Lighting/releases/latest/download/module.json",
+				"compatibility": {
+					"verified": "0.5.1"
+				}
+			},
+			{
+				"id": "advanced-macros",
+				"type": "module",
+				"manifest": "https://github.com/mclemente/fvtt-advanced-macros/releases/latest/download/module.json",
+				"compatibility": {
+					"verified": "v1.19.4"
+				}
+			}
+
+
+		],
+		"optional": [
+			{ 
+				"id": "items-with-spells-5e", 
+				"type": "module", 
+				"manifest": "https://github.com/ElfFriend-DnD/foundryvtt-items-with-spells-5e/releases/latest/download/module.json",
+				"compatibility": {
+					"verified": "1.3.1"
+				}
+			},
+			{ 
+				"id": "arbron-summoner", 
+				"type": "module", 
+				"manifest": "https://github.com/arbron/fvtt-summoner/releases/latest/download/module.json",
+				"compatibility": {
+					"verified": "1.1.2"
+				}
+			},
+			{ 
+				"id": "itemacro", 
+				"type": "module", 
+				"manifest": "https://github.com/Kekilla0/Item-Macro/releases/latest/download/module.json",
+				"compatibility": {
+					"verified": "10.3.6"
+				}
+			},
+			{
+				"id": "compendium-folders",
+				"type": "module",
+				"manifest": "https://raw.githubusercontent.com/earlSt1/vtt-compendium-folders/10x-update/module.json",
+				"compatibility": {
+					"verified": "2.5.7"
+				}
+			},
+			{
+				"id": "tidy5e-sheet",
+				"type": "module",
+				"manifest": "https://github.com/sdenec/tidy5e-sheet/releases/download/0.8.25/module.json",
+				"compatibility": {
+					"verified": "0.8.25"
+				}
+			}
+		]		
+	},
+	"packs": [
+		{
+			"type": "Item",
+			"label": "Garhi's Grotto - Spells",
+			"module": "garhis-grotto",
+			"path": "packs/gg-spells.db",
+			"name": "gg-spells",
+			"system": "dnd5e"
+		},
+		{
+			"type": "Item",
+			"label": "Garhi's Grotto - Features",
+			"module": "garhis-grotto",
+			"path": "packs/gg-features.db",
+			"name": "gg-features",
+			"system": "dnd5e"
+		},
+		{
+			"type": "Item",
+			"label": "Garhi's Grotto - Signature Items",
+			"module": "garhis-grotto",
+			"path": "packs/gg-signature-items.db",
+			"name": "gg-signature-items",
+			"system": "dnd5e"
+		},
+		{
+			"type": "Item",
+			"label": "Garhi's Grotto - Item Blueprints",
+			"module": "garhis-grotto",
+			"path": "packs/gg-item-blueprints.db",
+			"name": "gg-item-blueprints",
+			"system": "dnd5e"
+		},
+		{
+			"type": "JournalEntry",
+			"label": "Garhi's Grotto - Journals",
+			"module": "garhis-grotto",
+			"path": "packs/gg-journals.db",
+			"name": "gg-journals",
+			"system": "dnd5e"
+		},
+		{
+			"type": "Item",
+			"label": "Garhi's Grotto - Inventory Items",
+			"module": "garhis-grotto",
+			"path": "packs/gg-inventory-items.db",
+			"name": "gg-inventory-items",
+			"system": "dnd5e"
+		},
+		{
+			"type": "Actor",
+			"label": "Garhi's Grotto - Actor Blueprints",
+			"module": "garhis-grotto",
+			"path": "packs/gg-actor-blueprints.db",
+			"name": "gg-actor-blueprints",
+			"system": "dnd5e"
+		},
+		{
+			"type": "Actor",
+			"label": "Garhi's Grotto - Creatures",
+			"module": "garhis-grotto",
+			"path": "packs/gg-creatures.db",
+			"name": "gg-creatures",
+			"system": "dnd5e"
+		},
+		{
+			"type": "Item",
+			"label": "Garhi's Grotto - Override",
+			"module": "garhis-grotto",
+			"path": "packs/gg-ddb-override.db",
+			"name": "gg-ddb-override",
+			"system": "dnd5e"
+		}		
+	],
+	"esmodules": [
+		"scripts/module.js"
+	],
+	"styles": [
+	],	
+	"url": "https://github.com/SirGarhi/garhis-grotto-foundry",
+	"readme": "https://github.com/SirGarhi/garhis-grotto-foundry/blob/main/README.md",
+	"changelog": "https://github.com/SirGarhi/garhis-grotto-foundry/blob/main/changelog.md",
+	"bugs": "https://github.com/SirGarhi/garhis-grotto-foundry/issues",
+	"manifest": "#{MANIFEST}#",
+	"download": "#{DOWNLOAD}#"
+}
