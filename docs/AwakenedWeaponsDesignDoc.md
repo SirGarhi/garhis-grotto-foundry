@@ -47,7 +47,7 @@ At the DM's discretion, though generally expected by around the time you start e
 * Toll – The effects inflicted on your character for activating the True Awakening.
 
 ## Design Notes
-Most of the Toll effects are designed with the Exhaustion mechanics of the One D&D playtest in mind. These mechanics provide a linear scale of exhaustion penalties so you can be more liberal with applying it. A Toll of 3 Exhaustion Levels will certainly be felt by the player, but it's not cripplingly debilitating to the point that the character becomes effectively useless in combat.
+Most of the Toll effects are designed with the Exhaustion mechanics of the One D&D playtest in mind. These mechanics provide a linear scale of exhaustion penalties so you can be more liberal with applying it. A Toll of 3 Exhaustion Levels will certainly be felt by the player, but it's not cripplingly debilitating to the point that the character becomes effectively useless at everything.
 
 ## True Awakening Process
 You Truly Awaken your weapon as an Action on your turn. When you activate your True Awakening, your Awakening also activates at the same time with no additional action cost and without expending an allotted use of that ability.
@@ -59,3 +59,37 @@ Certain active abilities may come with an additional cost to your Durability. If
 At the end of your turn, if your Durability is 0, your True Awakening ends and you immediately suffer the Toll.
 
 Your Awakening continues to persists for the entire hour as if you had activated it normally.
+
+# Weapon Writeups
+## Feature Block
+A feature is described using a technical write up known as a block. Feature blocks rely on keywords rather than natural language where possible. Here is an abstracted feature block as well as some examples showcasing the various possibilites.
+
+Feature Name (Active/Passive Ability/Effect) - Ability Properties
+	-Description of the effect or results of the ability being used
+
+### Effects are relatively simple and straightforard
+
+Imbued Hammer (Passive Effect)
+	Trinity deals an additional 1d8 Thunder Damage on each hit.
+
+Limited Flight (Active Effect)
+	Your flight speed increases by 10 and you are able to hover freely in the air.
+
+### Abilities will also list any additional properties in the header
+
+Cunning Blade (Passive Ability) - Bonus Action | At-Will | Melee Attack
+	Swing or Throw your weapon at a target in range. This Attack is always eligible for Sneak Attack as long as you don't have disadvantage and haven't already used Sneak Attack this turn.
+ 
+Thor’s Wrath (Active Ability) - Action | Twice Per Awakening | Dexterity Saving Throw | Half-Damage Save
+	You conjure Lightning in a 100 foot long, 5 foot wide line in a direction of your choice, dealing 60 Lightning damage to each creature in the line's path.
+
+Free Bless (Active Ability) - Action | At-Will | 60 Seconds | Up to 3 Targets
+	You apply Bless to the chosen targets. These effects do not require Concentration to maintain but will overwrite and be overwritten by a casting of the actual Bless spell.
+
+### True Awakened Tier Active Abilities are slightly different, displaying thier Durability Cost as a property
+
+Stormbolt (Active Ability) – Bonus Action | 3 Durabilty | Dexterity Saving Throw | Half-Damage Save
+	You call down a Storm Bolt at a point within 30 feet of you, dealing 9d10 Lightning damage to each creature within 5 feet.
+
+From Dusk Til Dawn (Active Ability) - Special Action | 3 Durability | One Turn
+	Each attack you make can be made with both Dusk and Dawn.
