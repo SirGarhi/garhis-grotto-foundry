@@ -52,7 +52,9 @@ Sometimes features just don't feel good no matter what you do and should be scra
 ### A note on "Balance"
 In accordance with my overall design philosophy, balance is only important insofar as it isn't causing friction at the table. There are no hard and fast rules such as point budgets or certain features being 'worth' more than other ones. If it **feels** good to all the players at the table (including the DM) then it *is* good.
 
-There are no hard and fast rules as to which Tier a feature should be placed in either. Obviously a Feature that provides a +3 bonus should be in a higher Tier than one that provides a +2 or +1 bonus of the same type. Each character's path is unique though, what might be a Tier 5 Feature for one character's Path could easily be a Tier 3 Feature for another character's Path and have it still feel good.
+There are no hard and fast rules as to which Tier a feature should be placed in either. The one exception being Tiered Effects, a Feature granting a +3 bonus should be in a higher Tier than one that provides a +2 or +1 bonus of the same type. 
+
+Each character's path is unique, what might be a Tier 5 Feature for one character's Path could easily be a Tier 3 Feature for another character's Path and have it still feel good.
 
 ## Awarding New Features
 Tiers are collections of features based on relative power level and an intended overall progression path. They are not bundles of features to be awarded all at once. Features within a tier can and should be earned individually unless they are tightly coupled, such as gaining the ability to craft bombs necessitating also gaining the formula for at least one type of bomb. I will note the reverse to that example doesn't necessarily hold. A player could uncover the formula for a type of bomb without knowing how to make bombs, and then use the formula as the catalyst to start experimenting and earn the feature to actually craft bombs in general.
