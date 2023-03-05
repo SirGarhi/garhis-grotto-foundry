@@ -1,18 +1,18 @@
 ﻿These style of items are heavily based upon the Awakened Blades framework, with some customizations and clarifications.
 # General Mechanics
 ## Term Definitions
-* Feature – Either an effect or an ability.
-* Effect – A bonus of some sort that is applied without requiring an action on the part of the players. Such as a weapon dealing an additional 1d4 damage with each hit.
-* Ability – Something that requires an action on the part of the player to trigger, such as using a Bonus Action to cast a specific spell.
-* Passive – A feature that is always available once earned.
-* Active – A feature that is only available when the appropriate tier of power is considered 'active.'
-* Tier – A collection of features of similar power level.
+* **Feature** – Either an effect or an ability.
+* **Effect** – A bonus of some sort that is applied without requiring an action on the part of the players. Such as a weapon dealing an additional 1d4 damage with each hit.
+* **Ability** – Something that requires an action on the part of the player to trigger, such as using a Bonus Action to cast a specific spell.
+* **Passive** – A feature that is always available once earned.
+* **Active** – A feature that is only available when the appropriate tier of power is considered 'active.'
+* **Tier** – A collection of features of similar power level.
 
 ## Tiers of Power
 There are three overall Tiers to an Awakened Style weapon:
-* Base – These features are all passive.
-* Awakened – There's usually a mix of passive and active features here.
-* True Awakened – These abilities and effects are primarily active, but it's not uncommon for there to be a passive one or two as well.
+* **Base Tier** – These features are all passive.
+* **Awakened Tier** – There's usually a mix of passive and active features here.
+* **True Awakened Tier** – These abilities and effects are primarily active, but it's not uncommon for there to be a passive one or two as well.
 
 ## Awarding New Features
 It's important to note that individual features from the tiers of power can be awarded individually. You don't need to give out the entire tier as a single comprehensive package. Of course, there are some features that are tightly coupled. Awarding an active feature necessitates also awarding the ability that activates that tier of power so the player can actually use the feature.
@@ -43,8 +43,8 @@ At the DM's discretion, though generally expected by around the time you start e
 
 # True Awakening Mechanics
 ## Term Definitions
-* Durability – A measure of how long your weapon can remain in it's Truly Awoken state.
-* Toll – The effects inflicted on your character for activating the True Awakening.
+* **Durability** – A measure of how long your weapon can remain in it's Truly Awoken state.
+* **Toll** – The effects inflicted on your character for activating the True Awakening.
 
 ## Design Notes
 Most of the Toll effects are designed with the Exhaustion mechanics of the One D&D playtest in mind. These mechanics provide a linear scale of exhaustion penalties so you can be more liberal with applying it. A Toll of 3 Exhaustion Levels will certainly be felt by the player, but it's not cripplingly debilitating to the point that the character becomes effectively useless at everything.
@@ -65,31 +65,31 @@ Your Awakening continues to persists for the entire hour as if you had activated
 A feature is described using a technical write up known as a block. Feature blocks rely on keywords rather than natural language where possible. Here is an abstracted feature block as well as some examples showcasing the various possibilites.
 
 Feature Name (Active/Passive Ability/Effect) - Ability Properties
-	-Description of the effect or results of the ability being used
+- Description of the effect or results of the ability being used
 
 ### Effects are relatively simple and straightforard
 
 Imbued Hammer (Passive Effect)
-	Trinity deals an additional 1d8 Thunder Damage on each hit.
+- Trinity deals an additional 1d8 Thunder Damage on each hit.
 
 Limited Flight (Active Effect)
-	Your flight speed increases by 10 and you are able to hover freely in the air.
+- Your flight speed increases by 10 and you are able to hover freely in the air.
 
 ### Abilities will also list any additional properties in the header
 
 Cunning Blade (Passive Ability) - Bonus Action | At-Will | Melee Attack
-	Swing or Throw your weapon at a target in range. This Attack is always eligible for Sneak Attack as long as you don't have disadvantage and haven't already used Sneak Attack this turn.
+- Swing or Throw your weapon at a target in range. This Attack is always eligible for Sneak Attack as long as you don't have disadvantage and haven't already used Sneak Attack this turn.
  
 Thor’s Wrath (Active Ability) - Action | Twice Per Awakening | Dexterity Saving Throw | Half-Damage Save
-	You conjure Lightning in a 100 foot long, 5 foot wide line in a direction of your choice, dealing 60 Lightning damage to each creature in the line's path.
+- You conjure Lightning in a 100 foot long, 5 foot wide line in a direction of your choice, dealing 60 Lightning damage to each creature in the line's path.
 
 Free Bless (Active Ability) - Action | At-Will | 60 Seconds | Up to 3 Targets
-	You apply Bless to the chosen targets. These effects do not require Concentration to maintain but will overwrite and be overwritten by a casting of the actual Bless spell.
+- You apply Bless to the chosen targets. These effects do not require Concentration to maintain but will overwrite and be overwritten by a casting of the actual Bless spell.
 
 ### True Awakened Tier Active Abilities are slightly different, displaying thier Durability Cost as a property
 
 Stormbolt (Active Ability) – Bonus Action | 3 Durabilty | Dexterity Saving Throw | Half-Damage Save
-	You call down a Storm Bolt at a point within 30 feet of you, dealing 9d10 Lightning damage to each creature within 5 feet.
+- You call down a Storm Bolt at a point within 30 feet of you, dealing 9d10 Lightning damage to each creature within 5 feet.
 
 From Dusk Til Dawn (Active Ability) - Special Action | 3 Durability | One Turn
-	Each attack you make can be made with both Dusk and Dawn.
+- Each attack you make can be made with both Dusk and Dawn.
