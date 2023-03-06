@@ -1,5 +1,4 @@
-﻿import {ggHelpers} from '../helperFunctions.js';
-let absorbElementsDamageBonus = {
+﻿let absorbElementsDamageBonus = {
 	'label': 'Absorb Elements Damage Bonus',
 	'icon': 'icons/magic/symbols/elements-air-earth-fire-water.webp',
 	"duration": {
@@ -26,7 +25,7 @@ let absorbElementsDamageBonus = {
 		}
 	},
 	"changes": []
-};
+}
 let absorbElementsResistanceBonus = {
 	'label': 'Absorb Elements Resistance',
 	'icon': 'icons/magic/symbols/elements-air-earth-fire-water.webp',
@@ -52,7 +51,7 @@ let absorbElementsResistanceBonus = {
 			"statusId": ""
 		}
 	}
-};
+}
 let boomingBladeEffect = {
 	'label': 'Booming Blade',
 	'icon': 'icons/skills/melee/strike-sword-slashing-red.webp',
@@ -81,7 +80,7 @@ let boomingBladeEffect = {
 		}
 	},
 	"changes": []
-};
+}
 let thrummingEffect = {
 	'label': 'Thrumming',
 	'icon': 'icons/magic/sonic/explosion-shock-wave-teal.webp',
@@ -117,7 +116,7 @@ let thrummingEffect = {
 			"priority": 20
 		}
 	]
-};
+}
 let greenFlameBladeEffect = {
 	'label': 'Green-Flame Blade',
 	'icon': 'icons/weapons/swords/greatsword-evil-green.webp',
@@ -146,10 +145,154 @@ let greenFlameBladeEffect = {
 		}
 	},
 	"changes": []
-};
+}
+let hypnoticPatternEffect = {
+	'label': 'Hypnotic Pattern',
+	'icon': 'icons/magic/control/hypnosis-mesmerism-swirl.webp',
+	"duration": {
+		"rounds": 10,
+		"startTime": null,
+		"seconds": 60,
+		"combat": null,
+		"turns": null,
+		"startRound": null,
+		"startTurn": null
+	},
+	"flags": {
+		"dfreds-convenient-effects": {
+			"description": "Creature is Charmed. While Charmed is also Incapacitated. Taking damage removes the effect."
+		},
+		"dae": {
+			"specialDuration": [
+				"isDamaged"
+			]
+		},
+		"core": {
+			"statusId": ""
+		}
+	},
+	"changes": [
+		{
+			"key": "macro.CE",
+			"mode": 0,
+			"value": "Charmed",
+			"priority": 20
+		},
+		{
+			"key": "macro.CE",
+			"mode": 0,
+			"value": "Incapacitated",
+			"priority": 20
+		},
+		{
+			"key": "system.attributes.movement.all",
+			"mode": 0,
+			"value": "*0",
+			"priority": 20
+		}
+	]
+}
+let blessEffect = {
+	'label': 'Bless',
+	'icon': 'icons/magic/holy/chalice-glowing-gold-water.webp',
+	"duration": {
+		"rounds": 10,
+		"startTime": null,
+		"seconds": 60,
+		"combat": null,
+		"turns": null,
+		"startRound": null,
+		"startTurn": null
+	},
+	"flags": {
+		"dfreds-convenient-effects": {
+			"description": "Grants a +1d4 bonus on all saving throws and attack rolls."
+		},
+		"dae": {
+
+		},
+		"core": {
+			"statusId": ""
+		}
+	},
+	"changes": [
+		{
+			"key": "system.bonuses.abilities.save",
+			"mode": 2,
+			"value": "+1d4",
+			"priority": 20
+		},
+		{
+			"key": "system.bonuses.All-Attacks",
+			"mode": 2,
+			"value": "+1d4",
+			"priority": 20
+		}
+	]
+}
+let familiarDistraction =     {
+	"label": "Familiar Distraction",
+	"icon": "icons/creatures/birds/raptor-owl-flying-moon.webp",
+	"duration": {
+	  "rounds": 1,
+	  "startTime": null,
+	  "seconds": null,
+	  "combat": null,
+	  "turns": null,
+	  "startRound": null,
+	  "startTurn": null
+	},
+	"disabled": false,
+	"_id": "EnNRhSEo5HEYxjCf",
+	"changes": [
+		{
+			"key": "flags.midi-qol.grants.advantage.attack.all",
+			"mode": 0,
+			"value": "true",
+			"priority": 20
+		}
+	],
+	"tint": null,
+	"transfer": false,
+	"flags": {
+		"times-up": {},
+		"dfreds-convenient-effects": {
+			"description": "Grants advantage to the next incoming attack roll."
+		},
+		"dae": {
+			"selfTarget": false,
+			"selfTargetAlways": false,
+			"stackable": "none",
+			"durationExpression": "",
+			"macroRepeat": "none",
+			"specialDuration": [
+				"isAttacked"
+			]
+		},
+		"core": {
+			"statusId": ""
+		},
+		"ActiveAuras": {
+			"isAura": false,
+			"aura": "None",
+			"radius": "undefined",
+			"alignment": "",
+			"type": "",
+			"ignoreSelf": false,
+			"height": false,
+			"hidden": false,
+			"displayTemp": false,
+			"hostile": false,
+			"onlyOnce": false
+		}
+	}
+}
 export let spellEffects = {
 	'absorbElements': { 'damageBonus': absorbElementsDamageBonus, 'resistanceBonus': absorbElementsResistanceBonus},
 	'boomingBlade': boomingBladeEffect,
 	'thrumming': thrummingEffect,
-	'greenFlameBlade': greenFlameBladeEffect
+	'greenFlameBlade': greenFlameBladeEffect,
+	'hynpoticPattern': hypnoticPatternEffect,
+	'bless': blessEffect,
+	'familiarHelp': familiarDistraction
 };

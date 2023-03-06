@@ -1,4 +1,4 @@
-﻿import {ggHelpers} from '../../helperFunctions.js';
+﻿import {ggHelpers} from '../../../helperFunctions.js';
 
 export async function twilightSanctuary(args) {
 	const lastArg = args[args.length - 1];

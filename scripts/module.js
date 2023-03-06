@@ -10,7 +10,7 @@ Hooks.once('ready', async function() {
 		await setupMacroFolder();
 		await setupWorldMacros();
 	}
-	if (game.settings.get('garhis-grotto', 'Rage Automation')) { Hooks.on('midi-qol.RollComplete', macros.rage.handleRoll);
+	if (game.settings.get('garhis-grotto', 'Rage Automation')) { Hooks.on('midi-qol.RollComplete', macros.barbarian.handleRoll);
 	}
 });
 

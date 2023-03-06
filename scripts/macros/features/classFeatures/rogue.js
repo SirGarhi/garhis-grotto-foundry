@@ -1,6 +1,6 @@
-﻿import {ggHelpers} from '../../helperFunctions.js';
+﻿import {ggHelpers} from '../../../helperFunctions.js';
 
-export async function sneakAttack(workflow) {
+async function sneakAttack(workflow) {
 	if (!["mwak","rwak"].includes(workflow.item.system.actionType)) return {};
 	if (workflow.item.system.actionType === "mwak" && !workflow.item.system.properties?.fin) 
 		return {};
@@ -51,7 +51,7 @@ export async function sneakAttack(workflow) {
 	}
 	if (!isSneak) {
 		if (actor.items.find( itm => itm.name === 'Rakish Audacity')) {
-			isSneak = ((MidiQOL.getDistance(token, target, true) <= 5) && (MidiQOL.findNearby(null, token, 5).length === 1))
+			usedRakish = ((MidiQOL.getDistance(token, target, true) <= 5) && (MidiQOL.findNearby(null, token, 5).length === 1))
 		}
 	}
 	if (!isSneak) {
@@ -62,8 +62,7 @@ export async function sneakAttack(workflow) {
 	if (!useSneak) {
 		let dialog = new Promise((resolve, reject) => {
 			new Dialog({
-				title: "Conditional Damage",
-				content: `<p>Use Sneak attack?</p>`+(!foundEnemy ? "<p>Only Nuetral creatures nearby</p>" : ""),
+				title: "Use Sneak Attack?",
 				buttons: {
 					one: {
 						icon: '<i class="fas fa-check"></i>',
@@ -100,4 +99,8 @@ export async function sneakAttack(workflow) {
 		.play();		
 	}
 	return {damageRoll: `${numDice * diceMult}d${sizeDice}`, flavor: "Sneak Attack"};
+}
+
+export let rogue = {
+	'sneakAttack': sneakAttack
 }

@@ -1,40 +1,14 @@
 export let ggHelpers = {
-	'buttonMenu': async function _buttonMenu(title, choices, options) {
+	'buttonMenu': async function _buttonMenu(title, choices, options = {}, orientation = 'column') {
 		let buttons = choices.map(([label,value]) => ({label,value}));
 		let selected = await warpgate.buttonDialog(
 			{
-				buttons,
-				title,
-				options
+				'buttons': buttons,
+				'title': title,
+				'options': options
 			},
-			'column'
+			orientation
 		);
-		return selected;
-	},
-	'dropDownMenu': async function _dropDownMenu(title, label, choices, selectedId, options) {
-		let dropDownOptions = choices.map((itm) => {
-			const selected = selectedId && selectedId == itm.id ? " selected" : "";
-			return `<option value="${itm.id}"${selected}>${itm.name}</option>`;
-		})
-		let content = `<dic class="form-group"><label>${label}:</label><select name="choices"}>${dropDownOptions}</select></div>`
-		let dialog = new Promise((resolve, reject) => {
-			new Dialog({
-				title: title,
-				content,
-				buttons: {
-					ok: {
-						label: "Ok",
-						callback: (html) => resolve(html.find("[name=choices]")[0].value)
-					},
-					cancel: {
-						label: "Cancel",
-						callback: () => reject
-					}
-				},
-				default: 'ok'
-			}).render(true);
-		});
-		let selected = await dialog;
 		return selected;
 	},
 	'numberDialog': async function _numberDialog(title, buttons, options) {
@@ -135,6 +109,10 @@ export let ggHelpers = {
 			case 'enemy':
 				dispositionValue = -1;
 				break;
+			case 'nonHostile':
+				let allies = MidiQOL.findNearby(1, tokenDoc, range);
+				let neutrals = MidiQOL.findNearby(0, tokenDoc, range);
+				return allies.concat(neutrals);
 			default:
 				dispositionValue = null;
 		}
@@ -150,7 +128,7 @@ export let ggHelpers = {
 		roll._formula = roll._formula + ' + ' + addonFormula;
 		return roll;
 	},
-	'getSpellDC': function _getSpellDC(item) {
+	'getSpellDCFromItem': function _getSpellDC(item) {
 		let spellDC;
 		let scaling = item.system.save.scaling;
 		if (scaling === 'spell') {
@@ -160,7 +138,7 @@ export let ggHelpers = {
 		}
 		return spellDC;
 	},
-	'getSpellMod': function _getSpellMod(item) {
+	'getSpellModFromItem': function _getSpellMod(item) {
 		let spellMod;
 		let scaling = item.system.save.scaling;
 		if (scaling === 'spell') {
@@ -173,15 +151,19 @@ export let ggHelpers = {
 	'selectTarget': async function _selectTarget(title, buttons, targets, returnUuid, multiple) {
 		let generatedInputs = [];
 		let isFirst = true;
-		// let number = 1;
+		let number = 1;
 		for (let i of targets) {
-			let name = i.document.name;
-			// if (i.document.disposition <= 0) {
-			// 	name = 'Unknown Target (' + number + ')';
-			// 	number++;
-			// } else {
-			// 	name = i.document.name;
-			// }
+			let name;
+			if (game.settings.get('garhis-grotto', 'Show Names')) {
+				name = i.document.name;
+			} else {
+				if (i.document.disposition <= 0) {
+					name = 'Unknown Target (' + number + ')';
+					number++;
+				} else {
+					name = i.document.name;
+				}
+			}
 			let texture = i.document.texture.src;
 			let html = `<img src="` + texture + `" id="` + i.id + `" style="width:40px;height:40px;vertical-align:middle;"><span> ` + name + `</span>`;
 			let value = i.id;
@@ -243,8 +225,7 @@ export let ggHelpers = {
 		}
 		let config = {
 			'title': title,
-			'render': dialogRender,
-			'options': { height: '60%' }
+			'render': dialogRender
 		};
 		return await warpgate.menu(
 			{

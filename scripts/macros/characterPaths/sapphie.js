@@ -1,4 +1,4 @@
-﻿export async function liltingPerformance(workflow) {
+﻿async function liltingPerformance(workflow) {
 	const item = workflow.actor.items.getName("Bardic Inspiration");
 	if( item ) {
 		const value = Math.min(item.system.uses.value+1, item.system.uses.max);
@@ -9,4 +9,8 @@
 			await item.update({"system.uses.value": system.uses.value+1});
 		}
 	}
+}
+
+export let sapphie = {
+	'liltingPerformance': liltingPerformance
 }

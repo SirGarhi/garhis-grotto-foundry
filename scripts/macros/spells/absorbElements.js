@@ -3,7 +3,7 @@ import { spellEffects } from '../../effects/spellEffects.js';
 export async function absorbElements(args) {
 	const lastArg = args[args.length-1];
 	if( args[0] === "on" ) {
-		let damageType = await ggHelpers.buttonsMenu('What damage type is being absorbed?', [
+		let damageType = await ggHelpers.buttonMenu('What damage type is being absorbed?', [
 			['Acid', 'acid'],
 			['Cold', 'cold'],
 			['Fire', 'fire'],
@@ -12,10 +12,10 @@ export async function absorbElements(args) {
 		]);
 		const damageBonusChanges = [{key: "system.bonuses.mwak.damage", mode: CONST.ACTIVE_EFFECT_MODES.ADD, priority: 20, value: "+"+lastArg.spellLevel+"d6["+damageType+"]"}];
 		const resistanceBonusChanges = [{key: "system.traits.dr.value", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, priority: 20, value: damageType}];
-		let damageEffect = spellEffects.absorbElements.damageBonus;
+		let damageEffect = structuredClone(spellEffects.absorbElements.damageBonus);
 		damageEffect.label += ' ' + damageType;
 		damageEffect.changes = damageBonusChanges;
-		let resistanceEffect = spellEffects.absorbElements.resistanceBonus;
+		let resistanceEffect = structuredClone(spellEffects.absorbElements.resistanceBonus);
 		resistanceEffect.label += ' ' + damageType;
 		resistanceEffect.changes = resistanceBonusChanges;
 		let theActor = await fromUuid(lastArg.actorUuid);

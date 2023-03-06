@@ -16,6 +16,7 @@ async function piercerDamageBonus(workflow) {
 async function piercerReroll(args, rerollThreshold) {
 	// console.log(args);
 	const lastArg = args[args.length-1];
+	if (lastArg.hitTargets.length < 1) return;
 	if (game.combat) {
 		const combatTime = `${game.combat.id}-${game.combat.round + game.combat.turn /100}`;
 		const lastTime = lastArg.actor.getFlag("garhis-grotto", "piercerRerollTime");
@@ -24,7 +25,6 @@ async function piercerReroll(args, rerollThreshold) {
 			return;
 		}
 	}
-	if (lastArg.hitTargets.length < 1) return;
 	if (!["mwak", "rwak", "msak", "rsak"].includes(lastArg.item.system.actionType)) return;
 	const dice = lastArg.damageRoll.dice.filter(val => (val.options.flavor === 'piercing' || val.options.flavor === 'Piercing'));
 	if (!dice.length > 0) return;
@@ -56,8 +56,8 @@ async function piercerReroll(args, rerollThreshold) {
 		let findTargetDie = function (targetDie, value, index) {
 			// console.log("testing die");
 			// console.log(value);
-			if (value.options.flavor === 'piercing' || value.options.flavor === 'Piercing') {
-				if (!targetDie.found) {
+			if (!targetDie.found) {
+				if (value.options.flavor === 'piercing' || value.options.flavor === 'Piercing') {
 					// console.log(value.faces + "vs" + reroll.dieSize);
 					if (value.faces === reroll.dieSize) {
 						for (let i = 0; i < value.results.length; i++) {

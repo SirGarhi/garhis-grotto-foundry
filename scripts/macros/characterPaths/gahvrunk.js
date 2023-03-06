@@ -1,5 +1,5 @@
 ﻿import { ggHelpers } from '../../helperFunctions.js';
-import { totemNames } from '../classFeatures/rage.js';
+import { totemNames } from '../features/classFeatures/barbarian.js';
 
 async function chooseBonusTotemFeatures(workflow) {
 	// console.log(workflow);
@@ -38,7 +38,7 @@ async function chooseBonusTotemFeatures(workflow) {
 			choices.push(choice);
 		}
 	}
-	let chosenFeature = await ggHelpers.buttonMenu('Choose a Bonus Totem Warrior Feature', choices, {height: '60%'});
+	let chosenFeature = await ggHelpers.buttonMenu('Choose a Bonus Totem Warrior Feature', choices);
 	// console.log(chosenFeature);
 	let featureData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', `${chosenFeature} - Bonus`, false);
 	// console.log(featureData);
@@ -56,7 +56,7 @@ async function sustainTheRage(workflow) {
 	}
 }
 
-export let totemicBracers = {
+export let gahvrunk = {
 	'chooseFeatures': chooseBonusTotemFeatures,
 	'sustain': sustainTheRage
 }

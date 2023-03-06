@@ -11,7 +11,7 @@ His Path focuses on enhancing his Totem abilities as well as granting additional
 	- You can use this ability a number of times equal to your proficiency bonus and you regain all uses at the end of a long rest.
 
 ## Tier 2
-* Lethality – Pick one melee weapon that does not already possess a standard +1/+2/+3 Magic Weapon bonus. The weapon gains a +1 bonus to Attack and Damage rolls and its attacks are considered magical when it is in your hands. This effect is lost if you use this ability on a different weapon.
+* Barbaric Fury – Pick one melee weapon that does not already possess at least a +1 bonus to Attack or Damage. With a one hour ritual, which can be done over a short rest, you can imbue some of your rage in to the weapon, making it a ***Weapon of Barbaric Fury***. You gain a +1 bonus to Attack and Damage rolls with that weapon and its attacks are considered magical until you use this feature on a different weapon or choose to withdraw your rage from it as a Free Action.
 * Runic Etchings – Runes of power are etched in to the Bracers of the Totem Warrior. You gain a +1 bonus to Armor Class and Saving Throws while attuned to and wearing them.
 
 ## Tier 3
@@ -20,7 +20,7 @@ His Path focuses on enhancing his Totem abilities as well as granting additional
 * Advanced Shamanism – You may now choose an Aspect of the Beast with your Shamanistic Training. You still only choose one feature.
 
 ## Tier 4
-* Improved Lethality – The bonus from Lethality increases to +2.
+* Improved Fury – A *Weapon of Barbaric Fury* now has a +2 bonus to Attack and Damage for you.
 * Runic Engravings – Additional engravings are added to the Bracers of the Totem Warrior. Its bonus to AC and Saving Throws increases to +2.
 
 ## Tier 5
@@ -28,7 +28,7 @@ His Path focuses on enhancing his Totem abilities as well as granting additional
 * Master Shamanism – You may now choose two features with your Shamanistic Training, and one of them may be a Totemic Attunement.
 
 ## Tier 6
-* Greater Lethality – The bonus from Lethality increases to +3. Your critical hit threshold is reduced by 1.
+* Master Fury – A *Weapon of Barbaric Fury* now has a +3 bonus to Attack and Damage for you. It's critical hit threshold is also reduced by 1.
 * Runic Inscription – The magical bonus from Runic Etchings increases to +3.
 
 # Path Goals

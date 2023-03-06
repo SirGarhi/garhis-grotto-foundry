@@ -3,12 +3,13 @@ import {ggHelpers} from '../../helperFunctions.js';
 async function petalSlash(args) {
 	const lastArg = args[args.length-1];
 	if ( !(lastArg.hitTargets.length > 0) || lastArg.isFumble ) return;
-	let target = canvas.tokens.get(lastArg.hitTargets[0].id ?? args[0].hitTargets[0]._id);
+	let target = canvas.tokens.get(lastArg.hitTargets[0].id ?? lastArg.hitTargets[0]._id);
+	let targets = [target];
 	let nearbyTargets = ggHelpers.findNearby(target, 5, 'ally');
-	console.log(nearbyTargets);
-	nearbyTargets.push(target);
+	// console.log(nearbyTargets);
+	targets = targets.concat(nearbyTargets);
 	let buttons = [{label: 'Apply Damage', value: true},{label: 'No Damage', value: false}];
-	let chosenTargets = await ggHelpers.selectTarget('Petal Slash Target', buttons, nearbyTargets, true, false);
+	let chosenTargets = await ggHelpers.selectTarget('Petal Slash Target', buttons, targets, true, false);
 	if (chosenTargets) {
 		if (!chosenTargets.buttons) return;
 		let splashTargetId = chosenTargets.inputs.find( val => val !== false )
@@ -68,7 +69,31 @@ async function item(args) {
 			.play();	
 	}
 }
-export let bloomingRose = {
+
+async function vortex(args) {
+	let lastArg = args[args.length-1];
+	let attackData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Blooming Rose Vortex Slash');
+	let shieldData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Guardian Petal Swarm');
+	shieldData.system.uses.max = lastArg.actor.abilities.dex.mod;
+	shieldData.system.uses.value = lastArg.actor.abilities.dex.mod;
+	let actorUpdates = {
+		'embedded': {
+			'Item': {
+				[attackData.name]: attackData,
+				[shieldData.name]: shieldData
+			}
+		}
+	}
+	let options = {
+		'permanent': false,
+		'name': 'Blooming Rose Vortex',
+		'description': attackData.name
+	}
+	let token = canvas.tokens.get(lastArg.tokenId);
+	await warpgate.mutate(token.document, actorUpdates, {}, options);
+}
+export let angelo = {
 	'petalSlash': petalSlash,
-	'item': item
+	'item': item,
+	'vortex': vortex
 }

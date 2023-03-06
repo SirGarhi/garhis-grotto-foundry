@@ -1,20 +1,8 @@
 import { ggHelpers } from './helperFunctions.js';
-import { hex } from './macros/spells/hex.js';
-import { rage } from './macros/classFeatures/rage.js';
-import { boomingBlade } from './macros/spells/boomingBlade.js';
-import { absorbElements } from './macros/spells/absorbElements.js';
-import { trance } from './macros/raceFeatures/trance.js';
-import { sneakAttack } from './macros/classFeatures/sneakAttack.js';
-import { greenFlameBlade } from './macros/spells/greenFlameBlade.js';
-import { twilightSanctuary } from './macros/classFeatures/twilightSanctuary.js';
-import { aid } from './macros/spells/aid.js';
-import { tollTheDead } from './macros/spells/tollTheDead.js';
-import { chromaticInfusion } from './macros/signatureItems/chromaticInfusion.js';
-import { piercer } from './macros/feats/piercer.js';
-import { lineage } from './macros/signatureItems/lineageAndLegacy.js';
-import { totemicBracers } from './macros/signatureItems/totemicBracers.js';
-import { liltingPerformance } from './macros/signatureItems/liltingPerformance.js';
-import { bloomingRose } from './macros/signatureItems/bloomingRose.js';
+import { features } from './macros/features.js';
+import { spells } from './macros/spells.js';
+import { characterPaths } from './macros/characterPaths.js';
+import { awakenedWeapons } from './macros/awakenedWeapons.js';
 
 export let macros = {
 	'onUse': useOnUse,
@@ -22,37 +10,25 @@ export let macros = {
 	'damageBonus': damageBonus,
 	'selectTargetsInRange': selectTargetsInRange,
 	'targetAllInRange': targetAllInRange,
-	'hex': hex,
-	'rage': rage,
-	'boomingBlade': boomingBlade,
-	'greenFlameBlade': greenFlameBlade,
-	'absorbElements': absorbElements,
-	'trance': trance,
-	'sneakAttack': sneakAttack,
-	'twilightSanctuary': twilightSanctuary,
-	'aid': aid,
-	'tollTheDead': tollTheDead,
-	'chromaticInfusion': chromaticInfusion,
-	'piercer': piercer,
-	'lineage': lineage,
-	'totemicBracers': totemicBracers,
-	'liltingPerformance': liltingPerformance,
-	'bloomingRose': bloomingRose
+	'features': features,
+	'spells': spells,
+	'paths': characterPaths,
+	'awakenedWeapons': awakenedWeapons
 }
-function actorOnUseMacro(itemName) {
-	return 'await garhisGrotto.macros.onUse(this, "' + itemName + '");';
+function actorOnUseMacro(macroName) {
+	return 'await garhisGrotto.macros.onUse(this, "' + macroName + '");';
 }
-function actorOnUseMultiPassMacro(itemName) {
-	return 'await garhisGrotto.macros.onUseMulti(this, "' + itemName + '", args[0].macroPass);'
+function actorOnUseMultiPassMacro(macroName) {
+	return 'await garhisGrotto.macros.onUseMulti(this, "' + macroName + '", args[0].macroPass);'
 }
-function itemOnUseMacro(itemName) {
-	return 'await garhisGrotto.macros.onUse(args, "' + itemName + '");';
+function itemOnUseMacro(macroName) {
+	return 'await garhisGrotto.macros.onUse(args, "' + macroName + '");';
 }
-function itemOnUseMultiPassMacro(itemName) {
-	return 'await garhisGrotto.macros.onUseMulti(args, "' + itemName + '", args[0].macroPass);'
+function itemOnUseMultiPassMacro(macroName) {
+	return 'await garhisGrotto.macros.onUseMulti(args, "' + macroName + '", args[0].macroPass);'
 }
-function damageBonusMacro(itemName) {
-	return 'let result = await garhisGrotto.macros.damageBonus(this, "' + itemName + '"); return result;';
+function damageBonusMacro(macroName) {
+	return `let result = await garhisGrotto.macros.damageBonus(this, '${macroName}'); return result;`;
 }
 export async function setupMacroFolder() {
 	let macroFolder = game.folders.find((folder) => folder.name === 'GG Macros' && folder.type === 'Macro');
@@ -103,24 +79,24 @@ export async function setupWorldMacros() {
 async function useOnUse(args, itemName) {
 	switch (itemName) {
 		case 'applyThrumming':
-			await boomingBlade.applyThrumming(args);
+			await spells.boomingBlade.applyThrumming(args);
 		case 'thrummingExplosion':
-			await boomingBlade.thrummingExplosion(args);
+			await spells.boomingBlade.thrummingExplosion(args);
 			break;
 		case 'astralTrance':
-			await trance.astralTrance(args);
+			await features.trance.astralTrance(args);
 			break;
 		case 'trance':
-			await trance.standardTrance(args);
+			await features.trance.standardTrance(args);
 			break;
 		case 'greenFlameBladeSplash':
-			await greenFlameBlade.splash(args);
+			await spells.greenFlameBlade.splash(args);
 			break;
 		case 'twilightSanctuary':
-			await twilightSanctuary(args);
+			await features.class.cleric.twilightSanctuary(args);
 			break;
 		case 'petalSlash':
-			await bloomingRose.petalSlash(args);
+			await characterPaths.angelo.petalSlash(args);
 			break;
 		default:
 			ui.notifications.warn('Invalid actor onUse macro: '+itemName);
@@ -132,25 +108,22 @@ async function useOnUseMulti(args, itemName, pass) {
 		default:
 			ui.notifications.warn('Invalid actor onUse macro!');
 			return;
-		case 'radiantSoul': 
-			await radiantSoul(args, pass);
-			break;
 	}
 }
 async function damageBonus(args, itemName) {
 	let result = {};
 	switch (itemName) {
 		case 'hex': 
-			result = hex.damage(args);
+			result = spells.hex.damage(args);
 			return result;
 		case 'sneakAttack':
-			result = sneakAttack(args);
+			result = features.class.rogue.sneakAttack(args);
 			return result;
 		case 'piercerBonus':
-			result = piercer.damageBonus(args);
+			result = features.piercer.damageBonus(args);
 			return result;
 		case 'venomfangDamage':
-			result = rage.venomfang(args);
+			result = features.class.barbarian.venomfang(args);
 			return result;
 		default:
 			ui.notifications.warn('Invalid Damage Bonus Macro!');
@@ -163,11 +136,11 @@ async function selectTargetsInRange(args, range, disposition) {
 	let nearbyTargets = ggHelpers.findNearby(token, range, disposition);
 	let buttons = [{label: 'Target Selected Only', value: 'selected'}, {label: 'Target All', value: 'all'}];
 	let chosenTargets = await ggHelpers.selectTarget('Select Targets in Range', buttons, nearbyTargets, false, true);
+	game.user?.targets.forEach(t => {
+		t.setTarget(false, { releaseOthers: false });
+	});
+	game.user?.targets.clear();	
 	if (chosenTargets) {
-		game.user?.targets.forEach(t => {
-			t.setTarget(false, { releaseOthers: false });
-		});
-		game.user?.targets.clear();
 		if (chosenTargets.buttons === 'selected') {
 			for (let target of chosenTargets.inputs) {
 				if (target) {

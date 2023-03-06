@@ -8,10 +8,10 @@ async function applyThrumming(args) {
 		let target = lastArg.hitTargets[0];
 		let targetActor = target.actor;
 
-		let effect = spellEffects.thrumming;
+		let effect = structuredClone(spellEffects.thrumming);
 		effect.origin = lastArg.actorUuid;
 		ggHelpers.createEffect(targetActor, effect);
-		const animFile = 'jb2a.static_electricity.03.blue';
+		const animFile = 'jb2a.energy_strands.complete.blue.01';
 		const animation = Sequencer.Database.entryExists(animFile);
 		if (animation) {
 			new Sequence()
@@ -19,7 +19,7 @@ async function applyThrumming(args) {
 			.file(animation)
 			.atLocation(target)
 			.scaleToObject(1.5)
-			.play();		
+			.play();
 		}
 	}
 }
@@ -74,9 +74,9 @@ async function thrummingExplosion(args) {
 async function boomingBladeItem(workflow) {
 	let actor = workflow.actor;
 	let damageDice = Math.floor((actor.system.details.level+1)/6);
-	let spellMod = '+'+ggHelpers.getSpellMod(workflow.item);
+	let spellMod = '+'+ggHelpers.getSpellModFromItem(workflow.item);
 	let potent = actor.items.find(itm => itm.name === 'Potent Spellcasting');
-	let effect = spellEffects.boomingBlade;
+	let effect = structuredClone(spellEffects.boomingBlade);
 	let changes = [
 		{
 			'key': 'system.bonuses.mwak.damage',

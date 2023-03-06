@@ -2,7 +2,7 @@
 
 let tranceProficiencyEffect = {
 	'label': 'Trance Proficiencies',
-	'icon': 'icons/skills/trades/academics-astronomy-navigation-blue.webp',
+	'icon': 'icons/skills/trades/academics-book-study-purple.webp',
 	"duration": {
 		"rounds": null,
 		"startTime": null,
@@ -214,9 +214,62 @@ let specialRages = {
 	}
 }
 
+let emboldeningBondEffect = {
+	'label': 'Emboldening Bond',
+	'icon': 'icons/skills/social/peace-luck-insult.webp',
+	"duration": {
+		"rounds": null,
+		"startTime": null,
+		"seconds": 600,
+		"combat": null,
+		"turns": null,
+		"startRound": null,
+		"startTurn": null
+	},
+	"disabled": false,
+	"changes": [
+		{
+			"key": "flags.midi-qol.optional.EmbBond.label",
+			"mode": 0,
+			"value": "Emboldening Bond",
+			"priority": 20
+		},
+		{
+			"key": "flags.midi-qol.optional.EmbBond.count",
+			"mode": 0,
+			"value": "turn",
+			"priority": 20
+		},
+		{
+			"key": "flags.midi-qol.optional.EmbBond.attack.all",
+			"mode": 0,
+			"value": "+1d4",
+			"priority": 20
+		},
+		{
+			"key": "flags.midi-qol.optional.EmbBond.check.all",
+			"mode": 0,
+			"value": "+1d4",
+			"priority": 20
+		},
+		{
+			"key": "flags.midi-qol.optional.EmbBond.skill.all",
+			"mode": 0,
+			"value": "+1d4",
+			"priority": 20
+		},
+		{
+			"key": "flags.midi-qol.optional.EmbBond.save.all",
+			"mode": 0,
+			"value": "+1d4",
+			"priority": 20
+		}
+	  ]
+}
 
 export let featureEffects = {
 	'trance': tranceProficiencyEffect,
 	'baseRage': baseRageEffect,
-	'specialRages': specialRages
+	'specialRages': specialRages,
+	'emboldeningBond': emboldeningBondEffect
 }

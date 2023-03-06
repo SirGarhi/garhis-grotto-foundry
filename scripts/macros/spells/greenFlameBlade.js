@@ -46,10 +46,10 @@ async function greenFlameBladeSplash(args) {
 			let spellMod = '';
 			if (actor.type === 'character') {
 				damageDice += Math.floor((actor.system.details.level+1)/6);
-				spellMod = '+'+actor.system.abilities[actor.system.attributes.spellcasting].mod;
+				spellMod = actor.system.abilities[actor.system.attributes.spellcasting].mod;
 			}
 			let potent = actor.items.find(itm => itm.name === 'Potent Spellcasting');
-			let damageFormula = { parts: [[((damageDice > 0) ? damageDice+'d8' : '')+spellMod+(potent ? spellMod : ''), 'fire']] };
+			let damageFormula = { parts: [[((damageDice > 0) ? damageDice+'d8 +' : '')+spellMod+(potent ? `+${spellMod}` : ''), 'fire']] };
 			const itemData = {
 				name: "Green-Flame Blade Splash",
 				img: "icons/magic/unholy/projectile-fireball-green.webp",
@@ -77,20 +77,21 @@ async function greenFlameBladeSplash(args) {
 	}
 }
 
-async function greenFlameBladeItem(args) {
-	console.log(args);
-	const lastArg = args[args.length-1];
-	let actor = lastArg.actor;
+async function greenFlameBladeItem(workflow) {
+	// console.log(args);
+	let actor = workflow.actor;
 	let damageDice = Math.floor((actor.system.details.level+1)/6);
-	console.log(lastArg.item);
-	let spellMod = '+'+ggHelpers.getSpellMod(await fromUuid(lastArg.itemUuid));
+	// console.log(lastArg.item);
+	
 	let potent = actor.items.find(itm => itm.name === 'Potent Spellcasting');
-	let effect = spellEffects.greenFlameBlade;
+	let spellMod = '';
+	if (potent) spellMod = `+${ggHelpers.getSpellModFromItem(workflow.item)}[fire]`;
+	let effect = structuredClone(spellEffects.greenFlameBlade);
 	let changes = [
 		{
 			'key': 'system.bonuses.mwak.damage',
 			'mode': CONST.ACTIVE_EFFECT_MODES.ADD,
-			'value': '+'+damageDice+'d8[fire]'+(potent ? spellMod+'[fire]' : ''),
+			'value': `+${damageDice}d8[fire]${spellMod}`,
 			'priority': 20
 		},
 		{

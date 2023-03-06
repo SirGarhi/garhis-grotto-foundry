@@ -113,9 +113,23 @@
 				"compatibility": {
 					"verified": "v1.19.4"
 				}
+			},
+			{
+				"id": "compendium-folders",
+				"type": "module",
+				"manifest": "https://raw.githubusercontent.com/earlSt1/vtt-compendium-folders/10x-update/module.json",
+				"compatibility": {
+					"verified": "2.5.7"
+				}
+			},
+			{
+				"id": "sequencer",
+				"type": "module",
+				"manifest": "https://github.com/fantasycalendar/FoundryVTT-Sequencer/releases/latest/download/manifest.json",
+				"compatibility": {
+					"verified": "2.412"
+				}
 			}
-
-
 		],
 		"optional": [
 			{ 
@@ -143,14 +157,6 @@
 				}
 			},
 			{
-				"id": "compendium-folders",
-				"type": "module",
-				"manifest": "https://raw.githubusercontent.com/earlSt1/vtt-compendium-folders/10x-update/module.json",
-				"compatibility": {
-					"verified": "2.5.7"
-				}
-			},
-			{
 				"id": "tidy5e-sheet",
 				"type": "module",
 				"manifest": "https://github.com/sdenec/tidy5e-sheet/releases/download/0.8.25/module.json",
@@ -158,7 +164,7 @@
 					"verified": "0.8.25"
 				}
 			}
-		]		
+		]
 	},
 	"packs": [
 		{
@@ -179,10 +185,18 @@
 		},
 		{
 			"type": "Item",
-			"label": "Garhi's Grotto - Signature Items",
+			"label": "Garhi's Grotto - Character Path Features",
 			"module": "garhis-grotto",
-			"path": "packs/gg-signature-items.db",
-			"name": "gg-signature-items",
+			"path": "packs/gg-character-paths.db",
+			"name": "gg-character-paths",
+			"system": "dnd5e"
+		},
+		{
+			"type": "Item",
+			"label": "Garhi's Grotto - Awakened Weapons",
+			"module": "garhis-grotto",
+			"path": "packs/gg-awakened-weapons.db",
+			"name": "gg-awakened-weapons",
 			"system": "dnd5e"
 		},
 		{
@@ -224,21 +238,14 @@
 			"path": "packs/gg-creatures.db",
 			"name": "gg-creatures",
 			"system": "dnd5e"
-		},
-		{
-			"type": "Item",
-			"label": "Garhi's Grotto - Override",
-			"module": "garhis-grotto",
-			"path": "packs/gg-ddb-override.db",
-			"name": "gg-ddb-override",
-			"system": "dnd5e"
-		}		
+		}
 	],
 	"esmodules": [
 		"scripts/module.js"
 	],
 	"styles": [
-	],	
+		"styles/custom_fonts.css"
+	],
 	"url": "https://github.com/SirGarhi/garhis-grotto-foundry",
 	"readme": "https://github.com/SirGarhi/garhis-grotto-foundry/blob/main/README.md",
 	"changelog": "https://github.com/SirGarhi/garhis-grotto-foundry/blob/main/changelog.md",

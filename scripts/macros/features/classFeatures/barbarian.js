@@ -1,13 +1,12 @@
-import {ggHelpers} from '../../helperFunctions.js';
-import { featureEffects } from '../../effects/featureEffects.js';
+import { ggHelpers } from '../../../helperFunctions.js';
+import { featureEffects } from '../../../effects/featureEffects.js';
 
 export const totemNames = [
 	[
 		'Totem Spirit: Bear',
 		'Totem Spirit: Eagle',
 		'Totem Spirit: Elk',
-		'Totem Spirit: Venomfang',
-		'Totem Spirit: Wolf'
+		'Totem Spirit: Venomfang'
 	]
 ]
 
@@ -30,10 +29,11 @@ async function rageItem(args) {
 	// console.log("Rage Macro");
 	// console.log(args);
 	const lastArg = args[args.length-1];
-	const actor = await fromUuid(lastArg.actorUuid);
+	const actor = lastArg.actor;
 	const persistentRage = actor.items.find( itm => itm.name === 'Persistent Rage');
-	let effect = featureEffects.baseRage;
+	let effect = structuredClone(featureEffects.baseRage);
 	effect.flags.effectmacro = {};
+	effect.origin = actor.uuid;
 	if (persistentRage) {
 		effect.duration.seconds = null,
 		effect.duration.rounds = null
@@ -46,7 +46,6 @@ async function rageItem(args) {
 			actor.setFlag('garhis-grotto', 'shouldRageExpire', true);
 		}
 		effect.flags.effectmacro.onTurnEnd = { 'script': ggHelpers.functionToString(effectMacroOnTurnEnd) };
-		effect.flags.effectmacro.onCombatantDefeated = { 'script': 'await garhisGrotto.helpers.removeEffect(effect);' };
 	}
 	for (let feature of totemNames[0]) {
 		if (actor.items.find( itm => itm.name === feature || itm.name === `${feature} - Bonus`)) {
@@ -67,7 +66,7 @@ async function rageItem(args) {
 		}
 		effect.flags.effectmacro.onCreate = { 'script': ggHelpers.functionToString(effectMacroOnCreate)};
 		effect.flags.effectmacro.onDelete = { 'script': ggHelpers.functionToString(effectMacroOnDelete)};
-		let wolfEffect = featureEffects.specialRages.wolfSpiritRage;
+		let wolfEffect = structuredClone(featureEffects.specialRages.wolfSpiritRage);
 		wolfEffect.origin = actor.uuid;
 		await ggHelpers.createEffect(actor, wolfEffect);
 	} else if (game.settings.get('garhis-grotto', 'Rage Automation')) {
@@ -78,7 +77,6 @@ async function rageItem(args) {
 
 async function venomfang(workflow) {
 	if (!["mwak","rwak"].includes(workflow.item.system.actionType)) return {};
-	if (workflow.hitTargets.length < 1) return {};
 	let token = workflow.token;
 	let actor = token.actor;
 	if (!actor || !token || workflow.hitTargets.length < 1) return {};
@@ -140,9 +138,9 @@ async function handleRoll(workflow) {
 	}
 }
 
-export let rage = {
-	'item': rageItem,
-	'venomfang': venomfang,
+export let barbarian = {
+	'rage': rageItem,
+	'venomfangDamage': venomfang,
 	'handleRoll': handleRoll,
 	'wolfSpiritRage': wolfSpiritRage
 }

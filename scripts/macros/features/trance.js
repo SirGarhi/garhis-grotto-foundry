@@ -140,7 +140,7 @@ async function chooseWeaponProficiency(actor) {
 			}
 		}
 	}
-	return await ggHelpers.buttonMenu('Choose a Weapon Proficiency', choices, {height: '60%'});
+	return await ggHelpers.buttonMenu('Choose a Weapon Proficiency', choices);
 }
 
 async function chooseToolProficiency(actor) {
@@ -313,7 +313,7 @@ async function chooseToolProficiency(actor) {
 			}
 		}
 	}
-	return await ggHelpers.buttonMenu('Choose a Tool Proficiency', choices, {height: '60%'});
+	return await ggHelpers.buttonMenu('Choose a Tool Proficiency', choices, {'height': 600});
 }
 
 async function chooseWeaponOrToolProficiency(actor) {
@@ -406,22 +406,22 @@ async function chooseSkillProficiency(actor) {
 			}
 		}
 	}
-	return await ggHelpers.buttonMenu('Choose a Skill Proficiency', choices, {height: '60%'});
+	return await ggHelpers.buttonMenu('Choose a Skill Proficiency', choices);
 }
 
 async function standardTrance(workflow) {
 	let actor = workflow.actor;
 	ggHelpers.removeEffect(ggHelpers.findEffect(actor, featureEffects.trance.label));
 	let changes = [];
-	let proficiency = await chooseWeaponOrToolProficiency();
+	let proficiency = await chooseWeaponOrToolProficiency(actor);
 	if (proficiency) changes.push({'key': 'system.traits.'+proficiency[1]+'.value', 'mode': CONST.ACTIVE_EFFECT_MODES.ADD, 'value': proficiency[0], 'priority': 20});
-	proficiency = await chooseWeaponOrToolProficiency();
+	proficiency = await chooseWeaponOrToolProficiency(actor);
 	if (proficiency) changes.push({'key': 'system.traits.'+proficiency[1]+'.value', 'mode': CONST.ACTIVE_EFFECT_MODES.ADD, 'value': proficiency[0], 'priority': 20});
 	if ( changes.length < 1 ) {
-		ui.notifications.warn('No proficiencies chosen or all options already known, effect will not be created.');
+		ui.notifications.warn('No proficiencies chosen or all options already known, Trance effect will not be created.');
 		return;
 	}
-	let effect = featureEffects.trance;
+	let effect = structuredClone(featureEffects.trance);
 	if (game.settings.get('garhis-grotto', 'Expire Trance')) effect.flags.dae.specialDuration.push("longRest");
 	effect.changes = changes;
 	ggHelpers.createEffect(actor, effect);
@@ -436,10 +436,10 @@ async function astralTrance(workflow) {
 	proficiency = await chooseSkillProficiency(actor);
 	if(proficiency) changes.push({'key': 'system.skills.'+proficiency+'.value', 'mode': CONST.ACTIVE_EFFECT_MODES.ADD, 'value': '1', 'priority': 20});
 	if ( changes.length < 1 ) {
-		ui.notifications.warn('No proficiencies chosen or all choices already known, effect will not be created.');
+		ui.notifications.warn('No proficiencies chosen or all choices already known, Trance effect will not be created.');
 		return;
 	}
-	let effect = featureEffects.trance;
+	let effect = structuredClone(featureEffects.trance);
 	if (game.settings.get('garhis-grotto', 'Expire Trance')) effect.flags.dae.specialDuration.push("longRest");
 	effect.changes = changes;
 	ggHelpers.createEffect(actor, effect);
