@@ -19,6 +19,6 @@ let chromaticInfusionEffect = {
 	},
 	"changes": []
 };
-export let signatureItemEffects = {
+export let pathFeatureEffects = {
 	'chromaticInfusion': chromaticInfusionEffect
 };
