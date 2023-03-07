@@ -2,8 +2,8 @@
 
 async function piercerDamageBonus(workflow) {
 	if (!workflow.isCritical) return;
-	if (workflow.hitTargets.length < 1) return;
-	const dice = workflow.damageRoll.dice.filter(val => val.options.flavor === 'piercing');
+	if (workflow.hitTargets.size !== 1) return;
+	const dice = workflow.damageRoll.dice.filter(val => (val.options.flavor === 'piercing' || val.options.flavor === 'Piercing'));
 	if (!dice.length > 0) return;	
 	let biggestDie = 0;
 	for (let die of dice) {

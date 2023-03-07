@@ -8,7 +8,7 @@ export async function absorbElements(workflow) {
 		['Lightning', 'lightning'],
 		['Thunder', 'thunder']
 	]);
-	const damageBonusChanges = [{key: "system.bonuses.mwak.damage", mode: CONST.ACTIVE_EFFECT_MODES.ADD, priority: 20, value: "+"+lastArg.spellLevel+"d6["+damageType+"]"}];
+	const damageBonusChanges = [{key: "system.bonuses.mwak.damage", mode: CONST.ACTIVE_EFFECT_MODES.ADD, priority: 20, value: "+"+workflow.castData.castLevel+"d6["+damageType+"]"}];
 	const resistanceBonusChanges = [{key: "system.traits.dr.value", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, priority: 20, value: damageType}];
 	let damageEffect = structuredClone(spellEffects.absorbElements.damageBonus);
 	damageEffect.label += ' ' + damageType;
