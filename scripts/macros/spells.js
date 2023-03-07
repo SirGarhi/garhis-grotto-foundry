@@ -7,6 +7,8 @@ import { tollTheDead } from './spells/tollTheDead.js';
 import { bless } from './spells/bless.js';
 import { spiritualWeapon } from './spells/spiritualWeapon.js';
 import { spiritGuardians } from './spells/spiritGuardians.js';
+import { auraOfVitality } from './spells/auraOfVitality.js';
+import { tollTheDead } from './spells/tollTheDead.js';
 
 export let spells = {
 	'hex': hex,
@@ -17,5 +19,7 @@ export let spells = {
 	'tollTheDead': tollTheDead,
 	'bless': bless,
 	'spiritualWeapon': spiritualWeapon,
-	'spiritGuardians': spiritGuardians
+	'spiritGuardians': spiritGuardians,
+	'auraOfVitality': auraOfVitality,
+	'tollTheDead': tollTheDead
 }

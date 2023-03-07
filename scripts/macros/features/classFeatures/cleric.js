@@ -4,7 +4,7 @@ import { effects } from '../../../effects.js';
 async function twilightSanctuary(args) {
 	const lastArg = args[args.length - 1];
 	const actor = lastArg.actor;
-	console.log(actor);
+	// console.log(actor);
 	let removePotentials = [];
 	let sourceActor;
 	for (let effect of actor.effects) {
@@ -20,7 +20,7 @@ async function twilightSanctuary(args) {
 	if (removePotentials.length > 0) {
 		let buttons = [['Tempory Hitpoints', 'tempHp']];
 		for (let effect of removePotentials) {
-			console.log(effect);
+			// console.log(effect);
 			buttons.push([effect.label, effect])
 		}
 		let choice = await ggHelpers.buttonMenu('Choose Twilight Sanctuary Effect', buttons);
