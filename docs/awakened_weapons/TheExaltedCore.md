@@ -18,7 +18,7 @@ Those who have attempted to study the core closely enough and for long enough sw
 	* Sets The Exalted Core's Awakening to the 'Active' state for the duration, enabling use of all Active Features from the Awakened Tier
 	* Causes the core to emit bright light in a 10 foot radius
 * Protective Resistance (Active Effect)
-	* When a creature utilizes your Protective Bond, gain resistance against all damage they receive from using the feature
+	* When a creature utilizes your Protective Bond, they gain resistance against all damage they receive from using the feature
 * Guide them Well (Active Ability) - Action | At-Will | 30 Foot Range | 3 Targets
 	* You apply the benefits of the Bless spell to selected targets
 	* Does not require concentration
