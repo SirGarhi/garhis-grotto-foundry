@@ -1,4 +1,4 @@
-﻿Haradin is a Centaur Twilight Cleric thats hit people with a big stick.
+﻿Haradin is a Centaur Twilight Cleric thats hits people with a big stick.
 
 His Path focuses on enhancing his chosen stick and training as a 'War Priest' granting specialized techniques to unleash in combat.
 
@@ -7,12 +7,14 @@ His Path focuses on enhancing his chosen stick and training as a 'War Priest' gr
 * Nightfall  
 	Nightfall is essentially an old gnarled tree branch that Haradin has turned into a devastatingly effective greatclub. It has the following properties:
 	* Damage – 1d10 Bludgeoning
-	* Two-Handed, Heavy, Reach, Martial Weapon, Focus, Primal Weapon*
+	* Two-Handed, Heavy, Reach, Martial Weapon, Melee Weapon, Focus, Primal Weapon*
 	* Primal Weapon – Attack and Damage rolls can be made with Wisdom rather than Strength or Dexterity
 
-* Initiate Warpriest  
+* Initiate War Priest  
 	You have specialized training in fighting as a War Priest and know at least one Technique
-	* As an Initiate, you have a pool of 5 Technique Points, which you must spend any time you want to use a Technique. You regain all uses at the end of a Short or Long Rest.
+	* As an Initiate, you have a pool of 4 Technique Points
+	* You must spend a Technique Point any time you use a Technique
+	* You regain all uses at the end of a Short or Long Rest.
 * Technique: Deflective Stance
 	* You gain a +2 bonus to AC while wielding a weapon in two hands until you take a Short or Long rest.
 * Technique: Hemorrhaging Strikes  
@@ -37,6 +39,8 @@ His Path focuses on enhancing his chosen stick and training as a 'War Priest' gr
 	* The base damage of Nightfall increases to 2d6
 * Rapid Reflexes
 	* Your *Deflective Stance* Technique now provided a +3 bonus to AC
+* Journeyman War Priest
+	* Your pool of Technique Points is increased by +2
 * Technique: Concussive Strike  
 	Prior to making a melee attack with a two-handed weapon, you can spend 1 Technique Point to turn that attack in to a Concussive Strike, granting it the following benefits:
 		* On a successful hit, the target must make a Constitution Saving Throw against your Spell DC. On a failure, the target is stunned until the start of your next turn
@@ -61,13 +65,17 @@ His Path focuses on enhancing his chosen stick and training as a 'War Priest' gr
 * Technique: All Shall Be Vigilant
 	* By spending 1 Technique Point when you use Vigilant Blessing, you cause it to apply to up to 6 creatures within range
 	* Using Vigilant Blessing again before this blessing is ues will cause all the blessings to fade
-	
+
 ## Tier 5
 * Petrified Branch
 	* The base damage of Nightfall increases to 3d6
+* Expert War Priest
+	* Your pool of Technique Points is increased by +2
 
 ## Tier 6
 * Greater Puissance
 	* The bonus from Puissance increases to +3
+* Master War Priest
+	* Your pool of Technique Points is increased by +2
 * Twilight Inferno
 	* The damage dealt by your Path of Twilight Flames increases to 2d8 Radiant
