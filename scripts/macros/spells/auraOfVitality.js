@@ -1,4 +1,4 @@
-﻿import { ggHelpers } from "../../helperFunctions";
+﻿import { ggHelpers } from "../../helperFunctions.js";
 
 export async function auraOfVitality(args) {
 	let lastArg = args[args.length-1];
