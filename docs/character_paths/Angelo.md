@@ -1,6 +1,6 @@
 ﻿Angelo is a Human Echo Knight Fighter.
 
-His Path centers around ***Blooming Rose***, a unique Katana.
+His Path centers primarily around ***Blooming Rose***, a unique Katana.
 
 Beautiful and Terrible, Blooming Rose is imbued with the vast power of an ancient Fey Lord who died of a broken heart brought on by unrequited love. It is said that the flower petals manifested by the blade are those that fall from the bushes which grow around his grave.
 
