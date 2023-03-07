@@ -33,7 +33,7 @@ Your Kit DC determines the Save DC of consumables made by the kit, including bom
 * Proficiency – Your proficiency level for using the kit itself is determined by the highest aptitude you have from among Alchemist's Supplies, Poisoner's Kit, and Herbalism Kit
 * Multifunction – This kit can serve the purpose of Alchemist's Supplies, a Poisoner's Kit, or an Herbalism Kit
 * Formulae – Brewing Oils or Serums or Making Bombs requires a known Formula to work from.  
-Formulae are represented as additional Path Features and can be found as loot, uncovered through reserach and study in downtime, occasionally found for sale in shops, or created through experimentation. Work with the DM to establish what formulae you already know as part of basic proficiency with the kit
+Formulae are represented as additional Path Features and can be found as loot, uncovered through research and study in downtime, occasionally found for sale in shops, or created through experimentation. Work with the DM to establish what formulae you already know as part of basic proficiency with the kit
 ### Potion Serums
 * A serum can be readily drunk or administered to a willing ceature as an action
 * Administering a serum to an unwilling creature requires a Dexterity (Sleight of Hand) check contested by the creature's Strength (Athletics), Dexterity (Acrobatics), or Dexterity (Sleight of Hand) check (their choice)
@@ -95,7 +95,7 @@ Formulae are represented as additional Path Features and can be found as loot, u
 * You can now brew a total of 4 Oils or Serums and 2 Additive Agents for each hour spent utilizing Prepared Brewing.
 ### Canister Bombs
 * With ten minute's work, you can craft a single bomb utilizing the formulae you know and expending the appropriate resources.
-* Canister bombs are considered a ranged weapon with a range of 30 feet.
+* Canister bombs are a throwable consumable with a range of 30 feet.
 ### Canister Bandolier
 * You have a bandolier which can hold 5 canister bombs. A bomb can be drawn from the bandolier and thrown in place of any attack you make provided you have a free hand to do so.
 * Storing canister bombs anywhere other than your bandolier can be extremely hazardous.
@@ -113,7 +113,7 @@ Formulae are represented as additional Path Features and can be found as loot, u
 * Willow Serum (150 gold)
 	* The drinker becomes immune to the Grappled, Paralyzed, Prone, Restrained, and Stunned conditions for one minute.
 * Steroid Serum (100 gold)
-	* Doubles the drinker's short range with all thrown weapons for one hour.
+	* Doubles the drinker's short range with all thrown weapons or objects for one hour.
 * Concentrated Distilling Agent (50 gold)
 	* The weapon oil bypasses damage resistance.
 * Adaptive Distilling Agent (50 gold)

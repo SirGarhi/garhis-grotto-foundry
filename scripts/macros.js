@@ -75,6 +75,7 @@ export async function setupWorldMacros() {
 	await createMacro('piercerCriticalBonus', damageBonusMacro('piercerBonus'), false);
 	await createMacro('venomfangDamage', damageBonusMacro('venomfangDamage'), false);
 	await createMacro('petalSlash', itemOnUseMacro('petalSlash'), false);
+	await createMacro('giantsBane', damageBonusMacro('giantsBane'), false);
 }
 async function useOnUse(args, itemName) {
 	switch (itemName) {
@@ -114,16 +115,19 @@ async function damageBonus(args, itemName) {
 	let result = {};
 	switch (itemName) {
 		case 'hex': 
-			result = spells.hex.damage(args);
+			result = await spells.hex.damage(args);
 			return result;
 		case 'sneakAttack':
-			result = features.class.rogue.sneakAttack(args);
+			result = await features.class.rogue.sneakAttack(args);
 			return result;
 		case 'piercerBonus':
-			result = features.piercer.damageBonus(args);
+			result = await features.piercer.damageBonus(args);
 			return result;
 		case 'venomfangDamage':
-			result = features.class.barbarian.venomfang(args);
+			result = await features.class.barbarian.venomfang(args);
+			return result;
+		case 'giantsBane':
+			result = await awakenedWeapons.trinity.giantsBane(args);
 			return result;
 		default:
 			ui.notifications.warn('Invalid Damage Bonus Macro!');

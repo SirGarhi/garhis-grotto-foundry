@@ -4,10 +4,10 @@ async function sneakAttack(workflow) {
 	if (!["mwak","rwak"].includes(workflow.item.system.actionType)) return {};
 	if (workflow.item.system.actionType === "mwak" && !workflow.item.system.properties?.fin) 
 		return {};
-	if (workflow.hitTargets.length < 1) return {};
+	if (workflow.hitTargets.size < 1) return {};
 	let token = workflow.token;
 	let actor = token.actor;
-	if (!actor || !token || workflow.hitTargets.length < 1) return {};
+	if (!actor || !token || workflow.hitTargets.size < 1) return {};
 	if (!actor.system.scale.rogue['sneak-attack']) {
 		ui.notifications.warn("Sneak Attack: No Sneak Attack Scale Found");
 		return {};
