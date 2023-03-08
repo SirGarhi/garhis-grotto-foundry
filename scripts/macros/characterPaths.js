@@ -1,7 +1,15 @@
 ﻿import { angelo } from './characterPaths/angelo.js';
 import { gahvrunk } from './characterPaths/gahvrunk.js';
+import { haradin } from './characterPaths/haradin.js';
+import { qiana } from './characterPaths/qiana.js';
+import { sapphie } from './characterPaths/sapphie.js';
+import { tiko } from './characterPaths/tiko.js';
 
 export let characterPaths = {
 	'angelo': angelo,
-	'gahvrunk': gahvrunk
+	'gahvrunk': gahvrunk,
+	'haradin': haradin,
+	'qiana': qiana,
+	'sapphie': sapphie,
+	'tiko': tiko
 }

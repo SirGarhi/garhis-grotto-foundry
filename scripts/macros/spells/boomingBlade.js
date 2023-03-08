@@ -1,9 +1,9 @@
 ﻿import {ggHelpers} from '../../helperFunctions.js';
 import { spellEffects } from '../../effects/spellEffects.js';
 async function applyThrumming(args) {
-	console.log(args);
+	// console.log(args);
 	const lastArg = args[args.length-1];
-	if (lastArg.itemData.system.actionType !== 'mwak') return;
+	if (lastArg.item.system.actionType !== 'mwak') return;
 	if ( lastArg.hitTargets.length > 0 ) {
 		let target = lastArg.hitTargets[0];
 		let targetActor = target.actor;
@@ -66,7 +66,7 @@ async function thrummingExplosion(args) {
 			.effect()
 			.file(animation)
 			.atLocation(token)
-			.play();		
+			.play();
 		}
 	}
 }

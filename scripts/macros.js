@@ -76,6 +76,11 @@ export async function setupWorldMacros() {
 	await createMacro('venomfangDamage', damageBonusMacro('venomfangDamage'), false);
 	await createMacro('petalSlash', itemOnUseMacro('petalSlash'), false);
 	await createMacro('giantsBane', damageBonusMacro('giantsBane'), false);
+	await createMacro('hemorrhagingStrikes', itemOnUseMacro('hemorrhagingStrikes'), false);
+	await createMacro('concussiveTechnique', itemOnUseMacro('concussiveTechnique'), false);
+	await createMacro('sightedDamage', damageBonusMacro('sightedDamage'), false);
+	await createMacro('blazeCanister', itemOnUseMacro('blazeCanister'), false);
+	await createMacro('resetBlazeCount', characterPaths.qiana.resetBlazeMacro, false);
 }
 async function useOnUse(args, itemName) {
 	switch (itemName) {
@@ -99,8 +104,20 @@ async function useOnUse(args, itemName) {
 		case 'petalSlash':
 			await characterPaths.angelo.petalSlash(args);
 			break;
+		case 'hemorrhagingStrikes':
+			await characterPaths.haradin.hemorrhagingStrikes(args);
+			break;
+		case 'concussiveTechnique':
+			await characterPaths.haradin.concussiveTechnique(args);
+			break;
+		case 'concussiveStrike':
+			await characterPaths.haradin.concussiveStrike(args);
+			break;
+		case 'blazeCanister':
+			await characterPaths.qiana.blazeCanister(args);
+			break;
 		default:
-			ui.notifications.warn('Invalid actor onUse macro: '+itemName);
+			ui.notifications.warn('Garhis Grotto: No onUse macro named: '+itemName);
 			return;
 	}
 }
@@ -128,6 +145,9 @@ async function damageBonus(args, itemName) {
 			return result;
 		case 'giantsBane':
 			result = await awakenedWeapons.trinity.giantsBane(args);
+			return result;
+		case 'sightedDamage':
+			result = await characterPaths.qiana.targetingGuidance.damage(args);
 			return result;
 		default:
 			ui.notifications.warn('Invalid Damage Bonus Macro!');

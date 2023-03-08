@@ -35,6 +35,7 @@ async function sneakAttack(workflow) {
 	let foundEnemy = false;
 	if (!isSneak) {
 		let nearbyEnemies = MidiQOL.findNearby(-1, target, 5);
+		if (nearbyEnemies.length < 1) return;
 		if (nearbyEnemies.length < 2) {
 			let nearbyToken = nearbyEnemies[0];
 			if (nearbyToken.id !== token.id) {

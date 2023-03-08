@@ -46,7 +46,7 @@ His Path focuses on enhancing his chosen stick and training as a 'War Priest' gr
 	Prior to making a melee attack with a two-handed weapon, you can spend 1 Technique Point to turn that attack in to a Concussive Strike, granting it the following benefits:
 	* On a successful hit, the target must make a Constitution Saving Throw against your Spell DC. On a failure, the target is stunned until the start of your next turn
 		* If the attack was a Critical Hit, the saving throw is automatically failed
-	* The target becomes immune to this technique until the end of your next turn whether you manage to hit it or not
+	* The target becomes immune to this technique until the end of your next turn if you hit with the attack, whether they succeed on a save or not
 * Technique: Wings of Twilight
 	* By spending 1 Technique Point when you use Steps of Night while Twilight Sanctuary is active, you bless up to 6 other creatures inside your Twilight Sanctuary with the abilty to fly, granting them a flight speed equal to your own walking speed
 	* Creatures granted this blessing need not stay inside the Sanctuary to utilize the flight speed

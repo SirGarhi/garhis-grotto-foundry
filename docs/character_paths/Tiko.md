@@ -20,7 +20,7 @@ His Path centers around new inventions, particularly his customized Bladed Staff
 	* Infinity gains a +1 bonus to Attack and Damage Rolls
 	* You gain a +1 bonus to Spell Attack, Spell Damage, and the Save DC of any spell cast using Infinity as a focus
 * Aetheric Overcharge
-	* You can add your Intelligence modifier to the damage roll of any spell cast through Infinity
+	* Any spell cast through Infinity deals additional force damage equal to your Intelligence modifier
 * Specialized Tool
 	Infinity is able to integrate with your Arcane Armor granting the following benefits depending on its configuration:
 	* Thunder Gauntlets
