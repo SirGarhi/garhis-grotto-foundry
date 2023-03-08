@@ -4,7 +4,7 @@ His Path centers around new inventions, particularly his customized Bladed Staff
 
 # Path Features
 ## Tier 1
-* Infinity
+* Infinity  
 	Infinity is a specially built Bladed Tech Staff with the following properties:
 	* Damage – 1d8 Slashing
 	* Martial Weapon, Melee Weapon, Focus, Tech Weapon*
@@ -17,8 +17,8 @@ His Path centers around new inventions, particularly his customized Bladed Staff
 
 ## Tier 2
 * Mechanized Assistance
-	* Infinity gains a +1 bonus to Attack and Damage Rolls
-	* You gain a +1 bonus to Spell Attack, Spell Damage, and the Save DC of any spell cast using Infinity as a focus
+	* Infinity gains a +1 bonus to Melee Attack and Damage Rolls
+	* Infinity grants a +1 bonus to Spell Attack, Spell Damage, and the Save DC of any spell cast using it as a focus
 * Aetheric Overcharge
 	* Any spell cast through Infinity deals additional force damage equal to your Intelligence modifier
 * Specialized Tool
@@ -32,40 +32,40 @@ His Path centers around new inventions, particularly his customized Bladed Staff
 			* You still only deal the bonus damage once per turn
 
 ## Tier 3
-* Harmonic Resonator
+* Harmonic Resonator  
 	A Harmonic Resonator is installed in the blade of Infinity, allowing for a wide range of effects when the appropriate amount of aether is fed in to it
 	* Upkeep
 		* Certain effects of the Resonator require a continual upkeep of power in addition to the up front cost to activate the effect
 		* Upkeep is accomplished as a Free Action at the start of your turn
-* Aether Trap
-	An aether trap is attached to Infinity to allow for the containement and directed release of aether in to the Harmonic Resonator.
+* Aether Trap  
+	An aether trap is attached to Infinity to allow for the containement and directed release of aether
 	* The trap has a capacity of 20 charges
 	* The trap passively absorbs aether from everything around it at a slow rate
 	* At the end of a Long Rest, the trap gains 1d8 + 4 charges
-* Feed the Trap
+* Feed the Trap  
 	As an Action you can directly feed aether in to the trap in the form of essence
 	* Uncommon Essence: 3 charges
 	* Rare Essence: 6 charges
 	* Very Rare Essence: 10 charges
-* Resonating Blade (5 charges, 1 charge Upkeep)
+* Resonating Blade (5 charges, 1 charge Upkeep)  
 	As a Bonus Action you release aether from the trap to cause the resonator to begin vibrating intensely, granting the following benefits:
 	* Infinity gains a +1 bonus to Melee Attack Rolls
 	* Infinity deals an additional 2d4 Force Damage on each hit
 
 ## Tier 4
 * Overcharged Rotors
-	* All bonuses provided by Mechanized Assistance increases to +2
+	* All bonuses provided by Mechanized Assistance increase to +2
 	* You ignore half and three-quarters cover for any attack roll made using Infinity
-* Harnessed Lightning (6 charges, 1 charge Upkeep)
+* Harnessed Lightning (6 charges, 1 charge Upkeep)  
 	As a Bonus Action you release aether from the trap to cause the resonator to begin harnessing energy, causing lightning to coalesce and play about the blade, granting the following benefits:
 	* As an Action, pick a point you can see within 40 feet of Infinity
 		* Each creature within 5 feet of that point must make a Dexterity Saving Throw against your Spell Save DC
 		* A creature takes 3d10 Lightning Damage on a failed save, half-damage on a success
-* Directed Power
-	By carefully releasing specific quantitied of aether from the trap you are able to cause the resonator to replicate a variety of spell effects
+* Directed Power  
+	By carefully releasing specific quantities of aether from the trap you are able to cause the resonator to replicate a variety of spell effects
 	* These effects function much like the spells they replicate, including the action type required
 	* No material component is required other than the resonator itself
-	* Any changes tp spell functionality are specifically noted
+	* Any changes to spell functionality are specifically noted
 	* The save DC of these effects is equal to your Spell Save DC
 		* 1 Charge
 			* Booming Blade
@@ -91,11 +91,11 @@ His Path centers around new inventions, particularly his customized Bladed Staff
 ## Tier 5
 * Enlarged Trap
 	* The Ather Trap gains +10 charges to its capacity
-* Rapid Harnessing
-	Once per day, you can trigger your trap to more aggressively harvest aehter from any source nearby
+* Rapid Harnessing  
+	Once per day, you can trigger your trap to more aggressively harvest aether from any source nearby
 	* After one hour, which can coincide with a Short Rest, the trap recovers 1d12 + 4 charges
-	* Actively using the trap by feeding it with essence or powering the resonator inreupts this process
-* Violently Resonating Blade (8 charges, 2 charge Upkeep)
+	* Actively using the trap by feeding it with essence or powering the resonator interupts this process
+* Violently Resonating Blade (8 charges, 2 charge Upkeep)  
 	As a Bonus Action you release even more aether in to the resonator to cause it to vibrate violently, granting the following benefits
 	* Infinity gains a +2 bonus to Melee Attack Rolls
 	* Infinity deals an additional 3d8 Force Damage with each hit
@@ -104,11 +104,11 @@ His Path centers around new inventions, particularly his customized Bladed Staff
 ## Tier 6
 * Nanite Infusion
 	* All bonuses provided by Mechanized Assistance increase to +3
-* Essence Leech
+* Essence Leech  
 	The Aether Trap has been modified to capture the aether that typically escapes when a creature dies or is grievously wounded
-	* When a non trivial (per DM's discretion) creature within 10 feet of Infinity is reduced to 0 hitpoints or suffers a critcal hit, the trap gaind 1d4+2 charges
-* Power Overwhelming
-	You gain additional options for use with the Directed Power feature
+	* When a non trivial (per DM's discretion) creature within 10 feet of Infinity is reduced to 0 hitpoints or suffers a critcal hit, the trap gains 1d4+2 charges
+* Power Overwhelming  
+	You gain additional options for use with the *Directed Power* feature
 	* 8 Charges
 		* Banishment (Range is touch, and the creature is not banished but held in an invulnerable stasis while concentration is maintained)
 	* 10 Charges
