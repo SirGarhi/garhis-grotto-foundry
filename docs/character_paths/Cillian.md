@@ -3,9 +3,9 @@
 Her Path centers around specialized fighting techniques, upgrades to her prosthetic arm, and the crafting of various consumables.
 
 Consumables of all types are crafted based off of known formulae. For a list of formulae, as well as mechanics refer to:
-* [Canister Boms](canister_bombs.md)
-* [Potion Serums](potion_serums.md)
-* [Weapon Oils](weapon_oils.md)
+* [Canister Bombs](../canister_bombs.md)
+* [Potion Serums](../potion_serums.md)
+* [Weapon Oils](../weapon_oils.md)
 
 The name and description of each feature along the path is listed below. If a feature has a prerequisite it will be listed in (parentheses) after the name of the feature.
 
@@ -36,9 +36,9 @@ Cillian has a specialized toolkit with the following properties:
 * Proficiency – Your proficiency level wikth the kit is determined by the highest aptitude you have from among Alchemist's Supplies, Poisoner's Kit, and Herbalism Kit.
 * Multifunction – This kit can serve the purpose of Alchemist's Supplies, a Poisoner's Kit, or an Herbalism Kit.
 * Theoretical – All uses of this kit are based off your Intelligence Ability.
-### [Potion Serums](potion_serums.md)
+### [Potion Serums](../potion_serums.md)
 * You have learned the basic techniques of brewing Potion Serums and know at least one formula.
-### [Weapon Oils](weapon_oils.md)
+### [Weapon Oils](../weapon_oils.md)
 * You have learned the basic techniques of brewing Weapon Oils and know at least one formula.
 ### Prepared Brewing
 * With one hour of work, which can be done over a short rest, you can safely and rapidly brew consumables.
@@ -71,7 +71,7 @@ Cillian has a specialized toolkit with the following properties:
 * When you apply an oil or administer a serum, you may use a Free Action to add an Additive Agent first, granting the oil or serum an additional effect.
 ### Brewing Efficiency (Prepared Brewing)
 * You can now brew a total of 4 Serums or Oils and 2 Additive Agents for each hour spent utilizing Prepared Brewing.
-### [Canister Boms](canister_bombs.md)
+### [Canister Bombs](../canister_bombs.md)
 * You have learned the basic techniques of crafting Canister Bombs and know at least one formula.
 
 ### Formulae
