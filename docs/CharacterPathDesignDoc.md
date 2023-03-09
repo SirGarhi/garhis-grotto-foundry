@@ -29,6 +29,8 @@ A feature can be literally anything. Here are some examples of the most common t
 	- A new Battle Master Maneuver that uses and scales with your regular Superiority Dice
 	- The ability to temporarily select an additional option for class features with multiple choices, such as Eldritch Invocations or the Totem Warrior Barbarian's animal spirits
 
+Avoid Features that automatically scale when possible. Instead of granting an Ability with uses equal to Proficiency Bonus, which will automatically improve just by leveling, consider giving it 2-3 uses when first earned and then adding another Feature at a higher tier that grants that ability additional uses. Path Features should require continued and somewhat focused effort to improve.
+
 Not everything needs to be mechanically significant or impactful in combat. Sometimes features that serve no purpose other than flavor are great. Here's an example of one of those types of features:
 * A dress pocket that manifests on whatever dress you are wearing and always has some of your favorite food inside when you blindly put your hand in it, but appears empty if you open it to look.
 

@@ -6,7 +6,8 @@ export const totemNames = [
 		'Totem Spirit: Bear',
 		'Totem Spirit: Eagle',
 		'Totem Spirit: Elk',
-		'Totem Spirit: Venomfang'
+		'Totem Spirit: Venomfang',
+		'Totem Spirit: Wolf'
 	]
 ]
 
@@ -58,10 +59,10 @@ async function rageItem(args) {
 			if (game.settings.get('garhis-grotto', 'Rage Automation')) {
 				actor.setFlag('garhis-grotto', 'shouldRageExpire', false);
 			}
-			Hooks.on('midi-qol.preAttackRoll', garhisGrotto.macros.rage.wolfSpiritRage);
+			Hooks.on('midi-qol.preAttackRoll', garhisGrotto.macros.features.class.barbarian.wolfSpiritRage);
 		}
 		async function effectMacroOnDelete() {
-			Hooks.off('midi-qol.preAttackRoll', garhisGrotto.macros.rage.wolfSpiritRage);
+			Hooks.off('midi-qol.preAttackRoll', garhisGrotto.macros.features.class.barbarian.wolfSpiritRage);
 			garhisGrotto.helpers.removeEffect(garhisGrotto.helpers.findEffect(actor, 'Wolf Spirit Rage'));
 		}
 		effect.flags.effectmacro.onCreate = { 'script': ggHelpers.functionToString(effectMacroOnCreate)};
@@ -104,7 +105,7 @@ async function venomfang(workflow) {
 		.effect()
 		.file(animation)
 		.atLocation(target)
-		.play();		
+		.play();
 	}
 	if (game.combat) {
 		const combatTime = `${game.combat.id}-${game.combat.round + game.combat.turn /100}`;
@@ -140,7 +141,7 @@ async function handleRoll(workflow) {
 
 export let barbarian = {
 	'rage': rageItem,
-	'venomfangDamage': venomfang,
+	'venomfang': venomfang,
 	'handleRoll': handleRoll,
 	'wolfSpiritRage': wolfSpiritRage
 }

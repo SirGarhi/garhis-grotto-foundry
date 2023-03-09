@@ -72,10 +72,10 @@ async function item(args) {
 
 async function vortex(args) {
 	let lastArg = args[args.length-1];
-	let attackData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Blooming Rose Vortex Slash');
+	let attackData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Petal Vortex Slash');
 	let shieldData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Guardian Petal Swarm');
-	shieldData.system.uses.max = lastArg.actor.abilities.dex.mod;
-	shieldData.system.uses.value = lastArg.actor.abilities.dex.mod;
+	shieldData.system.uses.max = lastArg.actor.system.abilities.dex.mod;
+	shieldData.system.uses.value = lastArg.actor.system.abilities.dex.mod;
 	let actorUpdates = {
 		'embedded': {
 			'Item': {
@@ -94,6 +94,6 @@ async function vortex(args) {
 }
 export let angelo = {
 	'petalSlash': petalSlash,
-	'item': item,
+	'bloomingRose': item,
 	'vortex': vortex
 }

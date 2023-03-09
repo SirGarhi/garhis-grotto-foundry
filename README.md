@@ -131,7 +131,7 @@ Without these settings things *should* still function, but it kind of defeats th
 Several items in this pack utilize warpgate mutations to drive the changes. With default settings, if a player curiosly clicks the 'Revert' button at the top of their character sheet, the last applied mutation will be removed without warning. Showing the mutation stack dialog allows players to see what mutations are applied to their character and also know exactly what it is they might be removing.
 
 ## Highly Recommended Modules
-* LMRTFY - OR - Monk's Token Bar (my preference)
+* LMRTFY (my preference) - OR - Monk's Token Bar
 	- Allows for players to still have agency in rolling their saving throws via Midi.
 	- https://foundryvtt.com/packages/lmrtfy
 	- https://foundryvtt.com/packages/monks-tokenbar

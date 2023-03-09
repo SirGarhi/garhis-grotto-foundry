@@ -26,9 +26,9 @@ export function registerSettings() {
 		'default': false,
 		'onChange': value => {
 			if (value) {
-				Hooks.on('midi-qol.RollComplete', macros.barbarian.handleRoll);
+				Hooks.on('midi-qol.RollComplete', macros.features.class.barbarian.handleRoll);
 			} else {
-				Hooks.off('midi-qol.RollComplete', macros.barbarian.handleRoll);
+				Hooks.off('midi-qol.RollComplete', macros.features.class.barbarian.handleRoll);
 			}
 		}
 	});

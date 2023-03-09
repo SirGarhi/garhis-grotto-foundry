@@ -6,7 +6,7 @@
 			ui.notifications.warn('Already at maximum uses of Bardic Inspiration');
 			return; 
 		} else {
-			await item.update({"system.uses.value": system.uses.value+1});
+			await item.update({"system.uses.value": item.system.uses.value+1});
 		}
 	}
 }

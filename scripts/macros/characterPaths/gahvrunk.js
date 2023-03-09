@@ -4,8 +4,8 @@ import { totemNames } from '../features/classFeatures/barbarian.js';
 async function chooseBonusTotemFeatures(workflow) {
 	// console.log(workflow);
 	const bonusFeatureNames = [
-		'Totem Spirit: Bear - Bonus', 
-		'Totem Spirit: Eagle - Bonus', 
+		'Totem Spirit: Bear - Bonus',
+		'Totem Spirit: Eagle - Bonus',
 		'Totem Spirit: Elk - Bonus',
 		'Totem Spirit: Venomfang - Bonus',
 		'Totem Spirit: Wolf - Bonus'
@@ -39,8 +39,10 @@ async function chooseBonusTotemFeatures(workflow) {
 		}
 	}
 	let chosenFeature = await ggHelpers.buttonMenu('Choose a Bonus Totem Warrior Feature', choices);
+	if (!chosenFeature) return;
 	// console.log(chosenFeature);
 	let featureData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', `${chosenFeature} - Bonus`, false);
+	if (!featureData) return;
 	// console.log(featureData);
 	await actor.createEmbeddedDocuments('Item', [featureData]);
 
@@ -49,7 +51,7 @@ async function chooseBonusTotemFeatures(workflow) {
 async function sustainTheRage(workflow) {
 	let rageEffect = ggHelpers.findEffect(workflow.actor, 'Rage');
 	if (rageEffect.duration.seconds) {
-		await rageEffect.update({'duration.seconds': 60, 'duration.rounds': 10});
+		await rageEffect.update({'duration.seconds': 60, 'duration.startTime': game.time.worldTime, 'duration.rounds': 10, 'duration.startRound': game.combat.round});
 	}
 	if (game.settings.get('garhis-grotto', 'Rage Automation')) {
 		workflow.actor.setFlag('garhis-grotto', 'shouldRageExpire', false);
