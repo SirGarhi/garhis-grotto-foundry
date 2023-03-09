@@ -1,7 +1,7 @@
 ﻿## Term Definitions
 * Path – The set of Tiers for a specific character. Think of it as a roadmap for how the character may develop.
 * Tier – A collection of features of similar power level.
-* Feature – Either an effect or an ability.
+* Feature – Can be potentially anything, but generally an effect, an ability, or the initial acquiring of a specific piece of equipment.
 * Effect – A bonus of some sort that is applied without requiring an action on the part of the player. An upgrade to a weapon to make it deal an additional 1d4 damage on every hit would be an effect.
 * Ability – Something that requires an action on the part of the player to trigger. Using a Bonus Action to cast a spell you otherwise wouldn't have access to would be an ability.
 
@@ -25,8 +25,8 @@ A feature can be literally anything. Here are some examples of the most common t
 	- The ability to penetrate Resistance with a chosen element as in the Elemental Adept feat
 	- An effect that adds Spell Modifier damage to a specific cantrip, as in the Warlock's Agonizing Blast
 * Expanding upon existing class features or feats the character already has such as:
-	- The abilty to craft other types of weapon coatings using the mechanics of the Poisoner feat
 	- A new Battle Master Maneuver that uses and scales with your regular Superiority Dice
+	- Being able to use the ability to apply poisons as a Bonus Action from the Poisoner Feat on other types of consumables
 	- The ability to temporarily select an additional option for class features with multiple choices, such as Eldritch Invocations or the Totem Warrior Barbarian's animal spirits
 
 Avoid Features that automatically scale when possible. Instead of granting an Ability with uses equal to Proficiency Bonus, which will automatically improve just by leveling, consider giving it 2-3 uses when first earned and then adding another Feature at a higher tier that grants that ability additional uses. Path Features should require continued and somewhat focused effort to improve.
@@ -54,7 +54,7 @@ Sometimes features just don't feel good no matter what you do and should be scra
 ### A note on "Balance"
 In accordance with my overall design philosophy, balance is only important insofar as it isn't causing friction at the table. There are no hard and fast rules such as point budgets or certain features being 'worth' more than other ones. If it **feels** good to all the players at the table (including the DM) then it *is* good.
 
-There are no hard and fast rules as to which Tier a feature should be placed in either. The one exception being Tiered Effects, a Feature granting a +3 bonus should be in a higher Tier than one that provides a +2 or +1 bonus of the same type. 
+There are no hard and fast rules as to which Tier a feature should be placed in either. The one exception being Tiered Effects, a Feature granting a +3 bonus should be in a higher Tier, and also likely require a lower Tiered feature as a prerequisite, than one that provides a +2 or +1 bonus of the same type.
 
 Each character's path is unique, what might be a Tier 5 Feature for one character's Path could easily be a Tier 3 Feature for another character's Path and have it still feel good.
 
@@ -63,19 +63,28 @@ Tiers are collections of features based on relative power level and an intended 
 
 Depending on your campaign and starting character level, characters may start with some features already earned.
 
-Character Paths have 6 Tiers of progression. It is not required but it will often be the case that a character earns every feature from a given tier before earning a feature from the next tier.
+Character Paths have 6 Tiers of progression. Outside of features with explicit prerequisites, it is not necessary to fully award one tier before starting to award features from a later tier.
 
 The listing order of features within a Tier in a Path writeup has no significance.
 
 As a general guideline, features within Tiers 1-2 and to a lesser extent Tier 3 should be earnable by quite attainable means for a low level character such as:
 * Throwing money or resources at it
-	- Paying a trainer a modest sum of gold to receive a lesson
-	- Expending an uncommon or rare aetheric essence to enchant an effect on to an item
-	- Upgrading or crafting a weapon with the right rarity of materials
-* Randomly bumping in to something during normal adventuring
-	- Finding a dusty old scroll in a tomb that teaches the techniques for a more efficient means of making potions or poisons
+	- Paying a trainer a modest sum of gold to receive a lesson.
+	- Expending an uncommon or rare aetheric essence to enchant an effect on to an item.
+	- Upgrading or crafting a weapon with the right rarity of materials.
+* Randomly bumping in to something during normal adventuring:
+	- Finding a dusty old scroll in a tomb that teaches the techniques for a more efficient means of making potions or poisons.
+	- Discovering the ancient writings of a warrior that can teach a new Battle Master Maneuver.
+	- Getting a cat down out of a tree that turns out to be an all powerful witch's familiar and rewards you with an additional spell known.
 
 Tier 4 and higher is when features should start requiring some sort of narrative tie in or specific objective to earn such as:
-* Traveling to three different cities to train with three different weapon masters
-* Uncovering a deeply hidden family secret masking the source of the family's power
-* Tracking down a rare albino owlbear to gather some of its feathers
+* Traveling to three different cities to train with three different weapon masters.
+* Uncovering a deeply hidden family secret masking the source of the family's power.
+* Tracking down a rare albino owlbear to gather some of its feathers.
+
+### Path Features are **NOT** Player Entitlements
+Path Features are meant to be a way to tangibly and often mechanically reward Players for accomplishing Narrative goals.
+
+A Path writeup is basically a wish list. It's a planning document. It is most definitely not a guarantee that a character *will* earn every (or even any) of the Features listed in it. It also makes no promises for a timeline as to when features might be earned, regardless of what tier they are in.
+
+Path Features are not necessarily permanent either. Losing a Path Feature that was already earned is a potentially fantastic narrative consequence.
