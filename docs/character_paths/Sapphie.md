@@ -2,7 +2,7 @@
 
 Her path centers around upgardes to her personal Lyre as well as new abilities that enable her to better protect others.
 
-If a feature has a prerequisite it will be listed in (parentheses) after the feature name.
+The name and description of each feature along the path is listed below. If a feature has a prerequisite it will be listed in (parentheses) after the name of the feature.
 
 # Path Features
 ## Tier 1

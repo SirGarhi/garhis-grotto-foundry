@@ -4,7 +4,7 @@ His Path centers primarily around unlocking the hidden powers of ***Blooming Ros
 
 Beautiful and Terrible, *Blooming Rose* is imbued with the vast power of an ancient Fey Lord who died of a broken heart brought on by unrequited love. It is said that the flower petals manifested by the blade are those that fall from the bushes which grow around his grave.
 
-If a feature has a prerequisite it will be listed in (parentheses) after the feature name.
+The name and description of each feature along the path is listed below. If a feature has a prerequisite it will be listed in (parentheses) after the name of the feature.
 
 # Path Features
 ## Tier 1

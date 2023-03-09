@@ -2,6 +2,8 @@
 
 His Path focuses on enhancing his Totem abilities through his *Bracers of the Totem Warrior* as well as granting additional or unique ways to make weapon attacks.
 
+The name and description of each feature along the path is listed below. If a feature has a prerequisite it will be listed in (parentheses) after the name of the feature.
+
 # Path Features
 ## Tier 1
 ### Reckless Rampage
@@ -38,7 +40,7 @@ His Path focuses on enhancing his Totem abilities through his *Bracers of the To
 ## Tier 4
 ### Improved Fury
 * A *Weapon of Barbaric Fury* now has a +2 bonus to Attack and Damage for you.
-### Runic Engravings (Bracer Feature)
+### Runic Engravings (Runic Etchings)
 * Additional engravings are added to the Bracers of the Totem Warrior. Its bonus to AC and Saving Throws increases to +2.
 
 ## Tier 5
@@ -46,14 +48,14 @@ His Path focuses on enhancing his Totem abilities through his *Bracers of the To
 * Reckless Rampage now allows you to make two attacks with your bonus action.
 ### Rampaging Whirlwind
 * Your Whirlwind Attack no longer needs to reduce a creature to 0 hit points for you to repeat the attack.
-### Master Shamanism (Bracer Feature)
+### Master Shamanism (Advanced Shamanism)
 * You may now choose two features with your Shamanistic Training, and one of them may be a Totemic Attunement.
 
 ## Tier 6
 ### Master Fury
 * A *Weapon of Barbaric Fury* now has a +3 bonus to Attack and Damage for you.
 * Your critical hit threshold is reduced by 1 with a *Weapon of Barbaric Fury*.
-### Runic Inscription (Bracer Feature)
+### Runic Inscription (Runic Engravings)
 * The magical bonus from Runic Etchings increases to +3.
 
 # Path Goals

@@ -2,7 +2,7 @@
 
 His Path centers around new inventions, particularly his customized Bladed Staff ***Infinity***.
 
-If a feature has a prerequisite it will be listed in (parentheses) after the feature name.
+The name and description of each feature along the path is listed below. If a feature has a prerequisite it will be listed in (parentheses) after the name of the feature.
 
 # Path Features
 ## Tier 1
