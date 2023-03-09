@@ -3,6 +3,7 @@ import { features } from './macros/features.js';
 import { spells } from './macros/spells.js';
 import { characterPaths } from './macros/characterPaths.js';
 import { awakenedWeapons } from './macros/awakenedWeapons.js';
+import { inventoryItems } from './macros/inventoryItems.js';
 
 export let macros = {
 	'onUse': useOnUse,
@@ -13,7 +14,8 @@ export let macros = {
 	'features': features,
 	'spells': spells,
 	'paths': characterPaths,
-	'awakenedWeapons': awakenedWeapons
+	'awakenedWeapons': awakenedWeapons,
+	'items': inventoryItems
 }
 function actorOnUseMacro(macroName) {
 	return 'await garhisGrotto.macros.onUse(this, "' + macroName + '");';

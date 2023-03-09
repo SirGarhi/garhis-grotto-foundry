@@ -115,8 +115,13 @@ async function concussiveStrike(args) {
 	}
 }
 
+async function twilightFlames(args) {
+
+}
+
 export let haradin = {
 	'hemorrhagingStrikes': hemorrhagingStrikes,
 	'concussiveTechnique': concussiveTechnique,
-	'concussiveStrike': concussiveStrike
+	'concussiveStrike': concussiveStrike,
+	'twilightFlames': twilightFlames
 }
