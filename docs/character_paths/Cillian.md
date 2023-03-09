@@ -65,14 +65,16 @@ Cillian has a specialized toolkit with the following properties:
 * On a hit, the creature takes 1d8 + Strength Modifier [Bludgeoning] and can no longer cast spells or perform attacks until the end of its turn.
 ### Enhanced Fletching (Javelin Launcher)
 * Your Javelin Launcher's Base Bonus increases by 1.
+### [Canister Bombs](../canister_bombs.md)
+* You have learned the basic techniques of crafting Canister Bombs and know at least one formula.
+### Rapid Crafting (Canister Bombs)
+* You can safely craft one bomb with ten minutes of work.
 ### Additive Agents (Prepared Brewing)
 * When you utilize your Prepared Brewing feature, you can also brew 1 Additive Agent by utilizing any formulae you know and expending the appropriate resources.
 * Additive Agents are somewhat volatile, you may only carry 4 such agents at one time.
 * When you apply an oil or administer a serum, you may use a Free Action to add an Additive Agent first, granting the oil or serum an additional effect.
 ### Brewing Efficiency (Prepared Brewing)
 * You can now brew a total of 4 Serums or Oils and 2 Additive Agents for each hour spent utilizing Prepared Brewing.
-### [Canister Bombs](../canister_bombs.md)
-* You have learned the basic techniques of crafting Canister Bombs and know at least one formula.
 
 ### Formulae
 * Concentrated Distilling Agent (50 gold)
