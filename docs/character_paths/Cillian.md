@@ -23,10 +23,11 @@ The name and description of each feature along the path is listed below. If a fe
 	* Damage – 1d8 + Base Bonus [Piercing]
 	* Range – 60/180
 * The Base Bonus can be upgraded by gaining additional Path Features.
-* The Javelin Launcher fires specialized Mini Javelins as ammunition but does not have the loading property. 
-	* Mini Javelins can be crafted from crossbow bolts using any of Smith's Tools, Tinker's Tools, or Woodcaver's Tools.
-	* With one hours worth of work, which can be done over a Short Rest, you can convert 40 Crossbow Bolts in to 20 Mini Javelins.
-	* Mini Javelins can also be made with raw materials, converting 4 Common Branches and 1 Common Ingot in to 20 Mini Javelins over the same 1 hour period.
+### Mini Javelins (Javelin Launcher)
+The Javelin Launcher fires specialized Mini Javelins as ammunition but does not have the loading property. 
+* Mini Javelins can be crafted from crossbow bolts using any of Smith's Tools, Tinker's Tools, or Woodcarver's Tools.
+* With one hours worth of work, which can be done over a Short Rest, you can convert 40 Crossbow Bolts in to 20 Mini Javelins.
+* Mini Javelins can also be made with raw materials, converting 4 Common Branches and 1 Common Ingot in to 20 Mini Javelins over the same 1 hour period.
 ### Rapid Reaction Shield (Prosthetic Arm)
 * This ability is only available when the Javelin Launcher is stowed.
 * When hit with an attack you can use your Reaction to extend a shield from the arm.

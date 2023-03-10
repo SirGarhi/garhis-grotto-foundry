@@ -38,6 +38,7 @@ A finely made dress meant to be worn in everyday adventuring and to hold up to t
 * If you blindy reach your hand inside, you find food.
 	* What food you find is influenced by the environment you are in as well as an element of chaos.
 	* No matter what you pull out of the pocket, it tastes delicious to you (other creatures may not feel the same).
+	* While it tastes delicious, this food is not satiating and you must still consume real food in order to avoid hunger.
 ### Ritual Arcane Knowledge
 * Gain 2 additional Spells Known.
 	* 1 from the Bard Class List.

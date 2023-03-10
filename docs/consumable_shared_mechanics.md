@@ -45,19 +45,21 @@ Here are some ways you might learn new formulae:
 * Randomly Discovered – Such as written on an old scroll in an abandoned laboratory.
 * Purchased – Check with other practitioners such as Apothecaries, Herbalists, or members of the Explosives Guild to see if they know any formulae they will sell or teach you.
 * Experimentation – Downtime spent trying various different approaches to make something as of yet unknown to you.
-	* Experimentation to develop a formula requires that you have the core feature for that type of consumable.
-	* Experimentation consumes resources from the failed attempts, it's up to the DM precisely how this works but here is a sample system:
-		* After one hour spent experimenting make an Ability Check using your tool against a DC equal to 15 + the Tier the formula would be from.
-		* If you beat the DC you gain one success.
-		* On a failure, you consume half the resources it would normally take to brew this serum.
-		* If you fail by 5 or more, you lose all the resources.
-		* Once you have accumulated 3 successes, you learn the formula.
-	* #### Inspiration
-		* Certain things can clue your character in to new types of consumables being possible. In such an instance, you are considered to have an *Inspiration* for that specific consumable.
-		* You don't need to have the core feature for a type of consumable to earn an Inspiration for a consumable of that type, but you must first earn the core feature before you can actually develop a formula based on the Inspiration.
-		* Developing a formula from an Inspiration is significantly easier than coming up with an idea from scratch, and only requires you dedicate the downtime to experimenting with no checks needed.
-	* Some Sample Inspirations:
-		* Harvesting Mimic Adhesive could grant Inspiration for a Glue Bomb.
-		* Being subjected to a Wall of Fire spell could grant Inspiration for a Blaze Bomb.
-		* Being on the receiving end of a nasty poison could grant Inspiration for a Weapon Oil with similar effect.
-		* Drinking a potion you don't know the formula for, or seeing an unknown bomb type in action may grant you Inspiration to replicate that consumable.
+## Experimenting
+* Experimenting to develop a formula requires that you have the core feature for that type of consumable.
+* Experimenting consumes resources from failed attempts, it's up to the DM precisely how this works but here is a sample system:
+	* After one hour spent experimenting make an Ability Check using your tool against a DC equal to 15 + the Tier the formula would be from.
+	* If you beat the DC you gain one success.
+	* On a failure, you consume half the resources it would normally take to brew this serum.
+	* If you fail by 5 or more, you lose all the resources.
+	* Once you have accumulated 3 successes, you learn the formula.
+## Inspiration
+* Certain things can clue your character in to new types of consumables being possible. In such an instance, you are considered to have earned an Inspiration for that specific consumable.
+* You don't need to have the core feature for a type of consumable to earn an Inspiration for a consumable of that type, but you must first earn the core feature before you can actually develop a formula based on the Inspiration.
+* Developing a formula from an Inspiration is significantly easier than coming up with an idea from scratch, and only requires you dedicate the downtime to Experimenting with no checks needed.
+
+Some Sample Inspirations:
+* Harvesting Mimic Adhesive could grant Inspiration for a Glue Bomb.
+* Being subjected to a Wall of Fire spell could grant Inspiration for a Blaze Bomb.
+* Being on the receiving end of a nasty poison could grant Inspiration for a Weapon Oil with similar effect.
+* Drinking a potion you don't know the formula for, or seeing an unknown bomb type in action may grant you Inspiration to replicate that consumable.
