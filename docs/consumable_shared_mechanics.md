@@ -25,7 +25,8 @@ You must be at least proficient with the tool used in order to create an item sa
 With one hour's work you can safely create a single output from any formulae you know by expending the appropriate resources.
 
 You can attempt to forego safety and rapidly craft one output in 10 minutes.
----
+
+## Unsafe Crafting
 If you are attempting to craft in an unsafe manor, you must make an Ability Check with your tool against a Base DC equal to 10 + the Tier of the item you are trying to make, modified based on what factors are making the crafting attempt unsafe:
 * Not having the core feature to craft that type of consumable: +5
 * Not being proficient in the tool you are using: +5
