@@ -37,15 +37,15 @@ Infinity is able to integrate with your Arcane Armor granting the following bene
 ## Tier 3
 ### Aether Trap
 You have devised an aether trap to allow for the containement and directed release of aether.
-* The trap has a capacity of 20 charges
-* The trap passively absorbs aether from everything around it at a slow rate
-* At the end of a Long Rest, the trap gains 1d8 + 4 charges
+* The trap has a capacity of 20 charges.
+* The trap passively absorbs aether from everything around it at a slow rate.
+* At the end of a Long Rest, the trap gains 1d8 + 4 charges.
 ### Harmonic Resonator (Aether Trap)
 You have devised a *Harmonic Resonator*, a device which can accomplish a variety of effects when the appropriate amount of aether is released in to it.
 * The resonator is a magic item that requires Attunement.
 * With ten minutes of focused work, you can affix the resonator to any bladed weapon.
 * With one hour of work you can safely detach the resonator from a weapon.
-> Upkeep
+> #### Upkeep
 >* Certain effects of the Resonator require a continual upkeep of aether in addition to the up front cost to activate the effect.
 >* Upkeep is accomplished automatically at the start of your turn by drawing aether from a nearby *Aether Trap*, if you don't have enough aether to pay the upkeep cost of a feature, the feature is automatically deactivated.
 >* You can end an active feature of the resonator at any time as a free action.
@@ -68,7 +68,7 @@ As a Bonus Action you release aether from the trap to cause the resonator to beg
 * As an Action, pick a point you can see within 40 feet of the resonator.
 	* Each creature within 5 feet of that point must make a Dexterity Saving Throw against your Spell Save DC.
 	* A creature takes 3d10 Lightning Damage on a failed save, half-damage on a success.
-### Directed Power (Harmonic Resonator) | Varrying Charge Cost
+### Directed Power (Harmonic Resonator) | Varying Charge Cost
 By carefully releasing specific quantities of aether from the trap you are able to cause the resonator to replicate a variety of spell effects.
 * These effects function much like the spells they replicate, including the action type required.
 * No material component is required other than the resonator itself.
@@ -97,7 +97,7 @@ By carefully releasing specific quantities of aether from the trap you are able 
 
 ## Tier 5
 ### Enlarged Trap (Aether Trap)
-* The Ather Trap gains +10 charges to its capacity
+* Your Aether Trap gains +10 charges to its capacity.
 ### Rapid Harnessing (Aether Trap)
 Once per day, you can trigger your trap to more aggressively harvest aether from any source nearby.
 * After one hour, which can coincide with a Short Rest, the trap recovers 1d12 + 4 charges.

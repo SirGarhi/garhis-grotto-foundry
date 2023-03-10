@@ -51,7 +51,7 @@ Cillian has a specialized toolkit with the following properties:
 * You can perform Prepared Brewing twice, and regain all uses at the end of a Long Rest.
 ### Oil Familiarity
 * You are able to apply Weapon Oils as a Bonus Action.
-### Oiled Ammunition
+### Oiled Javelins
 * When you craft Mini Javelins, you can expend 2 vials of the same type of Impact Oil in order to cause each Mini Javelin made to deal an additional 1d6 damage determined by the type of the oil.
 
 ## Tier 2
@@ -59,7 +59,7 @@ Cillian has a specialized toolkit with the following properties:
 * You gain a +1 bonus to the DC of your Battle Master Maneuvers.
 ### Magical Drawstring (Javelin Launcher)
 * Your Javelin Launcher's Base Bonus increases by 1 and its attacks are considered magical.
-### Aptitude (Witcher Kit)
+### Aptitude - Rank 1 (Witcher Kit)
 * Your Bomb and Oil DCs increase by 1.
 * You gain a +1 bonus to ability checks made using the Witcher Kit.
 ### Aetheric Infusion (Weapon Oils)
@@ -85,27 +85,27 @@ Cillian has a specialized toolkit with the following properties:
 
 ### Formulae
 * Concentrated Distilling Agent (50 gold)
-	* The weapon oil bypasses damage resistance.
+	* When added to a Weapon Oil, damage dealt by the oil bypasses damage resistance.
 * Adaptive Distilling Agent (50 gold)
-	* The weapon oil imposes Disadvantage on the save made to resist it.
+	* When added to a Weapon Oil, any saves made to resist the oil's effects are made at Disadvantage.
 * Physical Fortifying Agent (50 gold)
-	* 5 points of Damage Reduction against Bludgeoning, Piercing, or Slashing damage (you choose when you add the agent to a serum).
+	* When added to a Potion Serum, the drinker gains 5 points of Damage Reduction against Bludgeoning, Piercing, or Slashing damage (you choose when you add the agent.)
 * Elemental Fortifying Agent (50 gold)
-	* Resistance to Acid, Fire, Cold, Lightning, or Poison damage (you choose when you add the agent to a serum).
+	* When added to a Potion Serum, the drinker gains Resistance to Acid, Fire, Cold, Lightning, or Poison damage (you choose when you add the agent.)
 
 ## Tier 4
 ### Improved Technique Training (Technique Training)
 * The bonus from Technique Training increases to +2.
 ### Improved Gears (Javelin Launcher)
 * Your Javelin Launcher's Base Bonus increases by 1.
-### Enhanced Aptitude (Aptitude)
+### Aptitude – Rank 2 (Aptitude – Rank 1)
 * Both bonuses from Aptitude increase to +2.
 ### Stabilized Agents (Additive Agents)
 * You can now carry 6 Additive Agents.
 
 ### Formulae
 * Esoteric Fortifying Agent (250 gold)
-	* Resistance to Radiant, Necrotic, Psychic, or Thunder damage (you choose when you add the agent to a serum).
+	* When added to a Potion Serum, the drinker gains Resistance to Radiant, Necrotic, Psychic, or Thunder damage (you choose when you add the agent.)
 
 ## Tier 5
 ### High Quality Spring (Javelin Launcher)
@@ -126,7 +126,7 @@ Cillian has a specialized toolkit with the following properties:
 * The bonus from Technique Training increases to +3.
 ### Reinforced Arms (Javelin Launcher)
 * Your Javelin Launcher's Base Bonus increases by 1.
-### Enhanced Aptitude (Enhanced Aptitude (Tier 4))
+### Aptitude – Rank 3 (Aptitude – Rank 2)
 * Both bonuses from Aptitude increase to +3.
 ### Stabilized Agents (Stabilized Agents (Tier 5))
 * You can now carry 10 Additive Agents safely.

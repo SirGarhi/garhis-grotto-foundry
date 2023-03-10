@@ -2,6 +2,9 @@
 [Shared Crafting and Formula Mechanics](consumable_shared_mechanics.md)
 
 Arcane Ammunition refers to any ammunition that is infused with magical energy in some fashion.
+
+In addition to the standard requirements, crafting arcane ammo safely requires proficiency in the *Arcana* skill.
+
 * Some Ammunition types require a Saving Throw, the DC is determined by your Ammo DC.
 	* Ammo DC: 8 + Proficiency Bonus + Dexterity Modifier.
 
