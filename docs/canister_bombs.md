@@ -1,5 +1,6 @@
 ﻿# Basic Mechanics
 [Shared Crafting and Formula Mechanics](consumable_shared_mechanics.md)
+
 Canister Bombs are a type of crude explosive that detonates on impact:
 * Bombs are considered improvised weapons that can be thrown a range of 30 feet.
 * Most bombs require a Saving Throw, the DC is determined by your Bomb DC.

@@ -1,5 +1,6 @@
 ﻿# Basic Mechanics
 [Shared Crafting and Formula Mechanics](consumable_shared_mechanics.md)
+
 Potion Serums are a specialized type of potion that deal primarily in lingering and long-lasting effects.
 * A serum can be administered in a number of different way:
 	* Drunk by yourself as an Action.

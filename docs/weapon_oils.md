@@ -1,5 +1,6 @@
 ﻿# Basic Mechanics
 [Shared Crafting and Formula Mechanics](consumable_shared_mechanics.md)
+
 Weapon Oils are an oily coating applied to a typically bladed weapon to grant it additional temporary properties.
 * An oil can be applied to a weapon as an Action.
 * Oils persist on the weapon for one minute, or until a successful attack is made with the weapon.
