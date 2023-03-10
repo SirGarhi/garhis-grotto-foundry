@@ -6,6 +6,8 @@ You must have the feature allowing you to craft the consumable type in general i
 * Potion Serums are brewed with an Herbalism Kit
 * Weapon Oils are brewed with a Poisoner's Kit
 * Canister Bombs are crafted with an Alchemist's Kit
+* Arrows or Bolts are crafted with Woodcarver's Tools
+* Bullets are crafted with Tinker's Tools
 
 You must be at least proficient with the tool used in order to create an item safely.
 

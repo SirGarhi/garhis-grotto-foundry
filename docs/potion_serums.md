@@ -14,7 +14,7 @@ Potion Serums are kept in fragile vials. You can safely store some loosely in a 
 
 Potion Serums can be safely stored in a bag of holding or similar extradimensional space.
 
-> Player Note: The ngame of the game here is **be reasonable**. It's not intended that you carry around 200 Serums, even if you technically could safely through use of a bag of holding or similar.
+> Player Note: The name of the game here is **be reasonable**. It's not intended that you carry around 200 Serums, even if you technically could safely through use of a bag of holding or similar.
 
 A piece of equipment known as a **Vial Belt** can be crafted using leatherworker's tools and 2 units of Uncommon Leather. It provides the following benefits:
 * A Vial Belt has the capacity to safely store 3 Potion Serums.

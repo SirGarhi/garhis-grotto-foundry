@@ -13,7 +13,7 @@ The name and description of each feature along the path is listed below. If a fe
 # Path Features
 ## Tier 1
 ### Prosthetic Arm
- This mechanical arm is a magical item and requires Attunement.
+* This mechanical arm is a magical item and requires Attunement.
 ### Javelin Launcher (Prosthetic Arm)
 * As a Bonus Action, a Javelin Launcher can be deployed from the arm or stowed back within the arm.
 * The Javelin Launcher is a unique weapon that does not gain a bonus from *any* ability score.

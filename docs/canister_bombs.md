@@ -19,6 +19,10 @@ A piece of equipment known as a **Canister Belt** can be crafted using leatherwo
 * In place of any attack you make on your turn, you can draw and throw a bomb provided you have a free hand to do so.
 * Unless you have another feature stating differently, you may only wear one canister belt across your chest as a bandolier.
 
+> Player Note: The name of the game here is **be reasonable**. It's not intended that you carry around a significant number of premade bombs, even if they could technically be safely stored in a bag of holding.
+>
+> Having a spare bandolier or two stored in a cart, saddlebag, or bag of holding for relatively quick access is reasonable. Having 50 isn't.
+
 # Formulae
 This is not an exhaustive list. If you have ideas for your own type of bomb, by all means propose them to the DM.
 
