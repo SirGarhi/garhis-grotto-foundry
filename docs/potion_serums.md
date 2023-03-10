@@ -1,18 +1,6 @@
 ﻿# Basic Mechanics
+[Shared Crafting and Formula Mechanics](consumable_shared_mechanics.md)
 Potion Serums are a specialized type of potion that deal primarily in lingering and long-lasting effects.
-* You must have the basic knowledge of brewing potion serums in general in order to safely brew *any* serum.
-	* Simply finding a formula is not enough to grant you this knowledge. It must be taught by another or learned in downtime via experimentation.
-* Potion Serums are brewed using an Herbalism Kit in addition to any needed ingredients.
-	* It may be possible to substitue a different tool, such as Alchemist's Supplies. Check with your DM.
-* You must be at least proficient with an Herbalism Kit in order to brew serums safely.
-* With one hour's work you can safely brew a single serum from any formulae you know.
-* You can attempt to forego safety and rapidly brew a serum in 10 minutes.
-* If you are attempting to brew a serum in an unsafe manor, you must make an Ability Check with an Herbalism Kit against a DC equal to 12 + the Tier of the serum you are trying to make.
-	* On a success, you manage to make the serum.
-	* On a failure, you lose half the resources required to make the serum.
-	* If you fail by 5 or more, you lose all the resources.
-		* The DM may also stipulate that there is some other consequence for a catastrophic failure, such as accidentally poisoning yourself.
-	* The DM may impose additional modifiers to the DC.
 * A serum can be administered in a number of different way:
 	* Drunk by yourself as an Action.
 	* Fed to a willing or unconscious creature as an Action.
@@ -21,11 +9,13 @@ Potion Serums are a specialized type of potion that deal primarily in lingering 
 		* If you are hidden from the creature you make your check with Advantage and they make their check with Disadvantage.
 
 # Storage and Handling
-Potion Serums are kept in fragile vials. You can safely store up to 5 Potion Serums in a container such as a Backpack without issue, trying to carry more may have unforseen consequences as determined by the DM.
+Potion Serums are kept in fragile vials. You can safely store some loosely in a container such as a Backpack without issue, but trying to carry too many may have unforeseen consequences as determined by the DM.
 
 Potion Serums can be safely stored in a bag of holding or similar extradimensional space.
 
-A piece of equipment known as a ***Vial Belt*** can be crated using leatherworker's tools and 2 units of Uncommon Leather. It provides the following benefits:
+> Player Note: The ngame of the game here is **be reasonable**. It's not intended that you carry around 200 Serums, even if you technically could safely through use of a bag of holding or similar.
+
+A piece of equipment known as a **Vial Belt** can be crafted using leatherworker's tools and 2 units of Uncommon Leather. It provides the following benefits:
 * A Vial Belt has the capacity to safely store 3 Potion Serums.
 * As an Action, you can safely add, remove, or swap any number of serums from the belt.
 * You can store a single filled Vial Belt in a container such as a Backpack safely. They are also easily stored in a cart or horse's saddlebags.
@@ -34,19 +24,6 @@ A piece of equipment known as a ***Vial Belt*** can be crated using leatherworke
 * Unless you have another feature stating differently, you may only wear two vial belts at a time.
 
 # Formulae
-Brewing a serum requires a known formula to work from in order to produce the desired results. Here are some ways you might learn new formulae:
-* Randomly Discovered – Such as written on an old scroll in an abandoned laboratory.
-* Purchased – More likely than with things like bombs, check with apothecaries or herbalists you run across to see if they know any formula they can teach you.
-* Experimentation – Downtime spent brewing and trying various different approaches to make something as of yet unknown to you.
-	* Experimentation consumes resources from the failed attempts, it's up to the DM precisely how this works but here is a sample system:
-		* After one hour spent experimenting make an Ability Check using your Herbalist Kit against a DC equal to 15 + the Tier the formula would be from.
-			* If you beat the DC you gain one success.
-			* On a failure, you consume half the resources it would normally take to brew this serum.
-			* If you fail by 5 or more, you lose all the resources.
-			* Once you have accumulated 3 successed, you learn the formula.
-		* If you have some form on Inspiration guiding your experimentation this process is significantly easier, oftentimes only requiring the time with no rolls needed.
-
-# Sample Formuale
 This is not an exhaustive list. If you have ideas for your own type of serum, by all means propose them to the DM.
 
 ## Tier 1

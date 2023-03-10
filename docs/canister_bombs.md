@@ -1,28 +1,16 @@
 ﻿# Basic Mechanics
-Canister Bombs are a type of crude explosive that all share the following properties:
-* You must have the basic knowledge to craft canister bombs in general in order to safely craft *any* bomb.
-	* Simply finding a formula is not enough to grant you this knowledge. It must be taught by another or learned in downtime via experimentation.
-* Canister Bombs are crafted using Alchemist's Supplies in addition to any needed ingredients.
-	* It may be possible to substitue a different tool, such as Tinker's Tools. Check with your DM.
-* You must be at least proficient with Alchemist's Supplies in order to craft bombs safely.
-* With one hour's work you can safely craft a single bomb from any formulae you know.
-* You can attempt to forego safety and rapidly craft a bomb in 10 minutes.
-* If you are attempting to craft a bomb in an unsafe manor, you must make an Ability Check with Alchemist's Supplies against a DC equal to 12 + the Tier of the bomb you are trying to make.
-	* On a success, you manage to make the bomb.
-	* On a failure, you lose half the resources required to make the bomb.
-	* If you fail by 5 or more, you lose all the resources.
-		* The DM may also stipulate that there is some other consequence for a catastrophic failure, such as the bomb detonating in your face with more or less potency than expected.
-	* The DM may impose additional modifiers to the DC.
+[Shared Crafting and Formula Mechanics](consumable_shared_mechanics.md)
+Canister Bombs are a type of crude explosive that detonates on impact:
+* Bombs are considered improvised weapons that can be thrown a range of 30 feet.
 * Most bombs require a Saving Throw, the DC is determined by your Bomb DC.
 	* Bomb DC: 8 + Proficiency Bonus + Intelligence Modifier.
-* Bombs are considered improvised weapons that can be thrown a range of 30 feet.
 
 # Storage and Handling
 Canister Bombs are volatile contraptions and can not be haphazardly stored in a backpack without the potential for dire consequence. Precisely what happens if you choose to do so is up to the DM.
 
 Canister Bombs can be safely stored in a bag of holding or similar extradimensional space.
 
-A piece of equipment known as a ***Canister Belt*** can be crafted using leatherworker's tools and 2 units of Uncommon Leather. It provides the following benefits:
+A piece of equipment known as a **Canister Belt** can be crafted using leatherworker's tools and 2 units of Uncommon Leather. It provides the following benefits:
 * A canister belt has the capacity to safely store 5 canister bombs.
 * Over the course of one minute, you can safely add, remove, or swap any number of bombs from the belt.
 * A canister belt loaded with bombs can be safely stored in something like a cart or a horse's saddle bags, but is too bulky to be placed in a regular backpack.
@@ -31,19 +19,6 @@ A piece of equipment known as a ***Canister Belt*** can be crafted using leather
 * Unless you have another feature stating differently, you may only wear one canister belt across your chest as a bandolier.
 
 # Formulae
-Crafting a bomb requires a known formula to work from in order to produce the desired results. Here are some ways you might learn new formulae:
-* Randomly Discovered – Such as written on an old scroll in an abandoned laboratory.
-* Purchased – It'll likely be uncommon, but NPCs have been known to also tinker with explosives.
-* Experimentation – Downtime spent crafting and trying various different approaches to make something as of yet unknown to you.
-	* Experimentation consumes resources from the failed attempts, it's up to the DM precisely how this works but here is a sample system:
-		* After one hour spent experimenting make an Ability Check using your Alchemist's Supplies against a DC equal to 15 + the Tier the formula would be from.
-			* If you beat the DC you gain one success.
-			* On a failure, you consume half the resources it would normally take to craft this bomb.
-			* If you fail by 5 or more, you lose all the resources.
-			* Once you have accumulated 3 successed, you learn the formula.
-		* If you have some form on Inspiration guiding your experimentation this process is significantly easier, oftentimes only requiring the time with no rolls needed.
-
-# Sample Formuale
 This is not an exhaustive list. If you have ideas for your own type of bomb, by all means propose them to the DM.
 
 ## Tier 1
@@ -106,7 +81,7 @@ This is not an exhaustive list. If you have ideas for your own type of bomb, by 
 * On a Failure the creature takes 8d8 Poison Damage and is Poisoned for one minute.
 * On a Success a creature takes half damage and is not Poisoned.
 * A Poisoned creature can spend an Action to repeat the Saving Throw with Disadvantage in an attempt to shake off the poison.
-### Ingerno Bomb (500 gold)
+### Inferno Bomb (500 gold)
 * On impact creates a 15-foot cube of raging fire that persists for 5 rounds.
 * Any creature that enters the flames for the first time or starts its turn there takes 3d12 fire damage.
 ### Fulminating Bomb (500 gold)

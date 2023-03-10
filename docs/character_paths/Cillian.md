@@ -3,6 +3,7 @@
 Her Path centers around specialized fighting techniques, upgrades to her prosthetic arm, and the crafting of various consumables.
 
 Consumables of all types are crafted based off of known formulae. For a list of formulae, as well as mechanics refer to:
+* [Shared Crafting and Formula Mechanics](../consumable_shared_mechanics.md)
 * [Canister Bombs](../canister_bombs.md)
 * [Potion Serums](../potion_serums.md)
 * [Weapon Oils](../weapon_oils.md)
@@ -16,24 +17,28 @@ The name and description of each feature along the path is listed below. If a fe
 ### Javelin Launcher (Prosthetic Arm)
 * As a Bonus Action, a Javelin Launcher can be deployed from the arm or stowed back within the arm.
 * The Javelin Launcher is a unique weapon that does not gain a bonus from *any* ability score.
-* It fires specialized Mini Javelins as ammunition but does not have the loading property. It has the following properties:
+* It has the following properties:
 	* Base Bonus – 3
 	* Attack Bonus – Base Bonus + Proficiency Bonus
 	* Damage – 1d8 + Base Bonus [Piercing]
 	* Range – 60/180
 * The Base Bonus can be upgraded by gaining additional Path Features.
+* The Javelin Launcher fires specialized Mini Javelins as ammunition but does not have the loading property. 
+	* Mini Javelins can be crafted from crossbow bolts using any of Smith's Tools, Tinker's Tools, or Woodcaver's Tools.
+	* With one hours worth of work, which can be done over a Short Rest, you can convert 40 Crossbow Bolts in to 20 Mini Javelins.
+	* Mini Javelins can also be made with raw materials, converting 4 Common Branches and 1 Common Ingot in to 20 Mini Javelins over the same 1 hour period.
 ### Rapid Reaction Shield (Prosthetic Arm)
 * This ability is only available when the Javelin Launcher is stowed.
 * When hit with an attack you can use your Reaction to extend a shield from the arm.
 * You gain +2 AC against the triggering attack, potentially causing it to miss.
-### Manuver: Superior Reaction Shield (Rapid Reaction Shield)
+### Maneuver: Superior Reaction Shield (Rapid Reaction Shield)
 * This Maneuver is only available when the Javelin Launcher is stowed.
 * When hit with an attack, you can use your Reaction to unleash this maneuver.
 * Roll a Superiority Die and add the number rolled +2 as a bonus to your AC.
 * This bonus is applied against the triggering attack and persists until the start of your next turn.
 ### Witcher Kit
 Cillian has a specialized toolkit with the following properties:
-* Proficiency – Your proficiency level wikth the kit is determined by the highest aptitude you have from among Alchemist's Supplies, Poisoner's Kit, and Herbalism Kit.
+* Proficiency – Your proficiency level with the kit is determined by the highest aptitude you have from among Alchemist's Supplies, Poisoner's Kit, and Herbalism Kit.
 * Multifunction – This kit can serve the purpose of Alchemist's Supplies, a Poisoner's Kit, or an Herbalism Kit.
 * Theoretical – All uses of this kit are based off your Intelligence Ability.
 ### [Potion Serums](../potion_serums.md)
@@ -46,6 +51,8 @@ Cillian has a specialized toolkit with the following properties:
 * You can perform Prepared Brewing twice, and regain all uses at the end of a Long Rest.
 ### Oil Familiarity
 * You are able to apply Weapon Oils as a Bonus Action.
+### Oiled Ammunition
+* When you craft Mini Javelins, you can expend 2 vials of the same type of Impact Oil in order to cause each Mini Javelin made to deal an additional 1d6 damage determined by the type of the oil.
 
 ## Tier 2
 ### Technique Training
@@ -94,7 +101,7 @@ Cillian has a specialized toolkit with the following properties:
 ### Enhanced Aptitude (Aptitude)
 * Both bonuses from Aptitude increase to +2.
 ### Stabilized Agents (Additive Agents)
-* You can now carry 8 Additive Agents.
+* You can now carry 6 Additive Agents.
 
 ### Formulae
 * Esoteric Fortifying Agent (250 gold)
@@ -109,8 +116,8 @@ Cillian has a specialized toolkit with the following properties:
 * You have learned how to effectively wear an additional Canister Belt as a Bandolier, allowing you to wear two at the same time.
 ### Additional Vial Belt
 * You have learned how to effectively wear an additional Vial Belt, allowing you to wear three at the same time.
-### Stabilized Agents (Stabalized Agenters (Tier 4))
-* You can now carry 10 Additive Agents safely.
+### Stabilized Agents (Stabilized Agents (Tier 4))
+* You can now carry 8 Additive Agents safely.
 ### Rapid Additives (Additive Agents)
 * You may now add 2 agents when you apply an oil or administer a serum.
 
@@ -121,8 +128,8 @@ Cillian has a specialized toolkit with the following properties:
 * Your Javelin Launcher's Base Bonus increases by 1.
 ### Enhanced Aptitude (Enhanced Aptitude (Tier 4))
 * Both bonuses from Aptitude increase to +3.
-### Stabilized Agents (Stabalized Agents (Tier 5))
-* You can now carry 12 Additive Agents safely.
+### Stabilized Agents (Stabilized Agents (Tier 5))
+* You can now carry 10 Additive Agents safely.
 
 # Path Goals
 * TBD
