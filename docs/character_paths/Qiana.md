@@ -61,7 +61,7 @@ A specialized toolkit with the following properties.
 ## Tier 4
 ### Improved Lethality (Lethality)
 * The bonus provided by Lethality increases to +2.
-### Enhanced Aptitude (Aptitude)
+### Aptitude – Rank 2 (Aptitude – Rank 1)
 * All bonuses from Aptitude increase to +2.
 ### Mortar Fire (Canister Launcher)
 * If you are Hidden when you fire a canister bomb from Supremacy, any saves made against the bomb's effects are made at Disadvantage.
@@ -100,12 +100,12 @@ As an Action you can directly feed aether in to the trap in the form of essence 
 * Uncommon Essence: 2 charges
 ### Enlarged Trap (Aether Trap)
 * Your Aether Trap gains +5 charges to its capacity.
+### Jumpstart the Field (Stealth Field Generator, Aether Trap) | 2 Charges
+* You may manually activate your Stealth Field Generator by releasing aether in to it as a Bonus Action.
 
 ## Tier 6
 ### Greater Lethality (Improved Lethality)
 * The bonus provided by Lethality increases to +3.
 * Supremacy's Critical Hit Threshold is reduced by 1.
-### Enhanced Aptitude (Enhanced Aptitude (Tier 4))
+### Aptitude – Rank 3 (Aptitude – Rank 2)
 * All bonuses from Aptitude increase to +3.
-### Jumpstart the Field (Stealth Field Generator, Aether Trap) | 2 Charges
-* You may manually activate your Stealth Field Generator by releasing aether in to it as a Bonus Action.

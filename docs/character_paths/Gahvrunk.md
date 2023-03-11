@@ -44,15 +44,15 @@ The name and description of each feature along the path is listed below. If a fe
 * Additional engravings are added to the Bracers of the Totem Warrior. Its bonus to AC and Saving Throws increases to +2.
 
 ## Tier 5
-### Rampaging Fury
+### Rampaging Fury (Reckless Rampage)
 * Reckless Rampage now allows you to make two attacks with your bonus action.
-### Rampaging Whirlwind
+### Rampaging Whirlwind (Whirlwind Attack)
 * Your Whirlwind Attack no longer needs to reduce a creature to 0 hit points for you to repeat the attack.
 ### Master Shamanism (Advanced Shamanism)
 * You may now choose two features with your Shamanistic Training, and one of them may be a Totemic Attunement.
 
 ## Tier 6
-### Master Fury
+### Master Fury (Improved Fury)
 * A *Weapon of Barbaric Fury* now has a +3 bonus to Attack and Damage for you.
 * Your critical hit threshold is reduced by 1 with a *Weapon of Barbaric Fury*.
 ### Runic Inscription (Runic Engravings)

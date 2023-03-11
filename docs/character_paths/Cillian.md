@@ -101,7 +101,7 @@ Cillian has a specialized toolkit with the following properties:
 * Your Javelin Launcher's Base Bonus increases by 1.
 ### Aptitude – Rank 2 (Aptitude – Rank 1)
 * Both bonuses from Aptitude increase to +2.
-### Stabilized Agents (Additive Agents)
+### Stabilized Agents – Rank 1 (Additive Agents)
 * You can now carry 6 Additive Agents.
 
 ### Formulae
@@ -117,7 +117,7 @@ Cillian has a specialized toolkit with the following properties:
 * You have learned how to effectively wear an additional Canister Belt as a Bandolier, allowing you to wear two at the same time.
 ### Additional Vial Belt
 * You have learned how to effectively wear an additional Vial Belt, allowing you to wear three at the same time.
-### Stabilized Agents (Stabilized Agents (Tier 4))
+### Stabilized Agents – Rank 2 (Stabilized Agents – Rank 1)
 * You can now carry 8 Additive Agents safely.
 ### Rapid Additives (Additive Agents)
 * You may now add 2 agents when you apply an oil or administer a serum.
@@ -129,7 +129,7 @@ Cillian has a specialized toolkit with the following properties:
 * Your Javelin Launcher's Base Bonus increases by 1.
 ### Aptitude – Rank 3 (Aptitude – Rank 2)
 * Both bonuses from Aptitude increase to +3.
-### Stabilized Agents (Stabilized Agents (Tier 5))
+### Stabilized Agents – Rank 3 (Stabilized Agents – Rank 2)
 * You can now carry 10 Additive Agents safely.
 
 # Path Goals
