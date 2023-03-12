@@ -33,12 +33,15 @@ Currently wielded by Drake 'Mento' Corwin after receiving them as a surprise gif
 # True Awakened Tier Features
 * Pinpoint Strike (Passive Effect)
 	* Your critical hit threshold with both swords is reduced by 1.
-	* An attack roll of 30 or higher with either sword is considered a Critical Hit
+	* The Weapon Dice of both Lineage & Legacy are treated as Exploding Dice.
 * Truly Awaken Lineagy & Legacy (Passive Ability) - Action | Once per Long Rest | Variable Duration
 	* Sets Lineagy & Legacy's True Awakening to an 'Active' state, enabling use of all Active Features from the True Awakened Tier
-		- Durability – 12
-		- Toll – You suffer 2 levels of exhaustion. Additionally, your movement speed is halved until you finish a long rest
-* Generational Inspiration (Active Ability) - Special Action | 1 Durability
-	* Add a 1d12 Bardic Inspiration die to a failed d20 test
+		* Durability – 12
+		* Toll – You suffer 2 levels of exhaustion. Additionally, your movement speed is halved until you finish a long rest
+* Generational Inspiration (Active Effect)
+	* You gain a 1d12 Bardic Inspiration die at the start of each of your turns.
+	* This die can be used in either of the following ways:
+		* Free Action – Applied as a bonus to an Attack Roll, Saving Throw, Ability Check, or Damage Roll that you make.
+		* Reaction – Applied as either a bonus or a penalty to an Attack Roll, Saving Throw, Ability Check, or Damage Roll that another creature makes.
 * Ancestral Premonitions (Active Effect)
 	* You have the benefits of the Foresight spell

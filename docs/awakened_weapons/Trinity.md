@@ -11,7 +11,9 @@
 
 * Thor’s Might (Passive Ability) – Special Action | Proficieny Bonus Per Long Rest
 	* When you make an attack with Trinity, you can invoke Thor’s Might. If you do you gain the following benefits:
-		- If you threw Trinity at a distant target, you don’t let go of the handle and instead it pulls you through the air after it. This movement doesn't use any of your movement for the turn but it does provoke Opportunity Attacks as normal. After the attack resolves you end in the first square adjacent to the target along the path you traveled to reach it.
+		- If you threw Trinity at a distant target, you don’t let go of the handle and instead it pulls you through the air after it.
+			* This movement doesn't use any of your movement for the turn but it does provoke Opportunity Attacks as normal.
+			* Trinity pulls you in the most direct path towards the target, and you end the movement adjacent to the target.
 		- If the Attack hits, you can immediately use a Bonus Action to make an additional Melee Attack with Trinity against the same target.
 
 # Awakened Tier Features

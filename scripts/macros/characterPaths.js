@@ -4,6 +4,7 @@ import { haradin } from './characterPaths/haradin.js';
 import { qiana } from './characterPaths/qiana.js';
 import { sapphie } from './characterPaths/sapphie.js';
 import { tiko } from './characterPaths/tiko.js';
+import { cillian } from './characterPaths/cillian.js';
 
 export let characterPaths = {
 	'angelo': angelo,
@@ -11,5 +12,6 @@ export let characterPaths = {
 	'haradin': haradin,
 	'qiana': qiana,
 	'sapphie': sapphie,
-	'tiko': tiko
+	'tiko': tiko,
+	'cillian': cillian
 }
