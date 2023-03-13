@@ -67,7 +67,7 @@ async function createMacro(name, content, isGM) {
 	}
 }
 export async function setupWorldMacros() {
-	await createMacro('hexDamage', damageBonusMacro('hex'), false);
+	await createMacro('hexDamage', damageBonusMacro('hexDamage'), false);
 	await createMacro('applyThrumming', itemOnUseMacro('applyThrumming'), false);
 	await createMacro('thrummingExplosion', itemOnUseMacro('thrummingExplosion'), false);
 	await createMacro('sneakAttack', damageBonusMacro('sneakAttack'), false);
@@ -83,6 +83,7 @@ export async function setupWorldMacros() {
 	await createMacro('sightedDamage', damageBonusMacro('sightedDamage'), false);
 	await createMacro('blazeCanister', itemOnUseMacro('blazeCanister'), false);
 	await createMacro('resetBlazeCount', characterPaths.qiana.resetBlazeMacro, false);
+	await createMacro('analyzeDamage', damageBonusMacro('analyzeDamage'), false);
 }
 async function useOnUse(args, itemName) {
 	switch (itemName) {
@@ -133,7 +134,7 @@ async function useOnUseMulti(args, itemName, pass) {
 async function damageBonus(args, itemName) {
 	let result = {};
 	switch (itemName) {
-		case 'hex': 
+		case 'hexDamage': 
 			result = await spells.hex.damage(args);
 			return result;
 		case 'sneakAttack':
@@ -151,6 +152,9 @@ async function damageBonus(args, itemName) {
 		case 'sightedDamage':
 			result = await characterPaths.qiana.targetingGuidance.damage(args);
 			return result;
+		case 'analyzeDamage':
+			result = await characterPaths.tiko.analyze.damage(args);
+			break;
 		default:
 			ui.notifications.warn('Invalid Damage Bonus Macro!');
 			return result;
