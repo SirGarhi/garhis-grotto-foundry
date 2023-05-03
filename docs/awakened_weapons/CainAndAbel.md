@@ -27,7 +27,7 @@ Abel is a custom built 'Hexgun' that Dr. Hermes wields as a Spellcasting Focus.
 	* When you cast a spell to summon a creature, you can pass off control of the creature to A2.
 	* A2 maintains concentration on the spell and directs its actions in combat.
 * Limitless Overflow (Active Effect)
-	* When you use Overflow Blast you don't expend an alotted use of that bility.
+	* When you use Overflow Blast you don't expend an alotted use of that ability.
 
 # True Awakened Tier
 * Mastered Bladesong (Passive Effect)

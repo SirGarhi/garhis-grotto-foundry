@@ -35,6 +35,7 @@ This is not an exhaustive list. If you have ideas for your own type of serum, by
 * Unless awoken by significant noise or deliberate action, they wake at the end of the hour having gained the benefits of a Short Rest and recovering one level of exhaustion.
 ### Minor Healing Serum (25 gold)
 * The drinker regains 2d4 hit points and an additional 2d4 at the start of its turn for three turns.
+* The drinker becomes immune to the effects of Minor Healing Serum for one hour.
 
 ## Tier 2
 ### Wolverine Serum (100 gold)
@@ -45,6 +46,7 @@ This is not an exhaustive list. If you have ideas for your own type of serum, by
 ## Tier 3
 ### Healing Serum (150 gold)
 * The drinker regains 3d8 hit points and an additional 3d8 at the start of its turn for three turns.
+* The drinker becomes immune to the effects of Healing Serum for 8 hours.
 ### Willow Serum (150 gold)
 * The drinker becomes immune to the Grappled, Paralyzed, Prone, Restrained, and Stunned conditions for one minute.
 
@@ -59,5 +61,6 @@ This is not an exhaustive list. If you have ideas for your own type of serum, by
 * The drinker gains a +4 bonus to all Attack Rolls at the cost of a -2 penalty to AC and Dexterity Saving Throws for 1 minute.
 ### Greater Healing Serum (500 gold)
 * The drinker regains 4d12 hit points and an additional 4d12 at the start of its turn for three turns.
+* The drinker becomes immune to the effects of Greater Healing Serum for 24 hours.
 
 ## Tier 6
