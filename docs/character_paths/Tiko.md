@@ -23,7 +23,7 @@ Infinity is a specially built Bladed Tech Staff with the following properties:
 * Infinity grants a +1 bonus to Spell Attack, Spell Damage, and the Save DC of any spell cast using it as a focus.
 ### Aetheric Overcharge (Infinity)
 * You add your Intelligence modifier as force damage to the damage roll of any spell you cast that deals damage.
-> Once both *Mechanized Assitance* and *Aetheric Overcharge* are earned, Infinity requires Attunement.
+> Once both *Mechanized Assistance* and *Aetheric Overcharge* are earned, Infinity requires Attunement.
 ### Specialized Tool (Infinity)
 Infinity is able to integrate with your Arcane Armor granting the following benefits depending on its configuration:
 * Thunder Gauntlets
@@ -36,7 +36,7 @@ Infinity is able to integrate with your Arcane Armor granting the following bene
 
 ## Tier 3
 ### Aether Trap
-You have devised an aether trap to allow for the containement and directed release of aether.
+You have devised an aether trap to allow for the containment and directed release of aether.
 * The trap has a capacity of 20 charges.
 * The trap passively absorbs aether from everything around it at a slow rate.
 * At the end of a Long Rest, the trap gains 1d8 + 4 charges.
@@ -101,19 +101,19 @@ By carefully releasing specific quantities of aether from the trap you are able 
 ### Rapid Harnessing (Aether Trap)
 Once per day, you can trigger your trap to more aggressively harvest aether from any source nearby.
 * After one hour, which can coincide with a Short Rest, the trap recovers 1d12 + 4 charges.
-* Actively using the trap by feeding it with essence or powering the resonator interupts this process.
+* Actively using the trap by feeding it with essence or powering the resonator interrupts this process.
 ### Violently Resonating Blade (Harmonic Resonator) | 8 Charges, Upkeep 2
 As a Bonus Action you release even more aether in to the resonator to cause it to vibrate violently, granting the following benefits
 * The weapon gains a +2 bonus to Melee Attack Rolls and its attacks are considered magical.
 * The weapon deals an additional 3d8 Force Damage with each hit.
-* Can be used at the same time as the standard Resonating Blade, the effects and costs are cummulative.
+* Can be used at the same time as the standard Resonating Blade, the effects and costs are cumulative.
 
 ## Tier 6
 ### Nanite Infusion (Overcharged Rotors)
 * All bonuses provided by Mechanized Assistance increase to +3
 ### Essence Leech (Aether Trap)
 The Aether Trap has been modified to capture the aether that typically escapes when a creature dies or is grievously wounded
-* When a non trivial (per DM's discretion) creature within 10 feet of the trap is reduced to 0 hitpoints or suffers a critcal hit, the trap gains 1d4+2 charges.
+* When a non trivial (per DM's discretion) creature within 10 feet of the trap is reduced to 0 hit points or suffers a critical hit, the trap gains 1d4+2 charges.
 ### Power Overwhelming (Directed Power)
 You gain additional options for use with the *Directed Power* feature
 * 8 Charges

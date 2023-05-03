@@ -7,6 +7,7 @@
 * **Passive** – A feature that is always available once earned.
 * **Active** – A feature that is only available when the appropriate tier of power is considered 'active.'
 * **Tier** – A collection of features of similar power level.
+* **Toll** – The effects inflicted on your character at the end of an Awakening or True Awakening.
 
 ## Tiers of Power
 There are three overall Tiers to an Awakened Style weapon:
@@ -35,30 +36,27 @@ This bonus is not tied directly to which tier of power the item has achieved, bu
 A good rule of thumb is that the weapon will achieve a +1 bonus upon earning an Awakened Tier feature, a +2 bonus upon earning a True Awakened Tier feature, and a +3 bonus upon unlocking the entirety of the True Awakened Tier.
 
 # Awakening Mechanics
-You Awaken your weapon as a Bonus Action on your turn, gaining access to all Active features you have earned from the Awakened Tier for the duration of the weapon's awakening, which lasts for one hour.
+You Awaken your weapon as a Bonus Action on your turn, gaining access to all Active features you have earned from the Awakened Tier for the duration of the weapon's awakening, which lasts for one minute, ending early if you are reduced to 0 hitpoints.
 
-You can Awaken your weapon once, and regain the ability to do so at the end of a Long Rest.
+When your Awakening ends, you suffer a toll of one level of Exhaustion.
 
-At the DM's discretion, though generally expected by around the time you start earning True Awakened Tier features, you can earn the feature to regain the ability to Awaken after a Short Rest as well as a Long Rest.
+If you Awaken again before completing a long rest, you suffer one more level of Exhaustion for each time you've awakened (2 levels for the second Awakening, for a total of 3; 3 levels for the 3rd Awakening, for a total of 6...)
 
 # True Awakening Mechanics
 ## Term Definitions
 * **Durability** – A measure of how long your weapon can remain in it's Truly Awoken state.
-* **Toll** – The effects inflicted on your character for activating the True Awakening.
 
 ## Design Notes
-Most of the Toll effects are designed with the Exhaustion mechanics of the One D&D playtest in mind. These mechanics provide a linear scale of exhaustion penalties so you can be more liberal with applying it. A Toll of 3 Exhaustion Levels will certainly be felt by the player, but it's not cripplingly debilitating to the point that the character becomes effectively useless at everything.
+True Awakenings are meant to be incredibly powerful, and leave you drained but by no means unable to function entirely. As such, the standard toll for utilizing a True Awakening is 3 levels of Exhaustion. Additional effects may also be incurred based on the individual weapon.
 
 ## True Awakening Process
-You Truly Awaken your weapon as an Action on your turn. When you activate your True Awakening, your Awakening also activates at the same time with no additional action cost and without expending an allotted use of that ability.
+You Truly Awaken your weapon as an Action on your turn. When you activate your True Awakening, you also gain all benefits of your regular Awakening until the True Awakening ends.
 
 At the start of each of your turns, your Durability goes down by 1.
 
 Certain active abilities may come with an additional cost to your Durability. If you don't have enough Durability left to cover the cost, you can't use these abilities.
 
-At the end of your turn, if your Durability is 0, your True Awakening ends and you immediately suffer the Toll.
-
-Your Awakening continues to persists for the entire hour as if you had activated it normally.
+At the end of your turn, if your Durability is 0, your True Awakening ends and you immediately suffer the Toll. You only suffer the toll of the True Awakening ending, you don't suffer any additional exhaustion associated with the normal Awakening also ending.
 
 # Weapon Writeups
 ## Feature Block
@@ -79,12 +77,9 @@ Limited Flight (Active Effect)
 
 Cunning Blade (Passive Ability) - Bonus Action | At-Will | Melee Attack
 - Swing or Throw your weapon at a target in range. This Attack is always eligible for Sneak Attack as long as you don't have disadvantage and haven't already used Sneak Attack this turn.
- 
+
 Thor’s Wrath (Active Ability) - Action | Twice Per Awakening | Dexterity Saving Throw | Half-Damage Save
 - You conjure Lightning in a 100 foot long, 5 foot wide line in a direction of your choice, dealing 60 Lightning damage to each creature in the line's path.
-
-Free Bless (Active Ability) - Action | At-Will | 60 Seconds | Up to 3 Targets
-- You apply Bless to the chosen targets. These effects do not require Concentration to maintain but will overwrite and be overwritten by a casting of the actual Bless spell.
 
 ### True Awakened Tier Active Abilities are slightly different, displaying thier Durability Cost as a property
 

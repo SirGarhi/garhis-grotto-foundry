@@ -14,7 +14,7 @@ Those who have attempted to study the core closely enough and for long enough sw
 # Awakened Tier Features
 * Awakened Healing (Passive Effect)
 	* Empowered Healing now restores an additional 1d6 hit points
-* Awaken the Core (Passive Ability) - Bonus Action | Once per Long Rest | One Hour Duration
+* Awaken the Core (Passive Ability) - Bonus Action | One Minute Duration
 	* Sets The Exalted Core's Awakening to the 'Active' state for the duration, enabling use of all Active Features from the Awakened Tier
 	* Causes the core to emit bright light in a 10 foot radius
 * Protective Resistance (Active Effect)
@@ -39,8 +39,7 @@ Those who have attempted to study the core closely enough and for long enough sw
 	* Empowered Healing now restores an additional 1d8 hit points
 * Truly Awaken the Core (Passive Ability) - Action | Once per Long Rest | Variable Duration
 	* Sets The Exalted Core's True Awakening to an 'Active' state, enabling use of all Active Features from the True Awakened Tier.
-		- Durability – 8
-		- Toll – You suffer 3 levels of exhaustion.
+		* Durability – 8
 	* Causes the core to emit bright light in a 60 foot radius
 	* Able to use the Guide them Well ability as part of the action to Truly Awaken with the following changes:
 		* Target up to 9 creatures

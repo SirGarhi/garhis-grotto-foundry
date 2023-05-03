@@ -20,14 +20,14 @@ Currently wielded by Drake 'Mento' Corwin after receiving them as a surprise gif
 * Enhanced Blades (Passive Effect)
 	* Lineage deals an additional 1d8 Piercing Damage on each hit
 	* Legacy deals an additional 1d6 Slashing Damage on each hit
-* Awaken Lineage & Legacy (Passive Ability) - Bonus Action | Once per Long Rest | One Hour Duration
+* Awaken Lineage & Legacy (Passive Ability) - Bonus Action | One Minute Duration
 	* Sets Lineagy & Legacy's Awakening to the 'Active' state for the duration, enabling use of all Active Features from the Awakened Tier
 	* Activates a use of Bladesong, if available
-* Flurry (Active Ability) - Action | At-Will | 1 Minute
-	* You apply the benefits of the Haste spell to yourself
+* Flurry (Active Effect) 
+	* You gain the benefits of the Haste spell
 	* Does not require concentration
 	* No ill effects when the ability expires
-* Generational Fury (Active Ability) - Action | Twice Per Awakening | Dexterity Saving Throw | Half-Damage Save
+* Generational Fury (Active Ability) - Action | Once Per Awakening | Dexterity Saving Throw | Half-Damage Save
 	* Each creature of your choice within the throwing range of Legacy takes 3d6 Slashing and 3d6 Piercing Damage and has their movement speed halved until the end of their next turn
 
 # True Awakened Tier Features
@@ -37,7 +37,6 @@ Currently wielded by Drake 'Mento' Corwin after receiving them as a surprise gif
 * Truly Awaken Lineagy & Legacy (Passive Ability) - Action | Once per Long Rest | Variable Duration
 	* Sets Lineagy & Legacy's True Awakening to an 'Active' state, enabling use of all Active Features from the True Awakened Tier
 		* Durability – 12
-		* Toll – You suffer 2 levels of exhaustion. Additionally, your movement speed is halved until you finish a long rest
 * Generational Inspiration (Active Effect)
 	* You gain a 1d12 Bardic Inspiration die at the start of each of your turns.
 	* This die can be used in either of the following ways:

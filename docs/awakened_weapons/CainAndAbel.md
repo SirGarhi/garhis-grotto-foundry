@@ -20,7 +20,7 @@ Abel is a custom built 'Hexgun' that Dr. Hermes wields as a Spellcasting Focus.
 		* Resistance to any other Damage Type.
 * Overflow Blast (Passive Ability) – Bonus Action | Intelligence Modifier Per Long Rest | Ranged Weapon Attack
 	* A creature within 120 feet takes 4d8 + Intelligence Modifier Force Damage.
-* Awaken Cain & Abel (Passive Ability) – Bonus Action | Once per Long Rest | One Hour Duration
+* Awaken Cain & Abel (Passive Ability) – Bonus Action | One Minute Duration
 	* Sets Cain & Abel's Awakening to the 'Active' state for the duration, enabling use of all Active Features from the Awakened Tier.
 	* Activates a use of Bladesong, if available
 * A.I. Mind (Passive Effect)
@@ -35,7 +35,6 @@ Abel is a custom built 'Hexgun' that Dr. Hermes wields as a Spellcasting Focus.
 * Truly Awaken Cain & Abel (Passive Ability) - Action | Once per Long Rest | Variable Duration
 	*  Sets Cain & Abel's True Awakening to an 'Active' state, enabling use of all Active Features from the True Awakened Tier
 	* True Awakening Durability – 12
-	* Toll – You suffer two levels of exhaustion. Additionally, you have Disadvantage on all Intelligence Ability Checks until you finish a Long Rest.
 * Blade Aura (Active Effect)
 	* Your Bladesong radiates in an aura, granting its effects to all allies within 30 feet.
 * Eldritch Beam (Active Ability) – Action (Cantrip) | 1 Durability | Dexterity Saving Throw | Half-Damage Save
