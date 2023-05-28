@@ -14,9 +14,9 @@ Potion Serums are kept in fragile vials. You can safely store some loosely in a 
 
 Potion Serums can be safely stored in a bag of holding or similar extradimensional space.
 
-> Player Note: The name of the game here is **be reasonable**. It's not intended that you carry around 200 Serums, even if you technically could safely through use of a bag of holding or similar.
+> Player Note: The idea here is **be reasonable**. It's not intended that you carry around 200 Serums, even if you technically could safely through use of a bag of holding or similar.
 
-A piece of equipment known as a **Vial Belt** can be crafted using leatherworker's tools and 2 units of Uncommon Leather. It provides the following benefits:
+A piece of equipment known as a **Vial Belt** can be crafted using leatherworker's tools from 4 leather scraps and one buckle. It provides the following benefits:
 * A Vial Belt has the capacity to safely store 3 Potion Serums.
 * As an Action, you can safely add, remove, or swap any number of serums from the belt.
 * You can store a single filled Vial Belt in a container such as a Backpack safely. They are also easily stored in a cart or horse's saddlebags.
@@ -27,6 +27,7 @@ A piece of equipment known as a **Vial Belt** can be crafted using leatherworker
 # Formulae
 This is not an exhaustive list. If you have ideas for your own type of serum, by all means propose them to the DM.
 
+The cost listed represents the materials required to craft a single serum.
 ## Tier 1
 ### Nighteye Serum (25 gold)  
 * Grants the drinker an additional 60 feet of Darkvision for one hour.

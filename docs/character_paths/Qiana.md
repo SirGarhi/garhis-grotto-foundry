@@ -21,7 +21,7 @@ This rifle started its life as a Tutelary Sentinel Weapon, though they would lik
 ### Ammo Smithing
 * With one hour's work you can craft 10 pieces of basic ammunition provided you have access to suitable scrap materials.
 ### [Canister Bombs](../canister_bombs.md)
-* You have learned the basic techniques of crafting Canister Bombs and know at least one formula.
+* You have learned the basic techniques of crafting Canister Bombs and can craft Tier 1 and Tier 2 bombs.
 ### Rapid Crafting (Canister Bombs)
 * You can safely craft one bomb with ten minutes of work.
 ### Scavenger's Tools
@@ -33,7 +33,7 @@ A specialized toolkit with the following properties.
 ### Lethality (Supremacy)
 * Supremacy gains a +1 bonus to Attack and Damage rolls.
 ### [Arcane Ammo Smithing](../arcane_ammo.md) (Ammo Smithing)
-* You've learned the basic techniques of crafting Arcane Ammunition and know at least one formula.
+* You've learned the basic techniques of crafting Arcane Ammunition and can craft Tier 1 and Tier 2 ammo.
 ### Aptitude (Canister Bombs, Arcane Ammo Smithing)
 * Your Bomb DC increases by 1.
 * Your Ammo DC increases by 1.
@@ -52,6 +52,8 @@ A specialized toolkit with the following properties.
 * A launching tube is fitted to the under barrel of Supremacy to allow the targeted firing of canister bombs.
 * A canister bomb fired in this way has a range of 60 feet.
 * You calculate your Bomb DC using your Dexterity Ability Score instead of your Intelligence when launching a bomb in this fashion.
+### Bomb Mastery - Rank 1 (Canister Bombs)
+* You can craft Tier 3 and Tier 4 bombs.
 ### Ambusher (Targeting Guidance)
 * On the first round of combat, you can *Sight* a creature with Targeting Guidance as a Free Action as long as you target a creature that has not acted yet.
 * If you target a creature that is surprised, you may make one weapon attack against that creature as a Bonus Action.
@@ -63,6 +65,8 @@ A specialized toolkit with the following properties.
 * The bonus provided by Lethality increases to +2.
 ### Aptitude – Rank 2 (Aptitude – Rank 1)
 * All bonuses from Aptitude increase to +2.
+### Ammo Mastery - Rank 1 (Arcane Ammo Smithing)
+* You can craft Tier 3 and Tier 4 Ammo.
 ### Mortar Fire (Canister Launcher)
 * If you are Hidden when you fire a canister bomb from Supremacy, any saves made against the bomb's effects are made at Disadvantage.
 ### Rapid Rituals
@@ -84,6 +88,8 @@ A means of safely storing and releasing aether in small, directed ways.
 ## Tier 5
 ### Master Ammo Smith (Ammo Smithing)
 * You now craft 20 pieces of ammunition with the time and materials it would normally take to craft 10.
+### Bomb Mastery - Rank 2 (Bomb Mastery - Rank 1)
+* You can craft Tier 5 and Tier 6 bombs.
 ### Enhanced Rifling (Supremacy)
 * The base damage of Supremacy increases to 2d12 Piercing.
 ### There's Always Some Fight Left
@@ -109,3 +115,5 @@ As an Action you can directly feed aether in to the trap in the form of essence 
 * Supremacy's Critical Hit Threshold is reduced by 1.
 ### Aptitude – Rank 3 (Aptitude – Rank 2)
 * All bonuses from Aptitude increase to +3.
+### Ammo Mastery - Rank 2 (Ammo Mastery - Rank 1)
+* You can craft Tier 5 and Tier 6 ammo.

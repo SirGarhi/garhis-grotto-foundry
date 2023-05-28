@@ -11,14 +11,14 @@ In addition to the standard requirements, crafting arcane ammo safely requires p
 # Storage and Handling
 Ammunition, even of an arcane variety, doesn't require any special care while handling or storing it. It is, however, bulky. Ammunition is generally carried in dedicated containers that hold 20 pieces of ammunition.
 
-> Player Note: The name of the game here is **be reasonable**. You should be able to carry a decent quantity of different types of ammunition, but not all of it will be readily accessible in the event of a sudden ambush.
+> Player Note: The idea here is **be reasonable**. You should be able to carry a decent quantity of different types of ammunition, but not all of it will be readily accessible in the event of a sudden ambush.
 >
 > Having 3 or 4 quivers or ammo pouches "equipped" and readily accessible is reasonable. Having 10 so you have every non physical damage type at hand is pushing it.
 
 # Formulae
 This is not an exhaustive list. If you have ideas for your own type of ammunition, by all means propose them to the DM.
 
-The cost of each formula represents the materials required to craft a bundle of 10 pieces of ammunition.
+The cost listed represents the materials required to craft 10 pieces of that type of ammunition.
 ## Tier 1
 ### Silvered (5 gold)
 * Bypasses Damage Resistance and Immunity to non-silvered weapons.
@@ -46,7 +46,7 @@ The cost of each formula represents the materials required to craft a bundle of 
 ### Blunderbuss (150 gold)
 * Your weapon no longer fires a single projectile but instead unleashes a 20-foot Cone of Shrapnel.
 * Make a Ranged Attack at each creature within the cone, dealing 4d12 Magical Piercing damage on a successful hit.
-### Esoteric Infusion (150 gold) [Force, Psychic, Radiant, Necrotic, Thunder]
+### Esoteric Infusion (200 gold) [Force, Psychic, Radiant, Necrotic, Thunder]
 * Deals an additional 1d8 damage of the chosen type.
 
 ## Tier 6

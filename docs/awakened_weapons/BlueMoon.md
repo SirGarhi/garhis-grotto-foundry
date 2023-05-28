@@ -1,4 +1,4 @@
-﻿Frostrage, Shard of the Frigid Moon
+﻿Blue Moon, Shard of the Frigid Moon
 
 This small chunk of frigid ice is hard as steel and never seems to increase in temperature no matter how hot the environment gets.
 
@@ -9,6 +9,8 @@ This small chunk of frigid ice is hard as steel and never seems to increase in t
 		* It can't be removed or effected by any external force until attunement is broken.
 * Piercing Cold (Passive Effect)
 	* Spells you cast bypass Resistance to Cold damage.
+* Frost Nova (Passive Ability) - Action | Dexterity Saving Throw | Speed halved on save
+	* Each creature within 10 feet has their speed reduces to 0.
 
 # Awakened Tier Features
 * Constant Cold (Passive Effect)

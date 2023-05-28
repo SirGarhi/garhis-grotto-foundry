@@ -10,7 +10,7 @@ Weapon Oils are an oily coating applied to a typically bladed weapon to grant it
 # Storage and Handling
 Unlike Serums and Bombs, Weapon Oils don't require any particularly special handling. You can easily hang a small pot of weapon oil from many different places on your belt in easy reach to apply in combat.
 
-> Player Note: The name of the game here is **be reasonable**. There are no explicit restrictions as to how you can safely carry weapon oils, but it's not intended that you have multiple uses of every type of oil you know available to you in combat.
+> Player Note: The idea here is **be reasonable**. There are no explicit restrictions as to how you can safely carry weapon oils, but it's not intended that you have multiple uses of every type of oil you know available to you in combat.
 >
 > 4-6 Individual oils? Sure, but the rest are probably in a bag of holding or backpack and would require some sort of inventory action to get access to.
 >
@@ -19,6 +19,7 @@ Unlike Serums and Bombs, Weapon Oils don't require any particularly special hand
 # Formulae
 This is not an exhaustive list. If you have ideas for your own type of oil, by all means propose them to the DM.
 
+The cost listed represents the materials required to craft a single application of oil.
 ## Tier 1
 ### Physical Impact Oil (15 gold)
 * Deals 2d6 damage of the weapon's type.
