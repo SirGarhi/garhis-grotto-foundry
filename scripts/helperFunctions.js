@@ -99,6 +99,9 @@ export let ggHelpers = {
 	},
 	'findNearby': function _findNearby(tokenDoc, range, disposition) {
 		let dispositionValue;
+		let allies;
+		let neutrals;
+		let hostiles;
 		switch (disposition) {
 			case 'ally':
 				dispositionValue = 1;
@@ -110,11 +113,11 @@ export let ggHelpers = {
 				dispositionValue = -1;
 				break;
 			case 'nonHostile':
-				let allies = MidiQOL.findNearby(1, tokenDoc, range);
-				let neutrals = MidiQOL.findNearby(0, tokenDoc, range);
+				allies = MidiQOL.findNearby(1, tokenDoc, range);
+				neutrals = MidiQOL.findNearby(0, tokenDoc, range);
 				return allies.concat(neutrals);
 			case 'nonAlly':
-				let hostiles = MidiQOL.findNearby(-1, tokenDoc, range);
+				hostiles = MidiQOL.findNearby(-1, tokenDoc, range);
 				neutrals = MidiQOL.findNearby(0, tokenDoc, range);
 				return hostiles.concat(neutrals);
 			default:

@@ -1,7 +1,10 @@
 import {ggHelpers} from '../../helperFunctions.js';
 import { queue } from '../../queue.js';
 async function huntersMarkItem({speaker, actor, token, character, item, args}) {
-	if (this.targets.size != 1) return;
+	if (this.targets.size != 1) {
+		ui.notifications.warn('Require exactly 1 target to cast Hunter\'s Mark'); 
+		return;
+	}
 	let featureData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Mark New Target', false);
 	if (!featureData) return;
 	let seconds;
@@ -118,7 +121,7 @@ async function huntersMarkTransfer({speaker, actor, token, character, item, args
 	let targetActor = targetToken.actor;
 	let effect = ggHelpers.findEffect(this.actor, 'Hunter\'s Mark');
 	if (!effect) return;
-	let oldTargetTokenId = this.actor.flags['garhis-grotto'].huntersMarkTarget;
+	let oldTargetTokenId = this.actor.flags['garhis-grotto'].spells.huntersMarkTarget;
 	let oldTargetToken = canvas.scene.tokens.get(oldTargetTokenId);
 	if (oldTargetToken) {
 		let oldTargetActor = oldTargetToken.actor;
