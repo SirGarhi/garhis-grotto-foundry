@@ -30,7 +30,7 @@ The cost listed represents the materials required to craft a single bomb.
 ### Poison Bomb
 * On impact releases gas in a 10-foot radius sphere.
 * Each creature in the sphere must make a Constitution Saving Throw.
-* On a Failure the creature takes 2d8 Poison Damage and is Poisoned for one minute.
+* On a Failure the creature takes 3d8 Poison Damage and is Poisoned for one minute.
 * On a Success a creature takes half damage and is not Poisoned.
 * A Poisoned creature can repeat the save at the end of each of its turns.
 ### Blaze Bomb
@@ -42,7 +42,7 @@ The cost listed represents the materials required to craft a single bomb.
 ### Shrapnel Bomb
 * On impact releases a wave of deadly shrapnel in every direction.
 * Each creature within a 10-foot radius of the point of impact must make a Dexterity Saving Throw.
-* On a Failure, the creature takes 2d6 Piercing Damage and any movement speed it has is halved until the end of its next turn.
+* On a Failure, the creature takes 3d6 Piercing Damage and any movement speed it has is halved until the end of its next turn.
 * On a Success, the creature takes half damage and no other effects.
 ### Explosive Bomb
 * On impact releases a concussive wave of fire.
@@ -90,7 +90,7 @@ The cost listed represents the materials required to craft a single bomb.
 * Undead and Fiends make this save at Disadvantage.
 ### Psychic Lash Bomb
 * On impact detonates in a 10-foot radius of psionic energy.
-* Each creature within the radius takes 6d4 Psychic Damage and must make a Wisdom Saving Throw. 
+* Each creature within the radius takes 6d4 Psychic Damage and must make an Intelligence Saving Throw. 
 * On a failure they must add a 1d4 penalty to every Attack Roll and Saving Throw made for one minute.
 	* A creature afflicted by the bomb can repeat the Saving Throw at the end of each of their turns, ending the effect on a success.
 * Concentration checks made as a result of this bomb's damage are made at Disadvantage.

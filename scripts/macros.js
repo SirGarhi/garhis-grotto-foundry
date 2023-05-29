@@ -17,16 +17,10 @@ export let macros = {
 	'awakenedWeapons': awakenedWeapons,
 	'items': inventoryItems
 }
-function actorOnUseMacro(macroName) {
-	return 'await garhisGrotto.macros.onUse(this, "' + macroName + '");';
-}
-function actorOnUseMultiPassMacro(macroName) {
-	return 'await garhisGrotto.macros.onUseMulti(this, "' + macroName + '", args[0].macroPass);'
-}
-function itemOnUseMacro(macroName) {
+function onUseMacro(macroName) {
 	return 'await garhisGrotto.macros.onUse(args, "' + macroName + '");';
 }
-function itemOnUseMultiPassMacro(macroName) {
+function onUseMultiPassMacro(macroName) {
 	return 'await garhisGrotto.macros.onUseMulti(args, "' + macroName + '", args[0].macroPass);'
 }
 function damageBonusMacro(macroName) {
@@ -68,29 +62,37 @@ async function createMacro(name, content, isGM) {
 }
 export async function setupWorldMacros() {
 	await createMacro('hexDamage', damageBonusMacro('hexDamage'), false);
-	await createMacro('applyThrumming', itemOnUseMacro('applyThrumming'), false);
-	await createMacro('thrummingExplosion', itemOnUseMacro('thrummingExplosion'), false);
+	await createMacro('applyThrumming', onUseMacro('applyThrumming'), false);
+	await createMacro('applyPotentThrumming', onUseMacro('applyPotentThrumming'), false);
+	await createMacro('thrummingExplosion', onUseMacro('thrummingExplosion'), false);
+	await createMacro('potentThrummingExplosion', onUseMacro('potentThrummingExplosion'), false);
 	await createMacro('sneakAttack', damageBonusMacro('sneakAttack'), false);
-	await createMacro('greenFlameBladeSplash', itemOnUseMacro('greenFlameBladeSplash'), false);
-	await createMacro('twilightSanctuary', itemOnUseMacro('twilightSanctuary'), false);
+	await createMacro('greenFlameBladeSplash', onUseMacro('greenFlameBladeSplash'), false);
+	await createMacro('greenFlameBladeSplashPotent', onUseMacro('greenFlameBladeSplashPotent'), false);
+	await createMacro('twilightSanctuary', onUseMacro('twilightSanctuary'), false);
 	await createMacro('updateConvenientEffects', 'garhisGrotto.effects.updateConvenientEffects()', false);
 	await createMacro('piercerCriticalBonus', damageBonusMacro('piercerBonus'), false);
 	await createMacro('venomfangDamage', damageBonusMacro('venomfangDamage'), false);
-	await createMacro('petalSlash', itemOnUseMacro('petalSlash'), false);
+	await createMacro('petalSlash', onUseMacro('petalSlash'), false);
 	await createMacro('giantsBane', damageBonusMacro('giantsBane'), false);
-	await createMacro('hemorrhagingStrikes', itemOnUseMacro('hemorrhagingStrikes'), false);
-	await createMacro('concussiveTechnique', itemOnUseMacro('concussiveTechnique'), false);
+	await createMacro('hemorrhagingStrikes', onUseMacro('hemorrhagingStrikes'), false);
+	await createMacro('concussiveTechnique', onUseMacro('concussiveTechnique'), false);
 	await createMacro('sightedDamage', damageBonusMacro('sightedDamage'), false);
-	await createMacro('blazeCanister', itemOnUseMacro('blazeCanister'), false);
-	await createMacro('resetBlazeCount', characterPaths.qiana.resetBlazeMacro, false);
 	await createMacro('analyzeDamage', damageBonusMacro('analyzeDamage'), false);
 }
 async function useOnUse(args, itemName) {
 	switch (itemName) {
 		case 'applyThrumming':
 			await spells.boomingBlade.applyThrumming(args);
+			break;
+		case 'applyPotentThrumming':
+			await spells.boomingBlade.applyPotentThrumming(args);
+			break;
 		case 'thrummingExplosion':
 			await spells.boomingBlade.thrummingExplosion(args);
+			break;
+		case 'potentThrummingExplosion':
+			await spells.boomingBlade.potentThrummingExplosion(args);
 			break;
 		case 'astralTrance':
 			await features.trance.astralTrance(args);
@@ -101,23 +103,11 @@ async function useOnUse(args, itemName) {
 		case 'greenFlameBladeSplash':
 			await spells.greenFlameBlade.splash(args);
 			break;
+			case 'greenFlameBladeSplashPotent':
+				await spells.greenFlameBlade.splashPotent(args);
+				break;
 		case 'twilightSanctuary':
 			await features.class.cleric.twilightSanctuary(args);
-			break;
-		case 'petalSlash':
-			await characterPaths.angelo.petalSlash(args);
-			break;
-		case 'hemorrhagingStrikes':
-			await characterPaths.haradin.hemorrhagingStrikes(args);
-			break;
-		case 'concussiveTechnique':
-			await characterPaths.haradin.concussiveTechnique(args);
-			break;
-		case 'concussiveStrike':
-			await characterPaths.haradin.concussiveStrike(args);
-			break;
-		case 'blazeCanister':
-			await characterPaths.qiana.blazeCanister(args);
 			break;
 		default:
 			ui.notifications.warn('Garhis Grotto: No onUse macro named: '+itemName);

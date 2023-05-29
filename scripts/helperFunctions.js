@@ -113,6 +113,10 @@ export let ggHelpers = {
 				let allies = MidiQOL.findNearby(1, tokenDoc, range);
 				let neutrals = MidiQOL.findNearby(0, tokenDoc, range);
 				return allies.concat(neutrals);
+			case 'nonAlly':
+				let hostiles = MidiQOL.findNearby(-1, tokenDoc, range);
+				neutrals = MidiQOL.findNearby(0, tokenDoc, range);
+				return hostiles.concat(neutrals);
 			default:
 				dispositionValue = null;
 		}
@@ -126,7 +130,43 @@ export let ggHelpers = {
 		}
 		roll._total += addonFormulaRoll.total;
 		roll._formula = roll._formula + ' + ' + addonFormula;
+		Hooks.once("midi-qol.DamageRollComplete", async (workflow) => {
+			let totalDamage = 0;
+			let merged = workflow.damageDetail.reduce((acc, item) => {
+			  acc[item.type] = (acc[item.type] ?? 0) + item.damage;
+			  return acc;
+			}, {});
+		
+			const newDetail = Object.keys(merged).map((key) => { return { damage: Math.max(0, merged[key]), type: key } });
+			totalDamage = newDetail.reduce((acc, value) => acc + value.damage, 0);
+			workflow.damageDetail = newDetail;
+			workflow.damageTotal = totalDamage;
+		
+			workflow.damageRoll._total = workflow.damageTotal;
+			workflow.damageRollHTML = await workflow.damageRoll.render();
+		
+			//await workflow.displayDamageRoll()
+			return true;
+		});
 		return roll;
+	},
+	'renderNewRoll': async function _renderNewRoll(workflow) {
+		let totalDamage = 0;
+		let merged = workflow.damageDetail.reduce((acc, item) => {
+			acc[item.type] = (acc[item.type] ?? 0) + item.damage;
+			return acc;
+		}, {});
+	
+		const newDetail = Object.keys(merged).map((key) => { return { damage: Math.max(0, merged[key]), type: key } });
+		totalDamage = newDetail.reduce((acc, value) => acc + value.damage, 0);
+		workflow.damageDetail = newDetail;
+		workflow.damageTotal = totalDamage;
+	
+		workflow.damageRoll._total = workflow.damageTotal;
+		workflow.damageRollHTML = await workflow.damageRoll.render();
+	
+		//await workflow.displayDamageRoll()
+		return true;
 	},
 	'getSpellDCFromItem': function _getSpellDC(item) {
 		let spellDC;
@@ -305,5 +345,16 @@ export let ggHelpers = {
 	'getActorByUuid': async function _getActorByUuid(actorUuid) {
 		let actor = await fromUuid(actorUuid);
 		return ggHelpers.tokenOrActor(actor);
+	},
+	'perTurnCheck': function _perTurnCheck(originItem, type, name, ownTurnOnly, tokenId) {
+		if (game.combat === null || game.combat === undefined) return true;
+		if (ownTurnOnly && (tokenId != game.combat.current.tokenId)) return false;
+		let currentTurn = game.combat.round + '-' + game.combat.turn;
+		let previousTurn = originItem.flags['garhis-grotto']?.[type]?.[name]?.turn;
+		if (currentTurn != previousTurn) return true;
+		return false;
+	},
+	'inCombat': function _inCombat() {
+		return !(game.combat === null || game.combat === undefined || game.combat?.started === false);
 	}
 };

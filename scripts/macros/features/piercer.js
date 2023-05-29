@@ -1,33 +1,27 @@
 ﻿import { ggHelpers } from '../../helperFunctions.js';
-
-async function piercerDamageBonus(workflow) {
-	if (!workflow.isCritical) return;
-	if (workflow.hitTargets.size !== 1) return;
-	const dice = workflow.damageRoll.dice.filter(val => (val.options.flavor === 'piercing' || val.options.flavor === 'Piercing'));
-	if (!dice.length > 0) return;	
-	let biggestDie = 0;
-	for (let die of dice) {
-		if (die.faces > biggestDie) biggestDie = die.faces;
-	}
-	if (biggestDie > 0) return {damageRoll: `1d${biggestDie}[piercing]`, flavor: 'Piercer Feat Critical Bonus'};
-	return {};
-}
+import { queue } from '../../queue.js';
 
 async function piercerReroll(args, rerollThreshold) {
 	// console.log(args);
 	const lastArg = args[args.length-1];
 	if (lastArg.hitTargets.length < 1) return;
-	if (game.combat) {
-		const combatTime = `${game.combat.id}-${game.combat.round + game.combat.turn /100}`;
-		const lastTime = lastArg.actor.getFlag("garhis-grotto", "piercerRerollTime");
-		if (combatTime === lastTime) {
-			console.warn("GG | Piercer: Already re-rolled a die this turn");
-			return;
-		}
-	}
+	// if (game.combat) {
+	// 	const combatTime = `${game.combat.id}-${game.combat.round + game.combat.turn /100}`;
+	// 	const lastTime = lastArg.actor.getFlag("garhis-grotto", "piercerRerollTime");
+	// 	if (combatTime === lastTime) {
+	// 		console.warn("GG | Piercer: Already re-rolled a die this turn");
+	// 		return;
+	// 	}
+	// }
+	if (!ggHelpers.perTurnCheck(lastArg.actor, 'feat', 'piercer', false, lastArg.tokenId)) return;
 	if (!["mwak", "rwak", "msak", "rsak"].includes(lastArg.item.system.actionType)) return;
+	let queueSetup = await queue.setup(lastArg.item.uuid, 'piercerReroll', 390);
+    if (!queueSetup) return;
 	const dice = lastArg.damageRoll.dice.filter(val => (val.options.flavor === 'piercing' || val.options.flavor === 'Piercing'));
-	if (!dice.length > 0) return;
+	if (!dice.length > 0) {
+		queue.remove(lastArg.item.uuid);
+		return;
+	}
 	let possibleRerolls = [];
 	for (let die of dice) {
 		for (let result of die.results) {
@@ -95,17 +89,11 @@ async function piercerReroll(args, rerollThreshold) {
 			//await workflow.displayDamageRoll()
 			return true;
 		});
-		if (game.combat) {
-			const combatTime = `${game.combat.id}-${game.combat.round + game.combat.turn /100}`;
-			const lastTime = lastArg.actor.getFlag("garhis-grotto", "piercerRerollTime");
-			if (combatTime !== lastTime) {
-				await lastArg.actor.setFlag("garhis-grotto", "piercerRerollTime", combatTime)
-			}
-		}		
+		if (ggHelpers.inCombat()) await lastArg.actor.setFlag('garhis-grotto', 'feat.piercer.turn', game.combat.round + '-' + game.combat.turn);
 	}
+	queue.remove(lastArg.item.uuid);
 }
 
 export let piercer = {
-	'damageBonus': piercerDamageBonus,
 	'reroll': piercerReroll
 }

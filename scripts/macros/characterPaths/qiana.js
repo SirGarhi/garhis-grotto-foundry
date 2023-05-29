@@ -1,4 +1,5 @@
 ﻿import { ggHelpers } from '../../helperFunctions.js';
+import { queue } from '../../queue.js';
 import { pathFeatureEffects } from '../../effects/pathFeatureEffects.js';
 
 async function chromaticInfusion(args) {
@@ -19,20 +20,20 @@ async function chromaticInfusion(args) {
 	await ggHelpers.createEffect(actor, effect);
 }
 
-async function targetingGuidanceItem(workflow) {
-	if (workflow.targets.size != 1) return;
+async function targetingGuidanceItem({speaker, actor, token, character, item, args}) {
+	if (this.targets.size != 1) return;
 	let featureData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Sight New Target', false);
 	if (!featureData) return;
 	let targetEffectData = {
-		'label': `Sighted - ${workflow.actor.name}`,
-		'icon': workflow.item.img,
-		'origin': workflow.actor.uuid,
+		'label': `Sighted - ${this.actor.name}`,
+		'icon': this.item.img,
+		'origin': this.actor.uuid,
 		'duration': {
 			'seconds': 60
 		},
 		'changes': []
 	};
-	await ggHelpers.createEffect(workflow.targets.first().actor, targetEffectData);
+	await ggHelpers.createEffect(this.targets.first().actor, targetEffectData);
 	async function effectMacro() {
 		await warpgate.revert(token.document, 'Targeting Guidance');
 		let targetTokenId = effect.changes[0].value;
@@ -45,23 +46,23 @@ async function targetingGuidanceItem(workflow) {
 	}
 	let sourceEffectData = {
 		'label': 'Targeting Guidance',
-		'icon': workflow.item.img,
+		'icon': this.item.img,
 		'changes': [
 			{
-				'key': 'flags.garhis-grotto.targetingGuidance.sightedTarget',
-				'mode': CONST.ACTIVE_EFFECT_MODES.CUSTOM,
-				'value': workflow.targets.first().id,
+				'key': 'flags.garhis-grotto.targetingGuidanceTarget',
+				'mode': CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
+				'value': this.targets.first().id,
 				'priority': 20
 			},
 			{
-				'key': 'flags.dnd5e.DamageBonusMacro',
+				'key': 'flags.midi-qol.onUseMacroName',
 				'mode': 0,
-				'value': 'GG_sightedDamage',
+				'value': 'function.garhisGrotto.macros.paths.qiana.targetingGuidance.damage,postDamageRoll',
 				'priority': 20
 			}
 		],
 		'transfer': false,
-		'origin': workflow.item.uuid,
+		'origin': this.item.uuid,
 		'duration': {
 			'seconds': 600
 		},
@@ -88,41 +89,44 @@ async function targetingGuidanceItem(workflow) {
 		'name': 'Targeting Guidance',
 		'description': sourceEffectData.label
 	};
-	await warpgate.mutate(workflow.token.document, updates, {}, options);
+	await warpgate.mutate(this.token.document, updates, {}, options);
 }
-async function targetingGuidanceDamage(workflow) {
-	if (workflow.hitTargets.size != 1) return;
-	let sightedTarget = ggHelpers.findEffect(workflow.actor, 'Targeting Guidance')?.changes[0]?.value;
-	let targetToken = workflow.hitTargets.first();
-	if (targetToken.id != sightedTarget) return;
-	let damage = "1d6[piercing]";
-	if (workflow.isCritical) damage = "2d6[piercing]";
-	return {damageRoll: damage, flavor: "Targeting Guidance"};
+async function targetingGuidanceDamage({speaker, actor, token, character, item, args}) {
+	if (this.hitTargets.size != 1) return;
+	let markedTarget = this.actor.flags['garhis-grotto'].targetingGuidanceTarget;
+	let targetToken = this.hitTargets.first();
+	if (targetToken.id != markedTarget) return;
+    let queueSetup = await queue.setup(this.item.uuid, 'targetingGuidance', 240);
+    if (!queueSetup) return;
+	let diceNum = 1;
+	if (this.isCritical) diceNum = 2;
+	let damageFormula = diceNum + 'd6[' + this.defaultDamageType + ']';
+	await ggHelpers.addToRoll(this.damageRoll, damageFormula);
+	queue.remove(this.item.uuid);
 }
-async function targetingGuidanceTransfer(workflow) {
-	if (workflow.targets.size != 1) {
+async function targetingGuidanceTransfer({speaker, actor, token, character, item, args}) {
+	if (this.targets.size != 1) {
 		ui.notifications.warn('Can only transfer Targeting Guidance to a single target'); 
-		return;    
+		return;
 	}
-	let targetToken = workflow.targets.first();
+	let targetToken = this.targets.first();
 	let targetActor = targetToken.actor;
-	let effect = ggHelpers.findEffect(workflow.actor, 'Targeting Guidance');
+	let effect = ggHelpers.findEffect(this.actor, 'Targeting Guidance');
 	if (!effect) return;
-	let oldTargetToken;
-	let oldTargetTokenId = ggHelpers.findEffect(workflow.actor, 'Targeting Guidance')?.changes[0]?.value;
-	oldTargetToken = canvas.scene.tokens.get(oldTargetTokenId);
+	let oldTargetTokenId = this.actor.flags['garhis-grotto'].targetingGuidanceTarget;
+	let oldTargetToken = canvas.scene.tokens.get(oldTargetTokenId);
 	if (oldTargetToken) {
 		let oldTargetActor = oldTargetToken.actor;
-		let oldTargetEffect =  ggHelpers.findEffect(oldTargetActor, `Sighted - ${workflow.actor.name}`);
+		let oldTargetEffect =  ggHelpers.findEffect(oldTargetActor, `Sighted - ${this.actor.name}`);
 		if (oldTargetEffect) {
 			await ggHelpers.removeEffect(oldTargetEffect);
 		}
 	}
 	let duration = (effect.duration.remaining < 60) ? effect.duration.remaining : 60;
 	let effectData = {
-		'label': `Sighted - ${workflow.actor.name}`,
+		'label': `Sighted - ${this.actor.name}`,
 		'icon': effect.icon,
-		'origin': workflow.actor.uuid,
+		'origin': this.actor.uuid,
 		'duration': {
 			'seconds': duration
 		},

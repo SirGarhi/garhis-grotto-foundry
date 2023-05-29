@@ -1,15 +1,16 @@
 ﻿import { ggHelpers } from '../../../helperFunctions.js';
 import { effects } from '../../../effects.js';
 
-async function twilightSanctuary(args) {
+async function twilightSanctuaryPulse(args) {
 	const lastArg = args[args.length - 1];
 	const actor = lastArg.actor;
 	// console.log(actor);
 	let removePotentials = [];
 	let sourceActor;
 	for (let effect of actor.effects) {
-		if (effect.label === 'Twilight Sanctuary') {
+		if (effect.label === 'Twilight Sanctuary Pulse') {
 			sourceActor = await fromUuid(effect.origin);
+			sourceActor = ggHelpers.tokenOrActor(sourceActor);
 		} else {
 			if (effect.label === 'Frightened' || effect.label === 'Charmed') {
 				removePotentials.push(effect);
@@ -33,7 +34,7 @@ async function twilightSanctuary(args) {
 		applyHitpoints = true;
 	}
 	if (applyHitpoints) {
-		sourceActor = sourceActor.actor;
+		console.log(sourceActor);
 		let levelMod = sourceActor.classes?.cleric?.system.levels;
 		if (!levelMod) {
 			levelMod = '';
@@ -62,6 +63,16 @@ async function twilightSanctuary(args) {
 		const config = {};
 		const options = { targetUuids: [lastArg.tokenUuid], showFullCard: false, createWorkflow: true, versatile: false, configureDialog: false };
 		await MidiQOL.completeItemUse(tempItem, config, options);	
+	}
+}
+
+async function twilightSanctuaryItem(workflow) {
+	let effect = ggHelpers.findEffect(workflow.actor, 'Twilight Sanctuary Pulse');
+	if (effect) {
+		let updates = {
+			'origin': workflow.actor.uuid
+		}
+		await ggHelpers.updateEffect(effect, updates);
 	}
 }
 
@@ -96,6 +107,9 @@ async function emboldeningBond(args) {
 }
 
 export let cleric = {
-	'twilightSanctuary': twilightSanctuary,
+	'twilightSanctuary': {
+		'item': twilightSanctuaryItem,
+		'pulse': twilightSanctuaryPulse
+	},
 	'emboldeningBond' : emboldeningBond
 }

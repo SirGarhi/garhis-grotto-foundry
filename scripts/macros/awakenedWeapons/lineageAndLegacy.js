@@ -3,21 +3,18 @@ async function awaken(args) {
 	let lastArg = args[args.length-1];
 	let furyData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', "Generational Fury", false);
 	if (!furyData) return;
-	let flurryData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', "Flurry", false);
-	if (!flurryData) return;
 	let token = canvas.tokens.get(lastArg.tokenId)
 	let actorUpdates = {
 		'embedded': {
 			'Item': {
 				[furyData.name]: furyData,
-				[flurryData.name]: flurryData
 			}
 		}
 	}
 	let options = {
 		'permanent': false,
 		'name': 'Awakened',
-		'description': 'Adds Generational Fury as a spell to the character sheet.'
+		'description': 'Adds Generational Fury as a feature to the character sheet.'
 	}
 	await warpgate.mutate(token.document, actorUpdates, {}, options);
 	const bladesong = lastArg.actor.items.getName("Bladesong");

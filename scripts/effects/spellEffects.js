@@ -117,6 +117,42 @@ let thrummingEffect = {
 		}
 	]
 }
+let potentThrummingEffect = {
+	'label': 'Thrumming',
+	'icon': 'icons/magic/sonic/explosion-shock-wave-teal.webp',
+	"duration": {
+		"rounds": 1,
+		"startTime": null,
+		"seconds": null,
+		"combat": null,
+		"turns": null,
+		"startRound": null,
+		"startTurn": null
+	},
+	"flags": {
+		"dfreds-convenient-effects": {
+			"description": "Applied by Booming Blade and deals thunder damage if the target moves before the start of the caster's next turn"
+		},
+		"dae": {
+			"specialDuration": [
+				"turnStartSource",
+				"isMoved"
+			],
+			"stackable": "none"
+		},
+		"core": {
+			"statusId": ""
+		}
+	},
+	"changes": [
+		{
+			"key": "macro.execute.GM",
+			"mode": CONST.ACTIVE_EFFECT_MODES.CUSTOM,
+			"value": "GG_potentThrummingExplosion",
+			"priority": 20
+		}
+	]
+}
 let greenFlameBladeEffect = {
 	'label': 'Green-Flame Blade',
 	'icon': 'icons/weapons/swords/greatsword-evil-green.webp',
@@ -291,6 +327,7 @@ export let spellEffects = {
 	'absorbElements': { 'damageBonus': absorbElementsDamageBonus, 'resistanceBonus': absorbElementsResistanceBonus},
 	'boomingBlade': boomingBladeEffect,
 	'thrumming': thrummingEffect,
+	'potentThrumming': potentThrummingEffect,
 	'greenFlameBlade': greenFlameBladeEffect,
 	'hynpoticPattern': hypnoticPatternEffect,
 	'bless': blessEffect,

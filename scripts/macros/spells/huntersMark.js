@@ -1,18 +1,9 @@
 import {ggHelpers} from '../../helperFunctions.js';
 import { queue } from '../../queue.js';
-async function hexItem({speaker, actor, token, character, item, args}) {
+async function huntersMarkItem({speaker, actor, token, character, item, args}) {
 	if (this.targets.size != 1) return;
-	let featureData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Transfer Hex', false);
+	let featureData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Mark New Target', false);
 	if (!featureData) return;
-	let selection = await ggHelpers.buttonMenu('What ability should have disadvantage?', [
-		['Strength', 'str'],
-		['Dexterity', 'dex'],
-		['Constitution', 'con'],
-		['Intelligence', 'int'],
-		['Wisdom', 'wis'],
-		['Charisma', 'cha']
-	]);
-	if (!selection) selection = 'str';
 	let seconds;
 	switch (this.castData.castLevel) {
 		case 3:
@@ -30,38 +21,31 @@ async function hexItem({speaker, actor, token, character, item, args}) {
 			seconds = 3600;
 	}
 	let targetEffectData = {
-		'label': `Hexed - ${this.actor.name}`,
+		'label': `Marked Target - ${this.actor.name}`,
 		'icon': this.item.img,
 		'origin': this.actor.uuid,
 		'duration': {
 			'seconds': seconds
 		},
-		'changes': [
-			{
-				'key': 'flags.midi-qol.disadvantage.ability.check.' + selection,
-				'mode': CONST.ACTIVE_EFFECT_MODES.CUSTOM,
-				'value': 'true',
-				'priority': 20
-			}
-		]
+		'changes': []
 	};
 	await ggHelpers.createEffect(this.targets.first().actor, targetEffectData);
 	async function effectMacro() {
-		await warpgate.revert(token.document, 'Hex');
+		await warpgate.revert(token.document, 'Hunter\'s Mark');
 		let targetTokenId = effect.changes[0].value;
 		let targetToken = canvas.scene.tokens.get(targetTokenId);
 		if (!targetToken) return;
 		let targetActor = targetToken.actor;
-		let targetEffect =  garhisGrotto.helpers.findEffect(targetActor, `Hexed - ${actor.name}`);
+		let targetEffect =  garhisGrotto.helpers.findEffect(targetActor, `Marked Target - ${actor.name}`);
 		if (!targetEffect) return;
 		await garhisGrotto.helpers.removeEffect(targetEffect);
 	}
 	let sourceEffectData = {
-		'label': 'Hex',
+		'label': 'Hunter\'s Mark',
 		'icon': this.item.img,
 		'changes': [
 			{
-				'key': 'flags.garhis-grotto.spells.hexTarget',
+				'key': 'flags.garhis-grotto.spells.huntersMarkTarget',
 				'mode': CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
 				'value': this.targets.first().id,
 				'priority': 20
@@ -69,7 +53,7 @@ async function hexItem({speaker, actor, token, character, item, args}) {
 			{
 				'key': 'flags.midi-qol.onUseMacroName',
 				'mode': 0,
-				'value': 'function.garhisGrotto.macros.spells.hex.damage,postDamageRoll',
+				'value': 'function.garhisGrotto.macros.spells.huntersMark.damage,postDamageRoll',
 				'priority': 20
 			}
 		],
@@ -112,58 +96,47 @@ async function hexItem({speaker, actor, token, character, item, args}) {
 		await ggHelpers.updateEffect(conEffect, updates);
 	}
 }
-async function hexDamage({speaker, actor, token, character, item, args}) {
+async function huntersMarkDamage({speaker, actor, token, character, item, args}) {
 	if (this.hitTargets.size != 1) return;
-	let markedTarget = this.actor.flags['garhis-grotto'].spells.hexTarget;
+	let markedTarget = this.actor.flags['garhis-grotto'].spells.huntersMarkTarget;
 	let targetToken = this.hitTargets.first();
 	if (targetToken.id != markedTarget) return;
-	let queueSetup = await queue.setup(this.item.uuid, 'hex', 250);
+	let queueSetup = await queue.setup(this.item.uuid, 'huntersMark', 250);
 	if (!queueSetup) return;
 	let diceNum = 1;
 	if (this.isCritical) diceNum = 2;
-	let damageFormula = diceNum + 'd6[necrotic]';
+	let damageFormula = diceNum + 'd6[' + this.defaultDamageType + ']';
 	await ggHelpers.addToRoll(this.damageRoll, damageFormula);
 	queue.remove(this.item.uuid);
 }
-async function hexTransfer({speaker, actor, token, character, item, args}) {
+async function huntersMarkTransfer({speaker, actor, token, character, item, args}) {
 	if (this.targets.size != 1) {
-		ui.notifications.warn('Can only transfer Hex to a single target'); 
+		ui.notifications.warn('Can only transfer Hunter\'s Mark to a single target'); 
 		return;
 	}
 	let targetToken = this.targets.first();
 	let targetActor = targetToken.actor;
-	let effect = ggHelpers.findEffect(this.actor, 'Hex');
-	let oldTargetToken;
-	if (effect) {
-		let oldTargetTokenId = this.actor.flags['garhis-grotto'].spells.hexTarget;
-		oldTargetToken = canvas.scene.tokens.get(oldTargetTokenId);
-	}
-	let selection = 'flags.midi-qol.disadvantage.ability.check.str';
+	let effect = ggHelpers.findEffect(this.actor, 'Hunter\'s Mark');
+	if (!effect) return;
+	let oldTargetTokenId = this.actor.flags['garhis-grotto'].huntersMarkTarget;
+	let oldTargetToken = canvas.scene.tokens.get(oldTargetTokenId);
 	if (oldTargetToken) {
 		let oldTargetActor = oldTargetToken.actor;
-		let oldTargetEffect =  ggHelpers.findEffect(oldTargetActor, `Hexed - ${this.actor.name}`);
+		let oldTargetEffect =  ggHelpers.findEffect(oldTargetActor, `Marked Target - ${this.actor.name}`);
 		if (oldTargetEffect) {
 			await ggHelpers.removeEffect(oldTargetEffect);
-			selection = oldTargetEffect.changes[0].key;
 		}
 	}
 	let duration = 3600;
 	if (effect) duration = effect.duration.remaining;
 	let effectData = {
-		'label': `Hexed - ${this.actor.name}`,
+		'label': `Hunter\'s Marked - ${this.actor.name}`,
 		'icon': effect.icon,
 		'origin': this.actor.uuid,
 		'duration': {
 			'seconds': duration
 		},
-		'changes': [
-			{
-				'key': selection,
-				'mode': CONST.ACTIVE_EFFECT_MODES.CUSTOM,
-				'value': 'true',
-				'priority': 20
-			}
-		]
+		'changes': []
 	};
 	await ggHelpers.createEffect(targetActor, effectData);
 	if (effect) {
@@ -173,8 +146,8 @@ async function hexTransfer({speaker, actor, token, character, item, args}) {
 		await ggHelpers.updateEffect(effect, updates);
 	}
 }
-export let hex = {
-	'item': hexItem,
-	'damage': hexDamage,
-	'transfer': hexTransfer
+export let huntersMark = {
+	'item': huntersMarkItem,
+	'damage': huntersMarkDamage,
+	'transfer': huntersMarkTransfer
 };

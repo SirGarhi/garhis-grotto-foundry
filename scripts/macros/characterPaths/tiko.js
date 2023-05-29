@@ -1,6 +1,6 @@
 ﻿
 import { ggHelpers } from "../../helperFunctions.js";
-
+import { queue } from "../../queue.js";
 async function feedTheTrap(args) {
 	console.log(args);
 	const lastArg = args[args.length-1];
@@ -53,8 +53,8 @@ async function feedTheTrap(args) {
 	}
 }
 
-async function analyzeItem(workflow) {
-	if (workflow.targets.size != 1) return;
+async function analyzeItem({speaker, actor, token, character, item, args}) {
+	if (this.targets.size != 1) return;
 	let featureData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Transfer Analysis', false);
 	if (!featureData) return;
 	let selection = await ggHelpers.buttonMenu('What ability should have disadvantage?', [
@@ -67,7 +67,7 @@ async function analyzeItem(workflow) {
 	]);
 	if (!selection) selection = 'str';
 	let seconds;
-	switch (workflow.castData.castLevel) {
+	switch (this.castData.castLevel) {
 		case 3:
 		case 4:
 			seconds = 28800;
@@ -83,9 +83,9 @@ async function analyzeItem(workflow) {
 			seconds = 3600;
 	}
 	let targetEffectData = {
-		'label': `Analyzed - ${workflow.actor.name}`,
-		'icon': workflow.item.img,
-		'origin': workflow.actor.uuid,
+		'label': `Analyzed - ${this.actor.name}`,
+		'icon': this.item.img,
+		'origin': this.actor.uuid,
 		'duration': {
 			'seconds': seconds
 		},
@@ -98,7 +98,7 @@ async function analyzeItem(workflow) {
 			}
 		]
 	};
-	await ggHelpers.createEffect(workflow.targets.first().actor, targetEffectData);
+	await ggHelpers.createEffect(this.targets.first().actor, targetEffectData);
 	async function effectMacro() {
 		await warpgate.revert(token.document, 'Analysis');
 		let targetTokenId = effect.changes[0].value;
@@ -111,23 +111,23 @@ async function analyzeItem(workflow) {
 	}
 	let sourceEffectData = {
 		'label': 'Analysis',
-		'icon': workflow.item.img,
+		'icon': this.item.img,
 		'changes': [
 			{
-				'key': 'flags.garhis-grotto.spell.analysisTarget',
-				'mode': CONST.ACTIVE_EFFECT_MODES.CUSTOM,
-				'value': workflow.targets.first().id,
+				'key': 'flags.garhis-grotto.spells.analysisTarget',
+				'mode': CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
+				'value': this.targets.first().id,
 				'priority': 20
 			},
 			{
-				'key': 'flags.dnd5e.DamageBonusMacro',
+				'key': 'flags.midi-qol.onUseMacroName',
 				'mode': 0,
-				'value': 'GG_analyzeDamage',
+				'value': 'function.garhisGrotto.macros.paths.tiko.analyze.damage,postDamageRoll',
 				'priority': 20
 			}
 		],
 		'transfer': false,
-		'origin': workflow.item.uuid,
+		'origin': this.item.uuid,
 		'duration': {
 			'seconds': seconds
 		},
@@ -154,8 +154,8 @@ async function analyzeItem(workflow) {
 		'name': sourceEffectData.label,
 		'description': sourceEffectData.label
 	};
-	await warpgate.mutate(workflow.token.document, updates, {}, options);
-	let conEffect = ggHelpers.findEffect(workflow.actor, 'Concentrating');
+	await warpgate.mutate(this.token.document, updates, {}, options);
+	let conEffect = ggHelpers.findEffect(this.actor, 'Concentrating');
 	if (conEffect) {
 		let updates = {
 			'duration': {
@@ -165,23 +165,27 @@ async function analyzeItem(workflow) {
 		await ggHelpers.updateEffect(conEffect, updates);
 	}
 }
-async function analyzeDamage(workflow) {
-	if (workflow.hitTargets.size != 1) return;
-	let hexedTarget = ggHelpers.findEffect(workflow.actor, 'Analysis')?.changes[0]?.value;
-	let targetToken = workflow.hitTargets.first();
-	if (targetToken.id != hexedTarget) return;
-	let damage = "1d6[necrotic]";
-	if (workflow.isCritical) damage = "2d6[necrotic]";
-	return {damageRoll: damage, flavor: "Analyzed"};
+async function analyzeDamage({speaker, actor, token, character, item, args}) {
+	if (this.hitTargets.size != 1) return;
+	let markedTarget = this.actor.flags['garhis-grotto'].spells.analysisTarget;
+	let targetToken = this.hitTargets.first();
+	if (targetToken.id != markedTarget) return;
+	let queueSetup = await queue.setup(this.item.uuid, 'analysis', 250);
+	if (!queueSetup) return;
+	let diceNum = 1;
+	if (this.isCritical) diceNum = 2;
+	let damageFormula = diceNum + 'd6[necrotic]';
+	await ggHelpers.addToRoll(this.damageRoll, damageFormula);
+	queue.remove(this.item.uuid);
 }
-async function analyzeTransfer(workflow) {
-	if (workflow.targets.size != 1) {
+async function analyzeTransfer({speaker, actor, token, character, item, args}) {
+	if (this.targets.size != 1) {
 		ui.notifications.warn('Can only transfer Analysis to a single target'); 
 		return;
 	}
-	let targetToken = workflow.targets.first();
+	let targetToken = this.targets.first();
 	let targetActor = targetToken.actor;
-	let effect = ggHelpers.findEffect(workflow.actor, 'Analysis');
+	let effect = ggHelpers.findEffect(this.actor, 'Analysis');
 	let oldTargetToken;
 	if (effect) {
 		let oldTargetTokenId = effect.changes[0]?.value;
@@ -190,7 +194,7 @@ async function analyzeTransfer(workflow) {
 	let selection = 'flags.midi-qol.disadvantage.ability.check.str';
 	if (oldTargetToken) {
 		let oldTargetActor = oldTargetToken.actor;
-		let oldTargetEffect =  ggHelpers.findEffect(oldTargetActor, `Analyzed - ${workflow.actor.name}`);
+		let oldTargetEffect =  ggHelpers.findEffect(oldTargetActor, `Analyzed - ${this.actor.name}`);
 		if (oldTargetEffect) {
 			await ggHelpers.removeEffect(oldTargetEffect);
 			selection = oldTargetEffect.changes[0].key;
@@ -199,9 +203,9 @@ async function analyzeTransfer(workflow) {
 	let duration = 3600;
 	if (effect) duration = effect.duration.remaining;
 	let effectData = {
-		'label': `Analyzed - ${workflow.actor.name}`,
+		'label': `Analyzed - ${this.actor.name}`,
 		'icon': effect.icon,
-		'origin': workflow.actor.uuid,
+		'origin': this.actor.uuid,
 		'duration': {
 			'seconds': duration
 		},

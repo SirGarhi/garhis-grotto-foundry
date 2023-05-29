@@ -264,12 +264,64 @@ let emboldeningBondEffect = {
 			"value": "+1d4",
 			"priority": 20
 		}
-	  ]
+	]
+}
+
+let twilightSanctuaryPulseEffect = {
+	"label": "Channel Divinity: Twilight Sanctuary",
+	"icon": "icons/magic/light/light-lantern-lit-white.webp",
+	"duration": {
+	  "startTime": null,
+	  "seconds": 60,
+	  "combat": null,
+	  "rounds": 10,
+	  "turns": null,
+	  "startRound": null,
+	  "startTurn": null
+	},
+	"disabled": false,
+	"changes": [
+	{
+		"key": "flags.midi-qol.OverTime",
+		"mode": 5,
+		"value": "turn=end,\nlabel=Twilight Sanctuary,\nmacro=\"GG_twilightSanctuary\"",
+		"priority": 20
+	}
+	],
+	"tint": null,
+	"transfer": false,
+	"flags": {
+		"dfreds-convenient-effects": {
+			"description": "Emits a dome of dim light. Each creature ending their turn in the dome gets temporary hit points."
+		},
+		"dae": {
+			"selfTarget": false,
+			"selfTargetAlways": false,
+			"stackable": "none",
+			"durationExpression": "",
+			"macroRepeat": "none",
+			"specialDuration": []
+		},
+		"ActiveAuras": {
+			"isAura": true,
+			"aura": "Allies",
+			"radius": "30",
+			"alignment": "",
+			"type": "",
+			"ignoreSelf": false,
+			"height": false,
+			"hidden": false,
+			"displayTemp": false,
+			"hostile": false,
+			"onlyOnce": false
+		}
+	}
 }
 
 export let featureEffects = {
 	'trance': tranceProficiencyEffect,
 	'baseRage': baseRageEffect,
 	'specialRages': specialRages,
-	'emboldeningBond': emboldeningBondEffect
+	'emboldeningBond': emboldeningBondEffect,
+	'twilightSanctuaryPulse': twilightSanctuaryPulseEffect
 }
