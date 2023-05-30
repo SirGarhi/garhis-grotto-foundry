@@ -120,12 +120,15 @@ async function huntersMarkTransfer({speaker, actor, token, character, item, args
 	let targetToken = this.targets.first();
 	let targetActor = targetToken.actor;
 	let effect = ggHelpers.findEffect(this.actor, 'Hunter\'s Mark');
-	if (!effect) return;
+	if (!effect) {
+		ui.notifications.warn('Hunter\'s Mark Active Effect not found');
+		return;
+	}
 	let oldTargetTokenId = this.actor.flags['garhis-grotto'].spells.huntersMarkTarget;
 	let oldTargetToken = canvas.scene.tokens.get(oldTargetTokenId);
 	if (oldTargetToken) {
 		let oldTargetActor = oldTargetToken.actor;
-		let oldTargetEffect =  ggHelpers.findEffect(oldTargetActor, `Marked Target - ${this.actor.name}`);
+		let oldTargetEffect = ggHelpers.findEffect(oldTargetActor, `Marked Target - ${this.actor.name}`);
 		if (oldTargetEffect) {
 			await ggHelpers.removeEffect(oldTargetEffect);
 		}
@@ -133,7 +136,7 @@ async function huntersMarkTransfer({speaker, actor, token, character, item, args
 	let duration = 3600;
 	if (effect) duration = effect.duration.remaining;
 	let effectData = {
-		'label': `Hunter\'s Marked - ${this.actor.name}`,
+		'label': `Marked Target - ${this.actor.name}`,
 		'icon': effect.icon,
 		'origin': this.actor.uuid,
 		'duration': {
