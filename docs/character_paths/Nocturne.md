@@ -8,7 +8,7 @@ The name and description of each feature along the path is listed below. If a fe
 ## Tier 1
 ### Shadowfell Staccato
 As a bonus action, you can Mark a creature you can see within 60 feet until the start of your next turn.
-* The next attack that hits the marked creature consumes the mark, causing it to deal an additional 1d8 Necrotic damage.
+* The next attack that hits the marked creature consumes the mark, dealing 1d8 Necrotic damage.
 * You can use this feature five times, regaining all expended uses after finishing a short or long rest.
 ### Echoes of Meara
 You can invoke Meara's guidance as a Bonus Action.
@@ -32,7 +32,7 @@ As a symbol of his fealty to Bael'Zharon, Nocturne adorns a grim, inscrutable ma
 * Ebongaze can hold 3 charges, and gains one charge each time a creature dies within 60 feet of it.
 * For one charge, you can use a bonus action to cast Misty Step.
 
-## Tier 3 
+## Tier 3
 ### Shadowfell Staccato, Accelerando (Shadowfell Staccato, Overture)
 The spectral tune of your music grows in strength.
 * You can now Mark creatures up to 90 feet away.

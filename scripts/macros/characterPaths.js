@@ -6,6 +6,7 @@ import { sapphie } from './characterPaths/sapphie.js';
 import { tiko } from './characterPaths/tiko.js';
 import { cillian } from './characterPaths/cillian.js';
 import { bhalgrim } from './characterPaths/bhalgrim.js';
+import { nocturne } from './characterPaths/nocturne.js';
 
 export let characterPaths = {
 	'angelo': angelo,
@@ -15,5 +16,6 @@ export let characterPaths = {
 	'sapphie': sapphie,
 	'tiko': tiko,
 	'cillian': cillian,
-	'bhalgrim': bhalgrim
+	'bhalgrim': bhalgrim,
+	'nocturne': nocturne
 }
