@@ -153,7 +153,7 @@ let concussedImmunityEffect = {
 			"onlyOnce": false
 		}
 	}
-  }
+}
 
 export let pathFeatureEffects = {
 	'chromaticInfusion': chromaticInfusionEffect,

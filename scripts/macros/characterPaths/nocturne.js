@@ -1,14 +1,14 @@
 ﻿import {ggHelpers} from '../../helperFunctions.js';
 
 async function consumeMark(args) {
-	console.log(args);
+	// console.log(args);
 	const lastArg = args[args.length-1];
 	if (args[0] === "off" && args[3]["expiry-reason"] === "midi-qol:isHit") {
 		let targetUuid = lastArg.actorUuid;
 		let damageDice = args[2];
 		let actor = await fromUuid(lastArg.efData.origin);
 		actor = actor.parent;
-		console.log(actor);
+		// console.log(actor);
 		let damageFormula = { parts: [[damageDice, "necrotic"]] };
 		const itemData = {
 			name: "Shadowfell Staccato",

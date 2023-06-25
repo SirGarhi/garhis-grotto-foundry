@@ -89,7 +89,7 @@ let baseRageEffect = {
 	"flags": {
 		"dae": {
 			"transfer": false,
-			"stackable": "none"
+			"stackable": "multi"
 		},
 		"midi-qol": {
 			"forceCEOff": true
@@ -209,62 +209,12 @@ let specialRages = {
 			},
 			"core": {
 				"statusId": "true"
-			}
+			},
+			"dae": {
+				"stackable": "multi"
+			},
 		}
 	}
-}
-
-let emboldeningBondEffect = {
-	'label': 'Emboldening Bond',
-	'icon': 'icons/skills/social/peace-luck-insult.webp',
-	"duration": {
-		"rounds": null,
-		"startTime": null,
-		"seconds": 600,
-		"combat": null,
-		"turns": null,
-		"startRound": null,
-		"startTurn": null
-	},
-	"disabled": false,
-	"changes": [
-		{
-			"key": "flags.midi-qol.optional.EmbBond.label",
-			"mode": 0,
-			"value": "Emboldening Bond",
-			"priority": 20
-		},
-		{
-			"key": "flags.midi-qol.optional.EmbBond.count",
-			"mode": 0,
-			"value": "turn",
-			"priority": 20
-		},
-		{
-			"key": "flags.midi-qol.optional.EmbBond.attack.all",
-			"mode": 0,
-			"value": "+1d4",
-			"priority": 20
-		},
-		{
-			"key": "flags.midi-qol.optional.EmbBond.check.all",
-			"mode": 0,
-			"value": "+1d4",
-			"priority": 20
-		},
-		{
-			"key": "flags.midi-qol.optional.EmbBond.skill.all",
-			"mode": 0,
-			"value": "+1d4",
-			"priority": 20
-		},
-		{
-			"key": "flags.midi-qol.optional.EmbBond.save.all",
-			"mode": 0,
-			"value": "+1d4",
-			"priority": 20
-		}
-	]
 }
 
 let twilightSanctuaryPulseEffect = {
@@ -322,6 +272,5 @@ export let featureEffects = {
 	'trance': tranceProficiencyEffect,
 	'baseRage': baseRageEffect,
 	'specialRages': specialRages,
-	'emboldeningBond': emboldeningBondEffect,
 	'twilightSanctuaryPulse': twilightSanctuaryPulseEffect
 }

@@ -26,11 +26,7 @@ async function wolfSpiritRage(workflow) {
 	workflow.attackAdvAttribution['Wolf Spirit Rage'] = true;
 }
 
-async function rageItem(args) {
-	// console.log("Rage Macro");
-	// console.log(args);
-	const lastArg = args[args.length-1];
-	const actor = lastArg.actor;
+async function rageItem({speaker, actor, token, character, item, args}) {
 	const persistentRage = actor.items.find( itm => itm.name === 'Persistent Rage');
 	let effect = structuredClone(featureEffects.baseRage);
 	effect.flags.effectmacro = {};
@@ -139,9 +135,16 @@ async function handleRoll(workflow) {
 	}
 }
 
+async function autoReckless(args) {
+	let lastArg = args[args.length-1];
+	const reckless = lastArg.actor.items.getName("Reckless Attack");
+	if (reckless) reckless.use();
+}
+
 export let barbarian = {
 	'rage': rageItem,
 	'venomfang': venomfang,
 	'handleRoll': handleRoll,
-	'wolfSpiritRage': wolfSpiritRage
+	'wolfSpiritRage': wolfSpiritRage,
+	'autoReckless': autoReckless
 }

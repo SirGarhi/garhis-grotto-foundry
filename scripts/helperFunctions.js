@@ -211,6 +211,7 @@ export let ggHelpers = {
 			let html = `<img src="` + texture + `" id="` + i.id + `" style="width:40px;height:40px;vertical-align:middle;"><span> ` + name + `</span>`;
 			let value = i.id;
 			if (returnUuid) value = i.document.uuid;
+			console.log(value);
 			if (multiple) {
 				generatedInputs.push({
 					'label': html,
@@ -284,7 +285,7 @@ export let ggHelpers = {
 	'functionToString': function _functiongToString(input) {
 		return `(${input.toString()})()`;
 	},
-	'getItemFromCompendium': async function _getItemFromCompendium(key, name, ignoreNotFound) {
+	'getItemFromCompendium': async function _getItemFromCompendium(key, name, ignoreNotFound, asObject = true) {
 		let gamePack = game.packs.get(key);
 		if (!gamePack) {
 			ui.notifications.warn('Invalid compendium specified!');
@@ -296,7 +297,10 @@ export let ggHelpers = {
 			if (!ignoreNotFound) ui.notifications.warn('Item not found in specified compendium! Check spelling?');
 			return false;
 		}
-		return itemData.toObject();
+		if (asObject) {
+			return itemData.toObject();
+		}
+		return itemData;
 	},
 	'raceOrType': function _raceOrType(actor) {
 		return actor.type === "npc" ? actor.system.details?.type?.value : actor.system.details?.race;

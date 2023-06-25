@@ -8,7 +8,7 @@ export async function aid(args) {
 	let curMax = target.system.attributes.hp.max;
 
 	if (args[0] === "on") {
-		target.update({ "system.attributes.hp.value": curHP + buff });
+		await target.update({ "system.attributes.hp.value": curHP + buff });
 	} else if (args[0] === "off" && curHP > curMax) {
 		await target.update({ "system.attributes.hp.value": curMax });
 	}

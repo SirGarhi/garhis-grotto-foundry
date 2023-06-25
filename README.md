@@ -30,7 +30,9 @@ Foundry Module implementing the Items, Spells, Features, and Creatures developed
 * Sequencer
 	- https://foundryvtt.com/packages/sequencer
 * Compendium Folders
-	- https://foundryvtt.com/packages/compendium-folders/	
+	- https://foundryvtt.com/packages/compendium-folders/
+* Template Macro
+	- https://foundryvtt.com/packages/templatemacro
 ### Likely to become Hard Requirements in a future update
 * Items with Spells DnD 5e
 	- https://foundryvtt.com/packages/items-with-spells-5e

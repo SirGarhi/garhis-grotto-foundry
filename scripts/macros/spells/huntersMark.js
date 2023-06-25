@@ -39,7 +39,7 @@ async function huntersMarkItem({speaker, actor, token, character, item, args}) {
 		let targetToken = canvas.scene.tokens.get(targetTokenId);
 		if (!targetToken) return;
 		let targetActor = targetToken.actor;
-		let targetEffect =  garhisGrotto.helpers.findEffect(targetActor, `Marked Target - ${actor.name}`);
+		let targetEffect = garhisGrotto.helpers.findEffect(targetActor, `Marked Target - ${actor.name}`);
 		if (!targetEffect) return;
 		await garhisGrotto.helpers.removeEffect(targetEffect);
 	}

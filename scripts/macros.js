@@ -79,6 +79,7 @@ export async function setupWorldMacros() {
 	await createMacro('concussiveTechnique', onUseMacro('concussiveTechnique'), false);
 	await createMacro('sightedDamage', damageBonusMacro('sightedDamage'), false);
 	await createMacro('analyzeDamage', damageBonusMacro('analyzeDamage'), false);
+	await createMacro('autoReckless', onUseMacro('autoReckless'), false);
 }
 async function useOnUse(args, itemName) {
 	switch (itemName) {
@@ -103,11 +104,14 @@ async function useOnUse(args, itemName) {
 		case 'greenFlameBladeSplash':
 			await spells.greenFlameBlade.splash(args);
 			break;
-			case 'greenFlameBladeSplashPotent':
-				await spells.greenFlameBlade.splashPotent(args);
-				break;
+		case 'greenFlameBladeSplashPotent':
+			await spells.greenFlameBlade.splashPotent(args);
+			break;
 		case 'twilightSanctuary':
 			await features.class.cleric.twilightSanctuary(args);
+			break;
+		case 'autoReckless':
+			await features.class.barbarian.autoReckless(args);
 			break;
 		default:
 			ui.notifications.warn('Garhis Grotto: No onUse macro named: '+itemName);
@@ -139,12 +143,6 @@ async function damageBonus(args, itemName) {
 		case 'giantsBane':
 			result = await awakenedWeapons.trinity.giantsBane(args);
 			return result;
-		case 'sightedDamage':
-			result = await characterPaths.qiana.targetingGuidance.damage(args);
-			return result;
-		case 'analyzeDamage':
-			result = await characterPaths.tiko.analyze.damage(args);
-			break;
 		default:
 			ui.notifications.warn('Invalid Damage Bonus Macro!');
 			return result;

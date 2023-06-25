@@ -81,11 +81,11 @@ async function greenFlameBladeSplashPotent(args) {
 	if( lastArg.hitTargets.length > 0 ) {
 		let target = canvas.tokens.get(lastArg.hitTargets[0].id ?? args[0].hitTargets[0]._id);
 		let nearbyTargets = ggHelpers.findNearby(target, 5, 'all');
-		let buttons = [{label: 'Apply Damage', value: true},{label: 'No Damage', value: false}];
+		let buttons = [{label: 'Splash Damage', value: true},{label: 'Don\'t Splash', value: false}];
 		let chosenTargets = await ggHelpers.selectTarget('Splash Damage Target', buttons, nearbyTargets, true, false);
 		if (chosenTargets) {
 			if (!chosenTargets.buttons) return;
-			let splashTargetId = chosenTargets.inputs.find( val => val !== false )
+			let splashTargetId = nearbyTargets[chosenTargets.inputs.indexOf(true)].document.uuid;
 			if (!splashTargetId) return;
 			let actor = await ggHelpers.tokenOrActor(await fromUuid(lastArg.actorUuid));
 			let damageDice = 0;

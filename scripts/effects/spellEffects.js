@@ -182,52 +182,7 @@ let greenFlameBladeEffect = {
 	},
 	"changes": []
 }
-let hypnoticPatternEffect = {
-	'label': 'Hypnotic Pattern',
-	'icon': 'icons/magic/control/hypnosis-mesmerism-swirl.webp',
-	"duration": {
-		"rounds": 10,
-		"startTime": null,
-		"seconds": 60,
-		"combat": null,
-		"turns": null,
-		"startRound": null,
-		"startTurn": null
-	},
-	"flags": {
-		"dfreds-convenient-effects": {
-			"description": "Creature is Charmed. While Charmed is also Incapacitated. Taking damage removes the effect."
-		},
-		"dae": {
-			"specialDuration": [
-				"isDamaged"
-			]
-		},
-		"core": {
-			"statusId": ""
-		}
-	},
-	"changes": [
-		{
-			"key": "macro.CE",
-			"mode": 0,
-			"value": "Charmed",
-			"priority": 20
-		},
-		{
-			"key": "macro.CE",
-			"mode": 0,
-			"value": "Incapacitated",
-			"priority": 20
-		},
-		{
-			"key": "system.attributes.movement.all",
-			"mode": 0,
-			"value": "*0",
-			"priority": 20
-		}
-	]
-}
+
 let blessEffect = {
 	'label': 'Bless',
 	'icon': 'icons/magic/holy/chalice-glowing-gold-water.webp',
@@ -266,61 +221,45 @@ let blessEffect = {
 		}
 	]
 }
-let familiarDistraction =     {
-	"label": "Familiar Distraction",
-	"icon": "icons/creatures/birds/raptor-owl-flying-moon.webp",
+let hungerHadar = {
+	"label": "Hunger of Hadar",
+	"icon": "icons/magic/nature/root-vine-thorned-fire-purple.webp",
 	"duration": {
-	  "rounds": 1,
-	  "startTime": null,
-	  "seconds": null,
-	  "combat": null,
-	  "turns": null,
-	  "startRound": null,
-	  "startTurn": null
+		"startTime": null,
+		"seconds": null,
+		"combat": null,
+		"rounds": null,
+		"turns": null,
+		"startRound": null,
+		"startTurn": null
 	},
-	"disabled": false,
-	"_id": "EnNRhSEo5HEYxjCf",
 	"changes": [
 		{
-			"key": "flags.midi-qol.grants.advantage.attack.all",
+			"key": "macro.CE",
 			"mode": 0,
-			"value": "true",
+			"value": "Blinded",
+			"priority": 20
+		},
+		{
+			"key": "flags.midi-qol.OverTime",
+			"mode": 5,
+			"value": "turn=start,label=Hadar's Hungering Cold,damageRoll=2d6,damageType=cold,killAnim=true",
+			"priority": 20
+		},
+		{
+			"key": "flags.midi-qol.OverTime",
+			"mode": 5,
+			"value": "turn=end,label=Hadar's Hungering Acid,damageRoll=2d6,damageType=acid,saveRemove=false,saveDC=@attributes.spelldc,saveAbility=dex,saveDamage=nodamage,saveMagic=true,killAnim=true",
 			"priority": 20
 		}
 	],
-	"tint": null,
-	"transfer": false,
 	"flags": {
-		"times-up": {},
 		"dfreds-convenient-effects": {
-			"description": "Grants advantage to the next incoming attack roll."
-		},
-		"dae": {
-			"selfTarget": false,
-			"selfTargetAlways": false,
-			"stackable": "none",
-			"durationExpression": "",
-			"macroRepeat": "none",
-			"specialDuration": [
-				"isAttacked"
-			]
+			"description": "Blinded, suffers 2d6 Cold Damage at the start of turn, Dex Save for 2d6 Acid Damage at end of turn."
 		},
 		"core": {
-			"statusId": ""
+			"statusId": "true"
 		},
-		"ActiveAuras": {
-			"isAura": false,
-			"aura": "None",
-			"radius": "undefined",
-			"alignment": "",
-			"type": "",
-			"ignoreSelf": false,
-			"height": false,
-			"hidden": false,
-			"displayTemp": false,
-			"hostile": false,
-			"onlyOnce": false
-		}
 	}
 }
 export let spellEffects = {
@@ -329,7 +268,6 @@ export let spellEffects = {
 	'thrumming': thrummingEffect,
 	'potentThrumming': potentThrummingEffect,
 	'greenFlameBlade': greenFlameBladeEffect,
-	'hynpoticPattern': hypnoticPatternEffect,
 	'bless': blessEffect,
-	'familiarHelp': familiarDistraction
+	'hungerHadar': hungerHadar
 };

@@ -2,6 +2,7 @@
 import { spellEffects } from './effects/spellEffects.js';
 import { itemEffects } from './effects/itemEffects.js';
 import { featureEffects } from './effects/featureEffects.js';
+import { convenientEffects } from './effects/customConvenientEffects.js';
 
 export let effects = {
 	'spell': spellEffects,
@@ -9,13 +10,6 @@ export let effects = {
 	'feature': featureEffects,
 	'updateConvenientEffects': updateConvenientEffects
 }
-
-const convenientEffects = [
-	featureEffects.emboldeningBond,
-	itemEffects.displacement,
-	spellEffects.hynpoticPattern,
-	spellEffects.familiarHelp
-]
 
 async function updateConvenientEffects() {
 	for (let effect of convenientEffects) {
