@@ -67,9 +67,9 @@ async function hexItem({speaker, actor, token, character, item, args}) {
 				'priority': 20
 			},
 			{
-				'key': 'flags.midi-qol.onUseMacroName',
+				'key': 'flags.dnd5e.DamageBonusMacro',
 				'mode': 0,
-				'value': 'function.garhisGrotto.macros.spells.hex.damage,postDamageRoll',
+				'value': 'GG_hexDamage',
 				'priority': 20
 			}
 		],
@@ -112,18 +112,16 @@ async function hexItem({speaker, actor, token, character, item, args}) {
 		await ggHelpers.updateEffect(conEffect, updates);
 	}
 }
-async function hexDamage({speaker, actor, token, character, item, args}) {
-	if (this.hitTargets.size != 1) return;
-	let markedTarget = this.actor.flags['garhis-grotto'].spells.hexTarget;
-	let targetToken = this.hitTargets.first();
+async function hexDamage(workflow) {
+	if (workflow.hitTargets.size != 1) return;
+	if (!["mwak","rwak","msak","rsak"].includes(workflow.item.system.actionType)) return {};
+	let markedTarget = workflow.actor.flags['garhis-grotto'].spells.hexTarget;
+	let targetToken = workflow.hitTargets.first();
 	if (targetToken.id != markedTarget) return;
-	let queueSetup = await queue.setup(this.item.uuid, 'hex', 250);
-	if (!queueSetup) return;
 	let diceNum = 1;
-	if (this.isCritical) diceNum = 2;
+	if (workflow.isCritical) diceNum = 2;
 	let damageFormula = diceNum + 'd6[necrotic]';
-	await ggHelpers.addToRoll(this.damageRoll, damageFormula);
-	queue.remove(this.item.uuid);
+	return {damageRoll: damageFormula, flavor: "Hex"};
 }
 async function hexTransfer({speaker, actor, token, character, item, args}) {
 	if (this.targets.size != 1) {

@@ -1,5 +1,4 @@
 import {ggHelpers} from '../../helperFunctions.js';
-import { queue } from '../../queue.js';
 async function huntersMarkItem({speaker, actor, token, character, item, args}) {
 	if (this.targets.size != 1) {
 		ui.notifications.warn('Require exactly 1 target to cast Hunter\'s Mark'); 
@@ -54,9 +53,9 @@ async function huntersMarkItem({speaker, actor, token, character, item, args}) {
 				'priority': 20
 			},
 			{
-				'key': 'flags.midi-qol.onUseMacroName',
+				'key': 'flags.dnd5e.DamageBonusMacro',
 				'mode': 0,
-				'value': 'function.garhisGrotto.macros.spells.huntersMark.damage,postDamageRoll',
+				'value': 'GG_huntersMarkDamage',
 				'priority': 20
 			}
 		],
@@ -99,18 +98,16 @@ async function huntersMarkItem({speaker, actor, token, character, item, args}) {
 		await ggHelpers.updateEffect(conEffect, updates);
 	}
 }
-async function huntersMarkDamage({speaker, actor, token, character, item, args}) {
-	if (this.hitTargets.size != 1) return;
-	let markedTarget = this.actor.flags['garhis-grotto'].spells.huntersMarkTarget;
-	let targetToken = this.hitTargets.first();
+async function huntersMarkDamage(workflow) {
+	if (workflow.hitTargets.size != 1) return;
+	if (!["mwak","rwak"].includes(workflow.item.system.actionType)) return {};
+	let markedTarget = workflow.actor.flags['garhis-grotto'].spells.huntersMarkTarget;
+	let targetToken = workflow.hitTargets.first();
 	if (targetToken.id != markedTarget) return;
-	let queueSetup = await queue.setup(this.item.uuid, 'huntersMark', 250);
-	if (!queueSetup) return;
 	let diceNum = 1;
-	if (this.isCritical) diceNum = 2;
-	let damageFormula = diceNum + 'd6[' + this.defaultDamageType + ']';
-	await ggHelpers.addToRoll(this.damageRoll, damageFormula);
-	queue.remove(this.item.uuid);
+	if (workflow.isCritical) diceNum = 2;
+	let damageFormula = diceNum + 'd6[' + workflow.defaultDamageType + ']';
+	return {damageRoll: damageFormula, flavor: "Hunter's Mark"};
 }
 async function huntersMarkTransfer({speaker, actor, token, character, item, args}) {
 	if (this.targets.size != 1) {

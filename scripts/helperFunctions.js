@@ -191,7 +191,7 @@ export let ggHelpers = {
 		}
 		return spellMod;
 	},
-	'selectTarget': async function _selectTarget(title, buttons, targets, returnUuid, multiple) {
+	'selectTarget': async function _selectTarget(title, buttons, targets, multiple) {
 		let generatedInputs = [];
 		let isFirst = true;
 		let number = 1;
@@ -208,23 +208,20 @@ export let ggHelpers = {
 				}
 			}
 			let texture = i.document.texture.src;
-			let html = `<img src="` + texture + `" id="` + i.id + `" style="width:40px;height:40px;vertical-align:middle;"><span> ` + name + `</span>`;
-			let value = i.id;
-			if (returnUuid) value = i.document.uuid;
-			console.log(value);
+			let html = `<img src="${texture}" id="${i.id}" style="width:40px;height:40px;vertical-align:middle;"><span>  ${name}</span>`;
 			if (multiple) {
 				generatedInputs.push({
 					'label': html,
 					'type': 'checkbox',
 					'options': false,
-					'value': value
+					'value': false
 				});
 			} else {
 				generatedInputs.push({
 					'label': html,
 					'type': 'radio',
-					'options': ['group1', isFirst],
-					'value': value
+					'options': ['radio', isFirst],
+					'value': isFirst
 				});
 				isFirst = false;
 			}
@@ -236,7 +233,7 @@ export let ggHelpers = {
 				t.style.flexFlow = 'row-reverse';
 				t.style.alignItems = 'center';
 				t.style.justifyContent = 'flex-end';
-				if (!multiple) t.addEventListener('click', function () {t.getElementsByTagName('input')[0].checked = true});
+				t.addEventListener('click', function () {t.getElementsByTagName('input')[0].checked = true});
 			}
 			let ths = html[0].getElementsByTagName('th');
 			for (let t of ths) {

@@ -87,19 +87,19 @@ async function emboldeningBond(args) {
 	nearbyTargets.push(token);
 	let buttons = [{label: 'Apply to Selected', value: true},{label: 'Cancel', value: false}];
 	const maxTargets = lastArg.actor.system.attributes.prof;
-	let chosenTargets = await ggHelpers.selectTarget(`Emboldening Bond Targets (Max: ${maxTargets})`, buttons, nearbyTargets, false, true);
+	let chosenTargets = await ggHelpers.selectTarget(`Emboldening Bond Targets (Max: ${maxTargets})`, buttons, nearbyTargets, true);
 	if (chosenTargets) {
 		if (!chosenTargets.buttons) return;
 		let numSelectedTargets = chosenTargets.inputs.filter(val => val !== false).length;
 		while(numSelectedTargets > maxTargets) {
-			chosenTargets = await ggHelpers.selectTarget(`Chose Too Many Targets! (Max: ${maxTargets})`, buttons, nearbyTargets, false, true);
+			chosenTargets = await ggHelpers.selectTarget(`Chose Too Many Targets! (Max: ${maxTargets})`, buttons, nearbyTargets, true);
 			if (!chosenTargets) return;
 			if (!chosenTargets.buttons) return;
 			numSelectedTargets = chosenTargets.inputs.filter(val => val !== false).length;
 		}
-		for (let target of chosenTargets.inputs) {
-			if (target) {
-				let targetToken = canvas.tokens.get(target);
+		for (let i = 0; i < chosenTargets.inputs.length; i++) {
+			if (chosenTargets.inputs[i]) {
+				let targetToken = nearbyTargets[i];
 				targetToken.setTarget(true, { user: game.user, releaseOthers: false });
 			}
 		}

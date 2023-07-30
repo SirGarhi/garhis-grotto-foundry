@@ -12,6 +12,7 @@ import { huntersMark } from './spells/huntersMark.js';
 import { hungerHadar } from './spells/hungerHadar.js';
 import { conjureCloud } from './spells/cloudOfDaggers.js';
 import { heatMetal } from './spells/heatMetal.js';
+import { prismaticWeapon } from './spells/prismaticWeapon.js';
 
 export let spells = {
 	'hex': hex,
@@ -27,5 +28,6 @@ export let spells = {
 	'huntersMark': huntersMark,
 	'hungerHadar': hungerHadar,
 	'cloudOfDaggers': conjureCloud,
-	'heatMetal': heatMetal
+	'heatMetal': heatMetal,
+	'prismaticWeapon': prismaticWeapon
 }

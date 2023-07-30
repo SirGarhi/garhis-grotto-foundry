@@ -24,7 +24,7 @@ function onUseMultiPassMacro(macroName) {
 	return 'await garhisGrotto.macros.onUseMulti(args, "' + macroName + '", args[0].macroPass);'
 }
 function damageBonusMacro(macroName) {
-	return `let result = await garhisGrotto.macros.damageBonus(this, '${macroName}'); return result;`;
+	return `let result = await garhisGrotto.macros.damageBonus(workflow, '${macroName}'); return result;`;
 }
 export async function setupMacroFolder() {
 	let macroFolder = game.folders.find((folder) => folder.name === 'GG Macros' && folder.type === 'Macro');
@@ -79,6 +79,7 @@ export async function setupWorldMacros() {
 	await createMacro('concussiveTechnique', onUseMacro('concussiveTechnique'), false);
 	await createMacro('sightedDamage', damageBonusMacro('sightedDamage'), false);
 	await createMacro('analyzeDamage', damageBonusMacro('analyzeDamage'), false);
+	await createMacro('huntersMarkDamage', damageBonusMacro('huntersMarkDamage'), false);
 	await createMacro('autoReckless', onUseMacro('autoReckless'), false);
 }
 async function useOnUse(args, itemName) {
@@ -143,6 +144,9 @@ async function damageBonus(args, itemName) {
 		case 'giantsBane':
 			result = await awakenedWeapons.trinity.giantsBane(args);
 			return result;
+		case 'huntersMarkDamage':
+			result = await spells.huntersMark.damage(args);
+			return result;
 		default:
 			ui.notifications.warn('Invalid Damage Bonus Macro!');
 			return result;
@@ -153,19 +157,19 @@ async function selectTargetsInRange(args, range, disposition) {
 	let token = canvas.tokens.get(lastArg.tokenId);
 	let nearbyTargets = ggHelpers.findNearby(token, range, disposition);
 	let buttons = [{label: 'Target Selected Only', value: 'selected'}, {label: 'Target All', value: 'all'}];
-	let chosenTargets = await ggHelpers.selectTarget('Select Targets in Range', buttons, nearbyTargets, false, true);
+	let chosenTargets = await ggHelpers.selectTarget('Select Targets in Range', buttons, nearbyTargets, true);
 	game.user?.targets.forEach(t => {
 		t.setTarget(false, { releaseOthers: false });
 	});
 	game.user?.targets.clear();	
 	if (chosenTargets) {
 		if (chosenTargets.buttons === 'selected') {
-			for (let target of chosenTargets.inputs) {
-				if (target) {
-					let targetToken = canvas.tokens.get(target);
+			for (let i = 0; i < chosenTargets.inputs.length; i++) {
+				if (chosenTargets.inputs[i]) {
+					let targetToken = nearbyTargets[i];
 					targetToken.setTarget(true, { user: game.user, releaseOthers: false });
 				}
-			}		
+			}
 		} else if (chosenTargets.buttons === 'all') {
 			for (let targetToken of nearbyTargets) {
 				targetToken.setTarget(true, { user: game.user, releaseOthers: false });

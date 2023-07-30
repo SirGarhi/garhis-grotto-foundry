@@ -5,9 +5,10 @@ async function richochetAttack({speaker, actor, token, character, item, args}) {
 	if (lastArg.itemData.system.actionType !== 'mwak') return;
 	if( lastArg.hitTargets.length > 0 ) {
 		let target = canvas.tokens.get(lastArg.hitTargets[0].id ?? args[0].hitTargets[0]._id);
-		let nearbyTargets = ggHelpers.findNearby(target, 5, 'all');
+		let nearbyTargets = ggHelpers.findNearby(target, 10, 'nonHostile');
+		if (nearbyTargets.length < 1) return;
 		let buttons = [{label: 'Richochet Attack', value: true},{label: 'No Richochet', value: false}];
-		let chosenTargets = await ggHelpers.selectTarget('Richochet Target', buttons, nearbyTargets, true, false);
+		let chosenTargets = await ggHelpers.selectTarget('Richochet Target', buttons, nearbyTargets, false);
 		if (chosenTargets) {
 			if (!chosenTargets.buttons) return;
 			let splashTargetId = nearbyTargets[chosenTargets.inputs.indexOf(true)].document.uuid;
@@ -37,9 +38,8 @@ async function richochetAttack({speaker, actor, token, character, item, args}) {
 }
 
 async function richochetDamage({speaker, actor, token, character, item, args}) {
-	const lastArg = args[args.length-1];
 	if (item.name === 'Richochet') {
-		this.damageItem.hpDamage = Math.floor(this.damageItem.hpDamage/2);
+		this.damageItem.hpDamage = Math.min(Math.floor(this.damageItem.appliedDamage/2),this.damageItem.hpDamage);
 	}
 }
 
@@ -53,6 +53,9 @@ async function mount({speaker, actor, token, character, item, args}) {
 			},
 			'width': 2,
 			'height': 2
+		},
+		'actor': {
+			'system.attributes.movement.walk': 60
 		}
 	};
 	let options = {

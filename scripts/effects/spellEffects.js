@@ -262,6 +262,25 @@ let hungerHadar = {
 		},
 	}
 }
+let prismaticWeapon = {
+	'label': 'Prismatic Weapon',
+	'icon': 'icons/magic/fire/flame-burning-hand-white.webp',
+	"duration": {
+		"rounds": null,
+		"startTime": null,
+		"seconds": 3600,
+		"combat": null,
+		"turns": null,
+		"startRound": null,
+		"startTurn": null
+	},
+	"flags": {
+		"dfreds-convenient-effects": {
+			"description": "Deal additional elemental damage of the infused type on every attack."
+		},
+	},
+	"changes": []
+}
 export let spellEffects = {
 	'absorbElements': { 'damageBonus': absorbElementsDamageBonus, 'resistanceBonus': absorbElementsResistanceBonus},
 	'boomingBlade': boomingBladeEffect,
@@ -269,5 +288,6 @@ export let spellEffects = {
 	'potentThrumming': potentThrummingEffect,
 	'greenFlameBlade': greenFlameBladeEffect,
 	'bless': blessEffect,
-	'hungerHadar': hungerHadar
+	'hungerHadar': hungerHadar,
+	'prismaticWeapon': prismaticWeapon
 };

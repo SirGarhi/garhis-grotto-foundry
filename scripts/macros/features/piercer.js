@@ -45,7 +45,7 @@ async function piercerReroll(args, rerollThreshold) {
 		// console.warn('Processing Reroll with chosen die:');
 		// console.warn(reroll);
 		const damageRoll = new Roll(`1d${reroll.dieSize}`);
-		await damageRoll.toMessage({flavor: `Piercer rerolling ${reroll.dieSize} that rolled ${reroll.value}`});
+		await damageRoll.toMessage({flavor: `Piercer rerolling d${reroll.dieSize} that rolled ${reroll.value}`});
 		let targetDie = { dieIndex: 0, resultIndex: 0, found: false};
 		let findTargetDie = function (targetDie, value, index) {
 			// console.log("testing die");

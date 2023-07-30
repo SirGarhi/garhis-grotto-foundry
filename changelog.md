@@ -1,5 +1,11 @@
 # Changelog
 
+# 0.0.13
+* Fixed Warpgate Menus impacting Bless, Green Flame Blade, and Emboldening Bond
+* Reverted Hex and Hunter's Mark to be damage bonus macros again because I like it better
+* Fixed Hex and Hunter's Mark not checking for valid attack types before adding damage
+* Added Prismatic Weapon
+
 # 0.0.12
 * Added Template Macro as a hard requirement
 * Removed Advanced Macros requirement

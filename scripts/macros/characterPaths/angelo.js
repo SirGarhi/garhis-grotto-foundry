@@ -9,10 +9,10 @@ async function petalSlash(args) {
 	// console.log(nearbyTargets);
 	targets = targets.concat(nearbyTargets);
 	let buttons = [{label: 'Apply Damage', value: true},{label: 'No Damage', value: false}];
-	let chosenTargets = await ggHelpers.selectTarget('Petal Slash Target', buttons, targets, true, false);
+	let chosenTargets = await ggHelpers.selectTarget('Petal Slash Target', buttons, targets, false);
 	if (chosenTargets) {
 		if (!chosenTargets.buttons) return;
-		let splashTargetId = chosenTargets.inputs.find( val => val !== false )
+		let splashTargetId = nearbyTargets[chosenTargets.inputs.indexOf(true)].document.uuid;
 		if (!splashTargetId) return;
 		let actor = await ggHelpers.tokenOrActor(await fromUuid(lastArg.actorUuid));
 		let damageFormula = { parts: [['1d4', 'slashing']] };
