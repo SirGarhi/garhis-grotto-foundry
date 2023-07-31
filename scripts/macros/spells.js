@@ -13,6 +13,7 @@ import { hungerHadar } from './spells/hungerHadar.js';
 import { conjureCloud } from './spells/cloudOfDaggers.js';
 import { heatMetal } from './spells/heatMetal.js';
 import { prismaticWeapon } from './spells/prismaticWeapon.js';
+import { clockworkBolt } from './spells/clockworkBolt.js';
 
 export let spells = {
 	'hex': hex,
@@ -29,5 +30,6 @@ export let spells = {
 	'hungerHadar': hungerHadar,
 	'cloudOfDaggers': conjureCloud,
 	'heatMetal': heatMetal,
-	'prismaticWeapon': prismaticWeapon
+	'prismaticWeapon': prismaticWeapon,
+	'clockworkBolt': clockworkBolt
 }

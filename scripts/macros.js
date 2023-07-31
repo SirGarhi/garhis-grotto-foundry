@@ -81,6 +81,8 @@ export async function setupWorldMacros() {
 	await createMacro('analyzeDamage', damageBonusMacro('analyzeDamage'), false);
 	await createMacro('huntersMarkDamage', damageBonusMacro('huntersMarkDamage'), false);
 	await createMacro('autoReckless', onUseMacro('autoReckless'), false);
+	await createMacro('applyShredding', onUseMacro('applyShredding'), false);
+	await createMacro('shreddingShrapnel', onUseMacro('shreddingShrapnel'), false);
 }
 async function useOnUse(args, itemName) {
 	switch (itemName) {
@@ -113,6 +115,11 @@ async function useOnUse(args, itemName) {
 			break;
 		case 'autoReckless':
 			await features.class.barbarian.autoReckless(args);
+			break;
+		case 'applyShredding':
+			await spells.clockworkBolt.applyShredding(args);
+		case 'shreddingShrapnel':
+			await spells.clockworkBolt.shreddingShrapnel(args);
 			break;
 		default:
 			ui.notifications.warn('Garhis Grotto: No onUse macro named: '+itemName);

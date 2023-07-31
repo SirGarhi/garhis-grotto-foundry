@@ -281,6 +281,70 @@ let prismaticWeapon = {
 	},
 	"changes": []
 }
+let clockworkBoltEffect = {
+	'label': 'Clockwork Bolt',
+	'icon': 'icons/skills/ranged/arrow-flying-broadhead-metal.webp',
+	"duration": {
+		"rounds": null,
+		"startTime": null,
+		"seconds": 6,
+		"combat": null,
+		"turns": 1,
+		"startRound": null,
+		"startTurn": null
+	},
+	"flags": {
+		"dfreds-convenient-effects": {
+			"description": "Deal additional slashing damage with the next arrow or bolt fired"
+		},
+		"dae": {
+			"specialDuration": [
+				'1Attack:rwak',
+				'turnStartSource'
+			],
+			"stackable": "noneName"
+		},
+		"core": {
+			"statusId": ""
+		}
+	},
+	"changes": []
+}
+let shreddingEffect = {
+	'label': 'Shredding',
+	'icon': 'icons/skills/ranged/arrow-flying-broadhead-metal.webp',
+	"duration": {
+		"rounds": 1,
+		"startTime": null,
+		"seconds": null,
+		"combat": null,
+		"turns": null,
+		"startRound": null,
+		"startTurn": null
+	},
+	"flags": {
+		"dfreds-convenient-effects": {
+			"description": "Applied by Booming Blade and deals thunder damage if the target moves before the start of the caster's next turn"
+		},
+		"dae": {
+			"specialDuration": [
+				"turnEnd"
+			],
+			"stackable": "none"
+		},
+		"core": {
+			"statusId": ""
+		}
+	},
+	"changes": [
+		{
+			"key": "macro.execute.GM",
+			"mode": CONST.ACTIVE_EFFECT_MODES.CUSTOM,
+			"value": "GG_shreddingShrapnel",
+			"priority": 20
+		}
+	]
+}
 export let spellEffects = {
 	'absorbElements': { 'damageBonus': absorbElementsDamageBonus, 'resistanceBonus': absorbElementsResistanceBonus},
 	'boomingBlade': boomingBladeEffect,
@@ -289,5 +353,7 @@ export let spellEffects = {
 	'greenFlameBlade': greenFlameBladeEffect,
 	'bless': blessEffect,
 	'hungerHadar': hungerHadar,
-	'prismaticWeapon': prismaticWeapon
+	'prismaticWeapon': prismaticWeapon,
+	'clockworkBolt': clockworkBoltEffect,
+	'shredding': shreddingEffect
 };

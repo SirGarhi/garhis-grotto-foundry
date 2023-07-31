@@ -1,5 +1,8 @@
 # Changelog
 
+# 0.0.14
+* Added Clockwork Bolt
+
 # 0.0.13
 * Fixed Warpgate Menus impacting Bless, Green Flame Blade, and Emboldening Bond
 * Reverted Hex and Hunter's Mark to be damage bonus macros again because I like it better
