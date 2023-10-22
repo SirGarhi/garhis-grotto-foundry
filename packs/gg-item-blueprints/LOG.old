@@ -1,0 +1,5 @@
+2023/10/18-21:40:29.894 cad0 Delete type=3 #1
+2023/10/21-19:34:07.173 1bac Level-0 table #5: started
+2023/10/21-19:34:07.177 1bac Level-0 table #5: 45876 bytes OK
+2023/10/21-19:34:07.179 1bac Delete type=0 #3
+2023/10/21-19:34:07.179 1bac Manual compaction at level-0 from '!items!16Dv9TC0CadAzuoT' @ 72057594037927935 : 1 .. '!items.effects!sjmeQeFEr1YIZGKK.LRMYjChslaSG2YdH' @ 0 : 0; will stop at (end)
