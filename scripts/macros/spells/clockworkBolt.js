@@ -15,9 +15,10 @@ async function applyShredding(args) {
 }
 
 async function shreddingShrapnel(args) {
+	console.log(args);
 	const lastArg = args[args.length-1];
 	if (args[0] === "off" && args[1]["expiry-reason"]) {
-		let targetUuid = lastArg.actorUuid;
+		let targetUuid = lastArg.tokenUuid;
 		let damageDice = 1;
 		let actor = await fromUuid(lastArg.efData.origin);
 		if (actor.type === 'character') {

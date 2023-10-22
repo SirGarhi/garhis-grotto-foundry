@@ -51,7 +51,7 @@ async function applyPotentThrumming(args) {
 async function thrummingExplosion(args) {
 	const lastArg = args[args.length-1];
 	if (args[0] === "off" && args[1]["expiry-reason"] === "midi-qol:isMoved") {
-		let targetUuid = lastArg.actorUuid;
+		let targetUuid = lastArg.tokenUuid;
 		let damageDice = 1;
 		let actor = await fromUuid(lastArg.efData.origin);
 		if (actor.type === 'character') {
@@ -95,7 +95,7 @@ async function thrummingExplosion(args) {
 async function potentThrummingExplosion(args) {
 	const lastArg = args[args.length-1];
 	if (args[0] === "off" && args[1]["expiry-reason"] === "midi-qol:isMoved") {
-		let targetUuid = lastArg.actorUuid;
+		let targetUuid = lastArg.tokenUuid;
 		let damageDice = 1;
 		let spellMod = "";
 		let actor = await fromUuid(lastArg.efData.origin);

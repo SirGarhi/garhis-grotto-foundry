@@ -19,9 +19,6 @@
 				"turnEndSource",
 				"1Hit:mwak"
 			]
-		},
-		"core": {
-			"statusId": ""
 		}
 	},
 	"changes": []
@@ -46,9 +43,6 @@ let absorbElementsResistanceBonus = {
 			"specialDuration": [
 				"turnStartSource"
 			]
-		},
-		"core": {
-			"statusId": ""
 		}
 	}
 }
@@ -74,9 +68,6 @@ let boomingBladeEffect = {
 				'turnStartSource'
 			],
 			"stackable": "noneName"
-		},
-		"core": {
-			"statusId": ""
 		}
 	},
 	"changes": []
@@ -103,9 +94,6 @@ let thrummingEffect = {
 				"isMoved"
 			],
 			"stackable": "none"
-		},
-		"core": {
-			"statusId": ""
 		}
 	},
 	"changes": [
@@ -139,9 +127,6 @@ let potentThrummingEffect = {
 				"isMoved"
 			],
 			"stackable": "none"
-		},
-		"core": {
-			"statusId": ""
 		}
 	},
 	"changes": [
@@ -175,9 +160,6 @@ let greenFlameBladeEffect = {
 				'turnStartSource'
 			],
 			"stackable": "noneName"
-		},
-		"core": {
-			"statusId": ""
 		}
 	},
 	"changes": []
@@ -201,9 +183,6 @@ let blessEffect = {
 		},
 		"dae": {
 
-		},
-		"core": {
-			"statusId": ""
 		}
 	},
 	"changes": [
@@ -256,10 +235,7 @@ let hungerHadar = {
 	"flags": {
 		"dfreds-convenient-effects": {
 			"description": "Blinded, suffers 2d6 Cold Damage at the start of turn, Dex Save for 2d6 Acid Damage at end of turn."
-		},
-		"core": {
-			"statusId": "true"
-		},
+		}
 	}
 }
 let prismaticWeapon = {
@@ -303,9 +279,6 @@ let clockworkBoltEffect = {
 				'turnStartSource'
 			],
 			"stackable": "noneName"
-		},
-		"core": {
-			"statusId": ""
 		}
 	},
 	"changes": []
@@ -331,10 +304,8 @@ let shreddingEffect = {
 				"turnEnd"
 			],
 			"stackable": "none"
-		},
-		"core": {
-			"statusId": ""
 		}
+		
 	},
 	"changes": [
 		{

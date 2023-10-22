@@ -108,14 +108,6 @@
 			}
 		],
 		"optional": [
-			{ 
-				"id": "itemacro", 
-				"type": "module", 
-				"manifest": "https://github.com/Foundry-Workshop/Item-Macro/releases/latest/download/module.json",
-				"compatibility": {
-					"verified": "1.10.0"
-				}
-			},
 			{
 				"id": "tidy5e-sheet",
 				"type": "module",
