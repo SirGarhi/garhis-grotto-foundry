@@ -84,9 +84,6 @@ let concussedEffect = {
 				"turnEndSource"
 			]
 		},
-		"core": {
-			"statusId": ""
-		},
 		"ActiveAuras": {
 			"isAura": false,
 			"aura": "None",
@@ -135,9 +132,6 @@ let concussedImmunityEffect = {
 			"specialDuration": [
 				"turnEndSource"
 			]
-		},
-		"core": {
-			"statusId": ""
 		},
 		"ActiveAuras": {
 			"isAura": false,

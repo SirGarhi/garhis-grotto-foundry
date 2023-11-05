@@ -1,7 +1,6 @@
 ﻿import { ggHelpers } from "../../helperFunctions.js";
 
 export async function spiritGuardians(args) {
-	console.log(args);
 	let lastArg = args[args.length-1];
 	let spellData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Spirit Guardians Pulse', false);
 	if (!spellData) return;

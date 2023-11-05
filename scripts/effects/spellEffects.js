@@ -235,6 +235,9 @@ let hungerHadar = {
 	"flags": {
 		"dfreds-convenient-effects": {
 			"description": "Blinded, suffers 2d6 Cold Damage at the start of turn, Dex Save for 2d6 Acid Damage at end of turn."
+		},
+		"dae": {
+			"showIcon": true
 		}
 	}
 }

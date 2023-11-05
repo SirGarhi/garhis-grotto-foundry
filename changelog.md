@@ -1,4 +1,11 @@
 # Changelog
+# 0.1.17
+* More v11 updates
+* Fixed Hex/Hunter's Mark
+* Fixed Hunger of Hadar
+* Fixed Twilight Sanctuary
+* Added Flaming Sphere
+* Updated Cloud of Daggers and Flaming Sphere to support picking a damage type to support scribes wizards, no validation checking to filter the possible choices at this time.
 
 # 0.0.14
 * Added Clockwork Bolt

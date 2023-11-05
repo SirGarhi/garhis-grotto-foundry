@@ -18,9 +18,6 @@ let tranceProficiencyEffect = {
 		},
 		"dae": {
 			"specialDuration": []
-		},
-		"core": {
-			"statusId": ""
 		}
 	},
 	"changes": []
@@ -96,9 +93,6 @@ let baseRageEffect = {
 		},
 		"dfreds-convenient-effects": {
 			"description": "Grants resistance to physical damage, scaling damage to melee attacks, and additional bonuses based on subclass features."
-		},
-		"core": {
-			"statusId": "true"
 		}
 	},
 }
@@ -207,12 +201,9 @@ let specialRages = {
 				"hostile": false,
 				"onlyOnce": false
 			},
-			"core": {
-				"statusId": "true"
-			},
 			"dae": {
 				"stackable": "multi"
-			},
+			}
 		}
 	}
 }

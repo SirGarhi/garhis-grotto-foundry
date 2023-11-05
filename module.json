@@ -6,9 +6,9 @@
 	"library": "false",
 	"manifestPlusVersion": "1.2.0",
 	"compatibility": {
-		"minimum": 11,
-		"verified": 11,
-		"maximum": 11
+		"minimum": "11",
+		"verified": "11.313",
+		"maximum": "11.999"
 	},
 	"authors": [
 		{
@@ -200,12 +200,9 @@
 			"system": "dnd5e"
 		}
 	],
-	"esmodules": [
-		"scripts/module.js"
-	],
-	"styles": [
-		"styles/custom_fonts.css"
-	],
+	"scripts": [],
+	"esmodules": [ "scripts/module.js" ],
+	"styles": [],
 	"url": "https://github.com/SirGarhi/garhis-grotto-foundry",
 	"readme": "https://github.com/SirGarhi/garhis-grotto-foundry/blob/main/README.md",
 	"changelog": "https://github.com/SirGarhi/garhis-grotto-foundry/blob/main/changelog.md",

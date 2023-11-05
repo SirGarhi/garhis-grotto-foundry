@@ -1,7 +1,12 @@
 import {ggHelpers} from '../../helperFunctions.js';
 import { queue } from '../../queue.js';
 async function hexItem({speaker, actor, token, character, item, args}) {
-	if (this.targets.size != 1) return;
+	const lastArg = args[args.length-1];
+	if (lastArg.targets.length != 1) {
+		ui.notifications.warn('Can only cast Hex on a single target'); 
+		return;
+	}
+	const target = lastArg.targets[0];
 	let featureData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Transfer Hex', false);
 	if (!featureData) return;
 	let selection = await ggHelpers.buttonMenu('What ability should have disadvantage?', [
@@ -14,7 +19,7 @@ async function hexItem({speaker, actor, token, character, item, args}) {
 	]);
 	if (!selection) selection = 'str';
 	let seconds;
-	switch (this.castData.castLevel) {
+	switch (lastArg.castData.castLevel) {
 		case 3:
 		case 4:
 			seconds = 28800;
@@ -30,9 +35,9 @@ async function hexItem({speaker, actor, token, character, item, args}) {
 			seconds = 3600;
 	}
 	let targetEffectData = {
-		'label': `Hexed - ${this.actor.name}`,
-		'icon': this.item.img,
-		'origin': this.actor.uuid,
+		'label': `Hexed - ${actor.name}`,
+		'icon': item.img,
+		'origin': actor.uuid,
 		'duration': {
 			'seconds': seconds
 		},
@@ -45,7 +50,7 @@ async function hexItem({speaker, actor, token, character, item, args}) {
 			}
 		]
 	};
-	await ggHelpers.createEffect(this.targets.first().actor, targetEffectData);
+	await ggHelpers.createEffect(target.actor, targetEffectData);
 	async function effectMacro() {
 		await warpgate.revert(token.document, 'Hex');
 		let targetTokenId = effect.changes[0].value;
@@ -58,12 +63,12 @@ async function hexItem({speaker, actor, token, character, item, args}) {
 	}
 	let sourceEffectData = {
 		'label': 'Hex',
-		'icon': this.item.img,
+		'icon': item.img,
 		'changes': [
 			{
 				'key': 'flags.garhis-grotto.spells.hexTarget',
 				'mode': CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
-				'value': this.targets.first().id,
+				'value': target.id,
 				'priority': 20
 			},
 			{
@@ -74,7 +79,7 @@ async function hexItem({speaker, actor, token, character, item, args}) {
 			}
 		],
 		'transfer': false,
-		'origin': this.item.uuid,
+		'origin': item.uuid,
 		'duration': {
 			'seconds': seconds
 		},
@@ -101,8 +106,8 @@ async function hexItem({speaker, actor, token, character, item, args}) {
 		'name': sourceEffectData.label,
 		'description': sourceEffectData.label
 	};
-	await warpgate.mutate(this.token.document, updates, {}, options);
-	let conEffect = ggHelpers.findEffect(this.actor, 'Concentrating');
+	await warpgate.mutate(token.document, updates, {}, options);
+	let conEffect = ggHelpers.findEffect(actor, 'Concentrating');
 	if (conEffect) {
 		let updates = {
 			'duration': {
@@ -124,22 +129,24 @@ async function hexDamage(workflow) {
 	return {damageRoll: damageFormula, flavor: "Hex"};
 }
 async function hexTransfer({speaker, actor, token, character, item, args}) {
-	if (this.targets.size != 1) {
+	const lastArg = args[args.length-1];
+	if (lastArg.targets.length != 1) {
 		ui.notifications.warn('Can only transfer Hex to a single target'); 
 		return;
 	}
-	let targetToken = this.targets.first();
+	let targetToken = lastArg.targets[0];
 	let targetActor = targetToken.actor;
-	let effect = ggHelpers.findEffect(this.actor, 'Hex');
-	let oldTargetToken;
-	if (effect) {
-		let oldTargetTokenId = this.actor.flags['garhis-grotto'].spells.hexTarget;
-		oldTargetToken = canvas.scene.tokens.get(oldTargetTokenId);
+	let effect = ggHelpers.findEffect(actor, 'Hex');
+	if (!effect) {
+		ui.notifications.warn('Hex Active Effect not found, check for old Mutation');
+		return;
 	}
+	let oldTargetTokenId = actor.flags['garhis-grotto'].spells.hexTarget;
+	let oldTargetToken = canvas.scene.tokens.get(oldTargetTokenId);
 	let selection = 'flags.midi-qol.disadvantage.ability.check.str';
 	if (oldTargetToken) {
 		let oldTargetActor = oldTargetToken.actor;
-		let oldTargetEffect =  ggHelpers.findEffect(oldTargetActor, `Hexed - ${this.actor.name}`);
+		let oldTargetEffect =  ggHelpers.findEffect(oldTargetActor, `Hexed - ${actor.name}`);
 		if (oldTargetEffect) {
 			await ggHelpers.removeEffect(oldTargetEffect);
 			selection = oldTargetEffect.changes[0].key;
@@ -148,9 +155,9 @@ async function hexTransfer({speaker, actor, token, character, item, args}) {
 	let duration = 3600;
 	if (effect) duration = effect.duration.remaining;
 	let effectData = {
-		'label': `Hexed - ${this.actor.name}`,
+		'label': `Hexed - ${actor.name}`,
 		'icon': effect.icon,
-		'origin': this.actor.uuid,
+		'origin': actor.uuid,
 		'duration': {
 			'seconds': duration
 		},

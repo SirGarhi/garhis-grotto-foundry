@@ -1,18 +1,18 @@
 
-@font-face {
+/* @font-face {
   font-family: "CrimsonPro";
   src: url(./../assets/fonts/CrimsonPro-VariableFont_wght.ttf) format('truetype');
-  /* font-weight: 400; */
+  font-weight: 400; 
 }
-/* @font-face {
+@font-face {
   font-family: "CrimsonPro";
   src: url(./../assets/fonts/CrimsonPro-Bold.ttf) format('truetype');
   font-weight: 700;
-} */
+} 
 @font-face {
   font-family: "CrimsonPro";
   src: url(./../assets/fonts/CrimsonPro-Italic-VariableFont_wght.ttf) format('truetype');
-  /* font-weight: 400; */
+  font-weight: 400;
   font-style: italic;
 }
 @font-face {
@@ -22,4 +22,4 @@
 @font-face {
   font-family: "SourceCodePro";
   src: url(./../assets/fonts/SourceCodePro-VariableFont_wght.ttf) format('truetype');
-}
+} */

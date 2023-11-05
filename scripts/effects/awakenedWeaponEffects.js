@@ -20,9 +20,6 @@ let elementalMatrixEffect = {
 			"specialDuration": [
 				"turnStartSource"
 			]
-		},
-		"core": {
-			"statusId": ""
 		}
 	}
 }
@@ -43,9 +40,6 @@ let advancedBladesongResistanceEffect = {
 			"description": "Grants resistance to the chosen damage type."
 		},
 		"dae": {
-		},
-		"core": {
-			"statusId": ""
 		}
 	}
 }

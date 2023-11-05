@@ -85,9 +85,6 @@ let giftOfAlacrity = {
 	"icon": "icons/skills/movement/ball-spinning-blue.webp",
 	"label": "Gift of Alacrity",
 	"flags": {
-		"core": {
-			"statusId": "Convenient Effect: Gift of Alacrity",
-		},
 		"dfreds-convenient-effects": {
 			"description": "Adds +1d8 to Initiative Rules",
 		},
@@ -155,9 +152,6 @@ let hypnoticPattern = {
 			"specialDuration": [
 				"isDamaged"
 			]
-		},
-		"core": {
-			"statusId": ""
 		}
 	},
 	"changes": [
@@ -240,6 +234,6 @@ export let convenientEffects = [
 	draconicCry,
 	giftOfAlacrity,
 	silveryBarbs,
-	hypnoticPattern,
-	emboldeningBond
+	hypnoticPattern
+	// emboldeningBond
 ]

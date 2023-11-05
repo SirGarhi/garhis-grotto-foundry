@@ -1,9 +1,11 @@
 import {ggHelpers} from '../../helperFunctions.js';
 async function huntersMarkItem({speaker, actor, token, character, item, args}) {
-	if (this.targets.size != 1) {
+	const lastArg = args[args.length-1];
+	if (lastArg.targets.length != 1) {
 		ui.notifications.warn('Require exactly 1 target to cast Hunter\'s Mark'); 
 		return;
 	}
+	const target = lastArg.targets[0];
 	let featureData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Mark New Target', false);
 	if (!featureData) return;
 	let seconds;
@@ -23,15 +25,15 @@ async function huntersMarkItem({speaker, actor, token, character, item, args}) {
 			seconds = 3600;
 	}
 	let targetEffectData = {
-		'label': `Marked Target - ${this.actor.name}`,
-		'icon': this.item.img,
-		'origin': this.actor.uuid,
+		'label': `Marked Target - ${actor.name}`,
+		'icon': item.img,
+		'origin': actor.uuid,
 		'duration': {
 			'seconds': seconds
 		},
 		'changes': []
 	};
-	await ggHelpers.createEffect(this.targets.first().actor, targetEffectData);
+	await ggHelpers.createEffect(target.actor, targetEffectData);
 	async function effectMacro() {
 		await warpgate.revert(token.document, 'Hunter\'s Mark');
 		let targetTokenId = effect.changes[0].value;
@@ -44,12 +46,12 @@ async function huntersMarkItem({speaker, actor, token, character, item, args}) {
 	}
 	let sourceEffectData = {
 		'label': 'Hunter\'s Mark',
-		'icon': this.item.img,
+		'icon': item.img,
 		'changes': [
 			{
 				'key': 'flags.garhis-grotto.spells.huntersMarkTarget',
 				'mode': CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
-				'value': this.targets.first().id,
+				'value': target.id,
 				'priority': 20
 			},
 			{
@@ -60,7 +62,7 @@ async function huntersMarkItem({speaker, actor, token, character, item, args}) {
 			}
 		],
 		'transfer': false,
-		'origin': this.item.uuid,
+		'origin': item.uuid,
 		'duration': {
 			'seconds': seconds
 		},
@@ -87,8 +89,8 @@ async function huntersMarkItem({speaker, actor, token, character, item, args}) {
 		'name': sourceEffectData.label,
 		'description': sourceEffectData.label
 	};
-	await warpgate.mutate(this.token.document, updates, {}, options);
-	let conEffect = ggHelpers.findEffect(this.actor, 'Concentrating');
+	await warpgate.mutate(token.document, updates, {}, options);
+	let conEffect = ggHelpers.findEffect(actor, 'Concentrating');
 	if (conEffect) {
 		let updates = {
 			'duration': {
@@ -110,22 +112,23 @@ async function huntersMarkDamage(workflow) {
 	return {damageRoll: damageFormula, flavor: "Hunter's Mark"};
 }
 async function huntersMarkTransfer({speaker, actor, token, character, item, args}) {
-	if (this.targets.size != 1) {
+	const lastArg = args[args.length-1];
+	if (lastArg.targets.length != 1) {
 		ui.notifications.warn('Can only transfer Hunter\'s Mark to a single target'); 
 		return;
 	}
-	let targetToken = this.targets.first();
+	let targetToken = lastArg.targets[0];
 	let targetActor = targetToken.actor;
-	let effect = ggHelpers.findEffect(this.actor, 'Hunter\'s Mark');
+	let effect = ggHelpers.findEffect(actor, 'Hunter\'s Mark');
 	if (!effect) {
-		ui.notifications.warn('Hunter\'s Mark Active Effect not found');
+		ui.notifications.warn('Hunter\'s Mark Active Effect not found, check for old Mutation');
 		return;
 	}
-	let oldTargetTokenId = this.actor.flags['garhis-grotto'].spells.huntersMarkTarget;
+	let oldTargetTokenId = actor.flags['garhis-grotto'].spells.huntersMarkTarget;
 	let oldTargetToken = canvas.scene.tokens.get(oldTargetTokenId);
 	if (oldTargetToken) {
 		let oldTargetActor = oldTargetToken.actor;
-		let oldTargetEffect = ggHelpers.findEffect(oldTargetActor, `Marked Target - ${this.actor.name}`);
+		let oldTargetEffect = ggHelpers.findEffect(oldTargetActor, `Marked Target - ${actor.name}`);
 		if (oldTargetEffect) {
 			await ggHelpers.removeEffect(oldTargetEffect);
 		}
@@ -133,9 +136,9 @@ async function huntersMarkTransfer({speaker, actor, token, character, item, args
 	let duration = 3600;
 	if (effect) duration = effect.duration.remaining;
 	let effectData = {
-		'label': `Marked Target - ${this.actor.name}`,
+		'label': `Marked Target - ${actor.name}`,
 		'icon': effect.icon,
-		'origin': this.actor.uuid,
+		'origin': actor.uuid,
 		'duration': {
 			'seconds': duration
 		},

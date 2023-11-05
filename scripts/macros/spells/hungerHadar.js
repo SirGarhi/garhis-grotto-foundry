@@ -13,6 +13,7 @@ async function removeHadarEffect(token) {
 }
 
 async function create(template) {
+	await new Promise(w => setTimeout(w, 15));
 	let tokens = game.modules.get("templatemacro").api.findContained(template);
 	await template.setFlag('garhis-grotto', 'containedTokens', tokens);
 	async function initialEffects(item) {

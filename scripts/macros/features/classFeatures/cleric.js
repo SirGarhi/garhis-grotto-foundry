@@ -1,9 +1,8 @@
 ﻿import { ggHelpers } from '../../../helperFunctions.js';
 import { effects } from '../../../effects.js';
 
-async function twilightSanctuaryPulse(args) {
+async function twilightSanctuaryPulse({speaker, actor, token, character, item, args}) {
 	const lastArg = args[args.length - 1];
-	const actor = lastArg.actor;
 	// console.log(actor);
 	let removePotentials = [];
 	let sourceActor;
@@ -43,14 +42,32 @@ async function twilightSanctuaryPulse(args) {
 		}
 		let damageFormula = { parts: [["1d6"+levelMod, "temphp"]] };
 		const itemData = {
-			name: "Twilight Sanctuary Pulse",
+			name: "Temporary Hitpoints",
 			img: "icons/magic/light/explosion-star-teal-purple.webp",
 			type: "weapon",
 			effects: [],
 			flags: {
 				"midiProperties": {
 					magicdam: true
-				}
+				},
+				"autoanimations": {
+					"menu": "ontoken",
+					"primary": {
+					  "video": {
+						"dbSection": "static",
+						"menuType": "spell",
+						"animation": "curewounds",
+						"variant": "01",
+						"color": "purple",
+						"enableCustom": false,
+						"customPath": ""
+					  }
+					},
+					"isEnabled": true,
+					"isCustomized": true,
+					"fromAmmo": false,
+					"version": 5
+				  }
 			},
 			system: {
 				actionType: "other",
