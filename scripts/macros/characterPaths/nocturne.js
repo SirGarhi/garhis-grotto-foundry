@@ -4,7 +4,6 @@ async function consumeMark(args) {
 	// console.log(args);
 	const lastArg = args[args.length-1];
 	if (args[0] === "off" && args[3]["expiry-reason"] === "midi-qol:isHit") {
-		let targetUuid = lastArg.actorUuid;
 		let damageDice = args[2];
 		let actor = await fromUuid(lastArg.efData.origin);
 		actor = actor.parent;
@@ -29,7 +28,7 @@ async function consumeMark(args) {
 		};
 		const tempItem = new CONFIG.Item.documentClass(itemData, { parent: actor });
 		const config = {};
-		const options = { targetUuids: [targetUuid], showFullCard: false, createWorkflow: true, versatile: false, configureDialog: false };
+		const options = { targetUuids: [lastArg.tokenuuid], showFullCard: false, createWorkflow: true, versatile: false, configureDialog: false };
 		await MidiQOL.completeItemUse(tempItem, config, options);
 		const animFile = 'jb2a.explosion.04.dark_purple';
 		const animation = Sequencer.Database.entryExists(animFile);

@@ -15,7 +15,7 @@ async function applyShredding(args) {
 }
 
 async function shreddingShrapnel(args) {
-	console.log(args);
+	// console.log(args);
 	const lastArg = args[args.length-1];
 	if (args[0] === "off" && args[1]["expiry-reason"]) {
 		let targetUuid = lastArg.tokenUuid;

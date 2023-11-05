@@ -302,32 +302,8 @@ export let ggHelpers = {
 	'raceOrType': function _raceOrType(actor) {
 		return actor.type === "npc" ? actor.system.details?.type?.value : actor.system.details?.race;
 	},
-	'getItemDescription': function _getItemDescription(key, name) {
-		let journalEntry = game.journal.getName(key);
-		if (!journalEntry) {
-			ui.notifications.error('Item descriptions journal entry not found!');
-			return;
-		}
-		let page = journalEntry.pages.getName(name);
-		if (!page) {
-			ui.notifications.warn('Item description not found in journal!');
-		}
-		let description = page.text.content;
-		return description;
-	},
 	'getDistance': function _getDistance(sourceToken, targetToken) {
 		return MidiQOL.getDistance(sourceToken, targetToken, {wallsBlock: false});
-	},
-	'totalDamageType': function _totalDamageType(actor, damageDetail, type) {
-		let total = 0;
-		let immune = chris.checkTrait(actor, 'di', type);
-		if (immune) return 0;
-		for (let i of damageDetail) {
-			if (i.type.toLowerCase() === type.toLowerCase()) total += i.damage;
-		}
-		let resistant = chris.checkTrait(actor, 'dr', type);
-		if (resistant) total = math.floor(total / 2);
-		return total;
 	},
 	'getEffectCastLevel': function _getEffectCastLevel(effect) {
 		return effect.flags['midi-qol']?.castData?.castLevel;
@@ -360,6 +336,14 @@ export let ggHelpers = {
 	},
 	'inCombat': function _inCombat() {
 		return !(game.combat === null || game.combat === undefined || game.combat?.started === false);
+	},
+	'getDamageTypeFromItem': function _getDamageTypeFromItem(item) {
+		let damage = item.system.damage;
+		if (!damage || !damage.parts?.length > 0) {
+			return 'midi-none';
+		} else {
+			return damage.parts[0][1];
+		}
 	},
 	'createWorldActors': async function _createWorldActors() {
 		let folder = game.folders.getName('GG - Actor Templates');

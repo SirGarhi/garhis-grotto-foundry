@@ -33,7 +33,7 @@ async function twilightSanctuaryPulse({speaker, actor, token, character, item, a
 		applyHitpoints = true;
 	}
 	if (applyHitpoints) {
-		console.log(sourceActor);
+		// console.log(sourceActor);
 		let levelMod = sourceActor.classes?.cleric?.system.levels;
 		if (!levelMod) {
 			levelMod = '';
