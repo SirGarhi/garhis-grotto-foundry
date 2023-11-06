@@ -5,7 +5,7 @@ async function huntersMarkItem({speaker, actor, token, character, item, args, sc
 		return;
 	}
 	const target = workflow.targets.first();
-	let featureData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Mark New Target', false);
+	let featureData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Hunter\'s Mark - New Target', false);
 	if (!featureData) return;
 	let seconds;
 	switch (workflow.castData.castLevel) {
@@ -111,7 +111,7 @@ async function huntersMarkDamage({speaker, actor, token, character, item, args, 
 	return {damageRoll: damageFormula, flavor: "Hunter's Mark"};
 }
 async function huntersMarkTransfer({speaker, actor, token, character, item, args, scope, workflow}) {
-	if (workflow.targets.length != 1) {
+	if (workflow.targets.size != 1) {
 		ui.notifications.warn('Can only transfer Hunter\'s Mark to a single target'); 
 		return;
 	}

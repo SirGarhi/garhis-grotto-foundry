@@ -129,12 +129,11 @@ async function hexDamage({speaker, actor, token, character, item, args, scope, w
 	return {damageRoll: damageFormula, flavor: "Hex"};
 }
 async function hexTransfer({speaker, actor, token, character, item, args, scope, workflow}) {
-	const lastArg = args[args.length-1];
-	if (lastArg.targets.length != 1) {
+	if (workflow.targets.size != 1) {
 		ui.notifications.warn('Can only transfer Hex to a single target'); 
 		return;
 	}
-	let targetToken = lastArg.targets[0];
+	let targetToken = workflow.targets.first();
 	let targetActor = targetToken.actor;
 	let effect = ggHelpers.findEffect(actor, 'Hex');
 	if (!effect) {
