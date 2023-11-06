@@ -52,7 +52,7 @@ async function shreddingShrapnel({speaker, actor, token, character, item, args, 
 		const animFile = 'jb2a.claws.200px.brown';
 		const animation = Sequencer.Database.entryExists(animFile);
 		if (animation) {
-			const token = canvas.tokens.get(lastArg.tokenId);
+			// const token = canvas.tokens.get(lastArg.tokenId);
 			new Sequence()
 			.effect()
 			.file(animation)
