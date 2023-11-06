@@ -1,6 +1,6 @@
 import {ggHelpers} from '../../helperFunctions.js';
 import { queue } from '../../queue.js';
-async function hexItem({speaker, actor, token, character, item, args}) {
+async function hexItem({speaker, actor, token, character, item, args, scope, workflow}) {
 	const lastArg = args[args.length-1];
 	if (lastArg.targets.length != 1) {
 		ui.notifications.warn('Can only cast Hex on a single target'); 
@@ -74,7 +74,7 @@ async function hexItem({speaker, actor, token, character, item, args}) {
 			{
 				'key': 'flags.dnd5e.DamageBonusMacro',
 				'mode': 0,
-				'value': 'GG_hexDamage',
+				'value': 'function.garhisGrotto.macros.spells.hex.damage',
 				'priority': 20
 			}
 		],
@@ -117,7 +117,7 @@ async function hexItem({speaker, actor, token, character, item, args}) {
 		await ggHelpers.updateEffect(conEffect, updates);
 	}
 }
-async function hexDamage(workflow) {
+async function hexDamage({speaker, actor, token, character, item, args, scope, workflow}) {
 	if (workflow.hitTargets.size != 1) return;
 	if (!["mwak","rwak","msak","rsak"].includes(workflow.item.system.actionType)) return {};
 	let markedTarget = workflow.actor.flags['garhis-grotto'].spells.hexTarget;
@@ -128,7 +128,7 @@ async function hexDamage(workflow) {
 	let damageFormula = diceNum + 'd6[necrotic]';
 	return {damageRoll: damageFormula, flavor: "Hex"};
 }
-async function hexTransfer({speaker, actor, token, character, item, args}) {
+async function hexTransfer({speaker, actor, token, character, item, args, scope, workflow}) {
 	const lastArg = args[args.length-1];
 	if (lastArg.targets.length != 1) {
 		ui.notifications.warn('Can only transfer Hex to a single target'); 

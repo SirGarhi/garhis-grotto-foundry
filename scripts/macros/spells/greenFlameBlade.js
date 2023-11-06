@@ -29,74 +29,32 @@ function sequencerEffect(target, origin = null) {
 		}
 	}
 }
-async function greenFlameBladeSplash(args) {
+async function greenFlameBladeSplash({speaker, actor, token, character, item, args, scope, workflow}) {
 	const lastArg = args[args.length-1];
-	if (lastArg.itemData.system.actionType !== 'mwak') return;
-	if( lastArg.hitTargets.length > 0 ) {
-		let target = canvas.tokens.get(lastArg.hitTargets[0].id ?? args[0].hitTargets[0]._id);
+	if (item.system.actionType !== 'mwak') return;
+	if( workflow.hitTargets.size > 0 ) {
+		let target = canvas.tokens.get(workflow.hitTargets.first().id ?? args[0].hitTargets[0]._id);
 		let nearbyTargets = ggHelpers.findNearby(target, 5, 'all');
 		let buttons = [{label: 'Apply Damage', value: true},{label: 'No Damage', value: false}];
 		let chosenTargets = await ggHelpers.selectTarget('Splash Damage Target', buttons, nearbyTargets, false);
 		if (chosenTargets) {
 			if (!chosenTargets.buttons) return;
 			let splashTargetId = nearbyTargets[chosenTargets.inputs.indexOf(true)].document.uuid;
-			if (!splashTargetId) return;
-			let actor = await ggHelpers.tokenOrActor(await fromUuid(lastArg.actorUuid));
+			if (!splashTargetId) {
+				console.warn("GG | GFB - Couldn't find splashTargetId")
+				return;
+			}
 			let damageDice = 0;
 			let spellMod = '';
+			let potent = '';
 			if (actor.type === 'character') {
 				damageDice += Math.floor((actor.system.details.level+1)/6);
 				spellMod = actor.system.abilities[actor.system.attributes.spellcasting].mod;
+				potent = (actor.items.find( itm => itm.name === 'Potent Spellcasting')) ? `+${spellMod}` : '';
 			}
-			let damageFormula = { parts: [[((damageDice > 0) ? damageDice+'d8 +' : '')+spellMod, 'fire']] };
+			let damageFormula = { parts: [[((damageDice > 0) ? damageDice+'d8 +' : '')+spellMod+potent, 'fire']] };
 			const itemData = {
-				name: "Green-Flame Blade Splash",
-				img: "icons/magic/unholy/projectile-fireball-green.webp",
-				type: "weapon",
-				effects: [],
-				flags: {
-					"midiProperties": {
-						magicdam: true
-					}
-				},
-				system: {
-					actionType: "other",
-					damage: damageFormula,
-					duration: {units: "inst", value: undefined},
-					description: {value: "" }
-				}
-			};
-			const tempItem = new CONFIG.Item.documentClass(itemData, { parent: actor });
-			const config = {};
-			const options = { targetUuids: [splashTargetId], showFullCard: false, createWorkflow: true, versatile: false, configureDialog: false };
-			await MidiQOL.completeItemUse(tempItem, config, options);
-			let splashTarget = await fromUuid(splashTargetId);
-			sequencerEffect(splashTarget, target);
-		}
-	}
-}
-async function greenFlameBladeSplashPotent(args) {
-	const lastArg = args[args.length-1];
-	if (lastArg.itemData.system.actionType !== 'mwak') return;
-	if( lastArg.hitTargets.length > 0 ) {
-		let target = canvas.tokens.get(lastArg.hitTargets[0].id ?? args[0].hitTargets[0]._id);
-		let nearbyTargets = ggHelpers.findNearby(target, 5, 'all');
-		let buttons = [{label: 'Splash Damage', value: true},{label: 'Don\'t Splash', value: false}];
-		let chosenTargets = await ggHelpers.selectTarget('Splash Damage Target', buttons, nearbyTargets, true, false);
-		if (chosenTargets) {
-			if (!chosenTargets.buttons) return;
-			let splashTargetId = nearbyTargets[chosenTargets.inputs.indexOf(true)].document.uuid;
-			if (!splashTargetId) return;
-			let actor = await ggHelpers.tokenOrActor(await fromUuid(lastArg.actorUuid));
-			let damageDice = 0;
-			let spellMod = '';
-			if (actor.type === 'character') {
-				damageDice += Math.floor((actor.system.details.level+1)/6);
-				spellMod = actor.system.abilities[actor.system.attributes.spellcasting].mod;
-			}
-			let damageFormula = { parts: [[((damageDice > 0) ? damageDice+'d8 +' : '')+spellMod+'+'+spellMod, 'fire']] };
-			const itemData = {
-				name: "Green-Flame Blade Splash",
+				name: "GFB Splash",
 				img: "icons/magic/unholy/projectile-fireball-green.webp",
 				type: "weapon",
 				effects: [],
@@ -122,24 +80,29 @@ async function greenFlameBladeSplashPotent(args) {
 	}
 }
 
-async function greenFlameBladeItem(workflow) {
+async function greenFlameBladeItem({speaker, actor, token, character, item, args, scope, workflow}) {
 	// console.log(args);
-	let actor = workflow.actor;
-	let damageDice = Math.floor((actor.system.details.level+1)/6);
+	// let damageDice = Math.floor((actor.system.details.level+1)/6);
 	// console.log(lastArg.item);
 	
 	let effect = structuredClone(spellEffects.greenFlameBlade);
 	let changes = [
+		// {
+		// 	'key': 'system.bonuses.mwak.damage',
+		// 	'mode': CONST.ACTIVE_EFFECT_MODES.ADD,
+		// 	'value': `+${damageDice}d8[fire]`,
+		// 	'priority': 20
+		// },
 		{
-			'key': 'system.bonuses.mwak.damage',
-			'mode': CONST.ACTIVE_EFFECT_MODES.ADD,
-			'value': `+${damageDice}d8[fire]`,
+			'key': 'flags.dnd5e.DamageBonusMacro',
+			'mode': 0,
+			'value': 'function.garhisGrotto.macros.spells.greenFlameBlade.damage',
 			'priority': 20
 		},
 		{
 			'key': 'flags.midi-qol.onUseMacroName',
 			'mode': CONST.ACTIVE_EFFECT_MODES.CUSTOM,
-			'value': 'GG_greenFlameBladeSplash, postActiveEffects',
+			'value': 'function.garhisGrotto.macros.spells.greenFlameBlade.splash, postActiveEffects',
 			'priority': 20
 		}
 	];
@@ -147,35 +110,19 @@ async function greenFlameBladeItem(workflow) {
 	ggHelpers.createEffect(actor, effect);
 }
 
-async function greenFlameBladePotentItem(workflow) {
-	// console.log(args);
-	let actor = workflow.actor;
-	let damageDice = Math.floor((actor.system.details.level+1)/6);
-	// console.log(lastArg.item);
-	
-	let spellMod = `+${ggHelpers.getSpellModFromItem(workflow.item)}[fire]`;
-	let effect = structuredClone(spellEffects.greenFlameBlade);
-	let changes = [
-		{
-			'key': 'system.bonuses.mwak.damage',
-			'mode': CONST.ACTIVE_EFFECT_MODES.ADD,
-			'value': `+${damageDice}d8[fire]${spellMod}`,
-			'priority': 20
-		},
-		{
-			'key': 'flags.midi-qol.onUseMacroName',
-			'mode': CONST.ACTIVE_EFFECT_MODES.CUSTOM,
-			'value': 'GG_greenFlameBladeSplashPotent, postActiveEffects',
-			'priority': 20
-		}
-	];
-	effect.changes = changes;
-	ggHelpers.createEffect(actor, effect);
+async function greenFlameBladeDamageBonus({speaker, actor, token, character, item, args, scope, workflow}) {
+	if (workflow.hitTargets.size != 1) return {};
+	if (item.system.actionType != 'mwak') return {};
+	let diceNum = Math.floor((actor.system.details.level+1)/6);
+	let spellMod = ggHelpers.getSpellModFromItem(item);
+	if (workflow.isCritical) diceNum = diceNum * 2;
+	let potent = (actor.items.find( itm => itm.name === 'Potent Spellcasting')) ? `+${spellMod}[fire]` : '';
+	let damageFormula = `${diceNum}d8[fire]${potent}`;
+	return{damageRoll: damageFormula, flavor: 'Green Flame Blade'};
 }
 
 export let greenFlameBlade = {
 	'splash': greenFlameBladeSplash,
-	'splashPotent': greenFlameBladeSplashPotent,
 	'item': greenFlameBladeItem,
-	'potentItem': greenFlameBladePotentItem
+	'damage': greenFlameBladeDamageBonus
 }

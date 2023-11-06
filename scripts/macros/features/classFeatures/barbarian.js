@@ -26,7 +26,7 @@ async function wolfSpiritRage(workflow) {
 	workflow.attackAdvAttribution['Wolf Spirit Rage'] = true;
 }
 
-async function rageItem({speaker, actor, token, character, item, args}) {
+async function rageItem({speaker, actor, token, character, item, args, scope, workflow}) {
 	const persistentRage = actor.items.find( itm => itm.name === 'Persistent Rage');
 	let effect = structuredClone(featureEffects.baseRage);
 	effect.flags.effectmacro = {};
@@ -72,10 +72,8 @@ async function rageItem({speaker, actor, token, character, item, args}) {
 	ggHelpers.createEffect(actor, effect);
 }
 
-async function venomfang(workflow) {
+async function venomfang({speaker, actor, token, character, item, args, scope, workflow}) {
 	if (!["mwak","rwak"].includes(workflow.item.system.actionType)) return {};
-	let token = workflow.token;
-	let actor = token.actor;
 	if (!actor || !token || workflow.hitTargets.length < 1) return {};
 	if (!actor.classes.barbarian?.system.levels) {
 		ui.notifications.warn("Venomfang Strike: No Barbarian Levels");
@@ -83,13 +81,9 @@ async function venomfang(workflow) {
 	}
 	let target = workflow.hitTargets.first();
 	if (!target) ui.notifications.error("Venomfang Strike macro failed, invalid target");
-	if (game.combat) {
-		const combatTime = `${game.combat.id}-${game.combat.round + game.combat.turn /100}`;
-		const lastTime = actor.getFlag("garhis-grotto", "venomfangTime");
-		if (combatTime === lastTime) {
-			console.warn("GG | Venomfang Strike: Already delivered venomfang damage this turn");
-			return {};
-		}
+	if (!ggHelpers.perTurnCheck(actor, 'class', 'venomfang', false, token.id)) {
+		console.warn('GG | Venomfang Strike: Per Turn Check Failed');
+		return {};
 	}
 	let damageDice = "1d6[poison]";
 	if (workflow.isCritical) damageDice = "2d6[poison]";
@@ -103,14 +97,10 @@ async function venomfang(workflow) {
 		.atLocation(target)
 		.play();
 	}
-	if (game.combat) {
-		const combatTime = `${game.combat.id}-${game.combat.round + game.combat.turn /100}`;
-		const lastTime = actor.getFlag("garhis-grotto", "venomfangTime");
-		if (combatTime !== lastTime) {
-			await actor.setFlag("garhis-grotto", "venomfangTime", combatTime)
-		}
+	if (ggHelpers.inCombat()) {
+		await actor.setFlag('garhis-grotto', 'class.venomfang.turn', `${game.combat.round}-${game.combat.turn}`);
 	}
-	return {damageRoll: damageDice+damageMod, flavor: "Venomfang Strike"};
+	return {damageRoll: `${damageDice}${damageMod}`, flavor: "Venomfang Strike"};
 }
 
 async function handleRoll(workflow) {
@@ -135,9 +125,8 @@ async function handleRoll(workflow) {
 	}
 }
 
-async function autoReckless(args) {
-	let lastArg = args[args.length-1];
-	const reckless = lastArg.actor.items.getName("Reckless Attack");
+async function autoReckless({speaker, actor, token, character, item, args, scope, workflow}) {
+	const reckless = actor.items.getName("Reckless Attack");
 	if (reckless) reckless.use();
 }
 

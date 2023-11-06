@@ -98,42 +98,9 @@ let thrummingEffect = {
 	},
 	"changes": [
 		{
-			"key": "macro.execute.GM",
+			"key": "macro.execute",
 			"mode": CONST.ACTIVE_EFFECT_MODES.CUSTOM,
-			"value": "GG_thrummingExplosion",
-			"priority": 20
-		}
-	]
-}
-let potentThrummingEffect = {
-	'label': 'Thrumming',
-	'icon': 'icons/magic/sonic/explosion-shock-wave-teal.webp',
-	"duration": {
-		"rounds": 1,
-		"startTime": null,
-		"seconds": null,
-		"combat": null,
-		"turns": null,
-		"startRound": null,
-		"startTurn": null
-	},
-	"flags": {
-		"dfreds-convenient-effects": {
-			"description": "Applied by Booming Blade and deals thunder damage if the target moves before the start of the caster's next turn"
-		},
-		"dae": {
-			"specialDuration": [
-				"turnStartSource",
-				"isMoved"
-			],
-			"stackable": "none"
-		}
-	},
-	"changes": [
-		{
-			"key": "macro.execute.GM",
-			"mode": CONST.ACTIVE_EFFECT_MODES.CUSTOM,
-			"value": "GG_potentThrummingExplosion",
+			"value": "function.garhisGrotto.macros.spells.boomingBlade.thrummingExplosion",
 			"priority": 20
 		}
 	]
@@ -212,26 +179,7 @@ let hungerHadar = {
 		"startRound": null,
 		"startTurn": null
 	},
-	"changes": [
-		{
-			"key": "macro.CE",
-			"mode": 0,
-			"value": "Blinded",
-			"priority": 20
-		},
-		{
-			"key": "flags.midi-qol.OverTime",
-			"mode": 5,
-			"value": "turn=start,label=Hadar's Hungering Cold,damageRoll=2d6,damageType=cold,killAnim=true",
-			"priority": 20
-		},
-		{
-			"key": "flags.midi-qol.OverTime",
-			"mode": 5,
-			"value": "turn=end,label=Hadar's Hungering Acid,damageRoll=2d6,damageType=acid,saveRemove=false,saveDC=@attributes.spelldc,saveAbility=dex,saveDamage=nodamage,saveMagic=true,killAnim=true",
-			"priority": 20
-		}
-	],
+	"changes": [ ],
 	"flags": {
 		"dfreds-convenient-effects": {
 			"description": "Blinded, suffers 2d6 Cold Damage at the start of turn, Dex Save for 2d6 Acid Damage at end of turn."
@@ -312,9 +260,9 @@ let shreddingEffect = {
 	},
 	"changes": [
 		{
-			"key": "macro.execute.GM",
+			"key": "macro.execute",
 			"mode": CONST.ACTIVE_EFFECT_MODES.CUSTOM,
-			"value": "GG_shreddingShrapnel",
+			"value": "function.garhisGrotto.macros.spells.clockworkBolt.shrapnel",
 			"priority": 20
 		}
 	]
@@ -323,7 +271,6 @@ export let spellEffects = {
 	'absorbElements': { 'damageBonus': absorbElementsDamageBonus, 'resistanceBonus': absorbElementsResistanceBonus},
 	'boomingBlade': boomingBladeEffect,
 	'thrumming': thrummingEffect,
-	'potentThrumming': potentThrummingEffect,
 	'greenFlameBlade': greenFlameBladeEffect,
 	'bless': blessEffect,
 	'hungerHadar': hungerHadar,

@@ -1,29 +1,23 @@
 ﻿import {ggHelpers} from '../../../helperFunctions.js';
 
-async function sneakAttack(workflow) {
-	if (!["mwak","rwak"].includes(workflow.item.system.actionType)) return {};
-	if (workflow.item.system.actionType === "mwak" && !workflow.item.system.properties?.fin) 
+async function sneakAttack({speaker, actor, token, character, item, args, scope, workflow}) {
+	if (!["mwak","rwak"].includes(item.system.actionType)) return {};
+	if (item.system.actionType === "mwak" && !item.system.properties?.fin) 
 		return {};
 	if (workflow.hitTargets.size < 1) return {};
-	let token = workflow.token;
-	let actor = token.actor;
 	if (!actor || !token || workflow.hitTargets.size < 1) return {};
 	if (!actor.system.scale.rogue['sneak-attack']) {
 		ui.notifications.warn("Sneak Attack: No Sneak Attack Scale Found");
 		return {};
 	}
-	const numDice = actor.system.scale.rogue['sneak-attack'].number;
+	let numDice = actor.system.scale.rogue['sneak-attack'].number;
 	const sizeDice = actor.system.scale.rogue['sneak-attack'].faces;
 	let target = workflow.hitTargets.first();
 	if (!target) ui.notifications.error("Sneak Attack macro failed, invalid target");
 	
-	if (game.combat) {
-		const combatTime = `${game.combat.id}-${game.combat.round + game.combat.turn /100}`;
-		const lastTime = actor.getFlag("garhis-grotto", "sneakAttackTime");
-		if (combatTime === lastTime) {
-			console.warn("GG | Sneak Attack: Already done a sneak attack this turn");
-			return {};
-		}
+	if (!ggHelpers.perTurnCheck(actor, 'class', 'sneakAttack', false, token.id)) {
+		console.warn('GG | Sneak Attack: Per Turn Check Failed');
+		return {};
 	}
 	if (workflow.disadvantage) return {};
 	let isSneak = workflow.advantage;
@@ -52,7 +46,7 @@ async function sneakAttack(workflow) {
 	}
 	if (!isSneak) {
 		if (actor.items.find( itm => itm.name === 'Rakish Audacity')) {
-			usedRakish = ((MidiQOL.getDistance(token, target, true) <= 5) && (MidiQOL.findNearby(null, token, 5).length === 1))
+			isSneak = ((MidiQOL.getDistance(token, target, true) <= 5) && (MidiQOL.findNearby(null, token, 5).length === 1))
 		}
 	}
 	if (!isSneak) {
@@ -61,35 +55,13 @@ async function sneakAttack(workflow) {
 	}
 	let useSneak = getProperty(actor, "flags.dae.autoSneak");
 	if (!useSneak) {
-		let dialog = new Promise((resolve, reject) => {
-			new Dialog({
-				title: "Use Sneak Attack?",
-				buttons: {
-					one: {
-						icon: '<i class="fas fa-check"></i>',
-						label: "Confirm",
-						callback: () => resolve(true)
-					},
-					two: {
-						icon: '<i class="fas fa-times"></i>',
-						label: "Cancel",
-						callback: () => {resolve(false)}
-					}
-				},
-				default: "two"
-			}).render(true);
-		});
-		useSneak = await dialog;
+		useSneak = await ggHelpers.buttonMenu('Use Sneak Attack?', [
+			['Yes', true],
+			['No', false]
+		]);
 	}
 	if (!useSneak) return {}
-	const diceMult = workflow.isCritical ? 2: 1;
-	if (game.combat) {
-		const combatTime = `${game.combat.id}-${game.combat.round + game.combat.turn /100}`;
-		const lastTime = actor.getFlag("garhis-grotto", "sneakAttackTime");
-		if (combatTime !== lastTime) {
-			await actor.setFlag("garhis-grotto", "sneakAttackTime", combatTime)
-		}
-	}
+	if (workflow.isCritical) numDice = numDice * 2;
 	const animFile = 'jb2a.sneak_attack.orange';
 	const animation = Sequencer.Database.entryExists(animFile);
 	if (animation) {
@@ -97,9 +69,12 @@ async function sneakAttack(workflow) {
 		.effect()
 		.file(animation)
 		.atLocation(target)
-		.play();		
+		.play();
 	}
-	return {damageRoll: `${numDice * diceMult}d${sizeDice}`, flavor: "Sneak Attack"};
+	if (ggHelpers.inCombat()) {
+		await actor.setFlag('garhis-grotto', 'class.sneakAttack.turn', `${game.combat.round}-${game.combat.turn}`);
+	}
+	return {damageRoll: `${numDice}d${sizeDice}[${workflow.defaultDamageType}]`, flavor: "Sneak Attack"};
 }
 
 export let rogue = {

@@ -1,6 +1,7 @@
 ﻿import {ggHelpers} from '../../helperFunctions.js';
 import { spellEffects } from '../../effects/spellEffects.js';
-async function applyShredding(args) {
+
+async function applyShredding({speaker, actor, token, character, item, args, scope, workflow}) {
 	// console.log(args);
 	const lastArg = args[args.length-1];
 	if (lastArg.item.system.actionType !== 'rwak') return;
@@ -14,17 +15,17 @@ async function applyShredding(args) {
 	}
 }
 
-async function shreddingShrapnel(args) {
+async function shreddingShrapnel({speaker, actor, token, character, item, args, scope, workflow}) {
 	// console.log(args);
 	const lastArg = args[args.length-1];
 	if (args[0] === "off" && args[1]["expiry-reason"]) {
 		let targetUuid = lastArg.tokenUuid;
 		let damageDice = 1;
-		let actor = await fromUuid(lastArg.efData.origin);
-		if (actor.type === 'character') {
-			damageDice += Math.floor((actor.system.details.level+1)/6);
+		let sourceActor = await fromUuid(lastArg.efData.origin);
+		if (sourceActor.type === 'character') {
+			damageDice += Math.floor((sourceActor.system.details.level+1)/6);
 		}
-		let damageFormula = { parts: [[damageDice+"d8", "slashing"]] };
+		let damageFormula = { parts: [[`${damageDice}d8`, "slashing"]] };
 		const itemData = {
 			name: "Clockwork Shrapnel",
 			img: "icons/skills/ranged/arrow-flying-broadhead-metal.webp",
@@ -42,7 +43,7 @@ async function shreddingShrapnel(args) {
 				description: {value: "" }
 			}
 		};
-		const tempItem = new CONFIG.Item.documentClass(itemData, { parent: actor });
+		const tempItem = new CONFIG.Item.documentClass(itemData, { parent: sourceActor });
 		const config = {};
 		const options = { targetUuids: [targetUuid], showFullCard: false, createWorkflow: true, versatile: false, configureDialog: false };
 		await MidiQOL.completeItemUse(tempItem, config, options);
@@ -59,21 +60,26 @@ async function shreddingShrapnel(args) {
 	}
 }
 
-async function clockworkBoltItem(workflow) {
-	let actor = workflow.actor;
-	let damageDice = Math.floor((actor.system.details.level+1)/6);
+async function clockworkBoltItem({speaker, actor, token, character, item, args, scope, workflow}) {
+	// let damageDice = Math.floor((actor.system.details.level+1)/6);
 	let effect = structuredClone(spellEffects.clockworkBolt);
 	let changes = [
+		// {
+		// 	'key': 'system.bonuses.rwak.damage',
+		// 	'mode': CONST.ACTIVE_EFFECT_MODES.ADD,
+		// 	'value': '+'+damageDice+'d8[slashing]',
+		// 	'priority': 20
+		// },
 		{
-			'key': 'system.bonuses.rwak.damage',
-			'mode': CONST.ACTIVE_EFFECT_MODES.ADD,
-			'value': '+'+damageDice+'d8[slashing]',
+			'key': 'flags.dnd5e.DamageBonusMacro',
+			'mode': 0,
+			'value': 'function.garhisGrotto.macros.spells.clockworkBolt.damage',
 			'priority': 20
 		},
 		{
 			'key': 'flags.midi-qol.onUseMacroName',
 			'mode': CONST.ACTIVE_EFFECT_MODES.CUSTOM,
-			'value': 'GG_applyShredding, postActiveEffects',
+			'value': 'function.garhisGrotto.macros.spells.clockworkBolt.applyShredding, postActiveEffects',
 			'priority': 20
 		}
 	];
@@ -81,8 +87,20 @@ async function clockworkBoltItem(workflow) {
 	ggHelpers.createEffect(actor, effect);
 }
 
+async function clockworkBoltDamageBonus({speaker, actor, token, character, item, args, scope, workflow}) {
+	if (workflow.hitTargets.size != 1) return {};
+	if (item.system.actionType != 'rwak') return {};
+	let diceNum = Math.floor((actor.system.details.level+1)/6);
+	let spellMod = ggHelpers.getSpellModFromItem(item);
+	if (workflow.isCritical) diceNum = diceNum * 2;
+	let potent = (actor.items.find( itm => itm.name === 'Potent Spellcasting')) ? `+${spellMod}` : '';
+	let damageFormula = `${diceNum}d8${potent}[slashing]`;
+	return{damageRoll: damageFormula, flavor: 'Clockwork Bolt'};
+}
+
 export let clockworkBolt = {
 	'applyShredding': applyShredding,
-	'shreddingShrapnel': shreddingShrapnel,
-	'item': clockworkBoltItem
+	'shrapnel': shreddingShrapnel,
+	'item': clockworkBoltItem,
+	'damage': clockworkBoltDamageBonus
 };

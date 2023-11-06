@@ -1,15 +1,14 @@
 import {ggHelpers} from '../../helperFunctions.js';
-async function huntersMarkItem({speaker, actor, token, character, item, args}) {
-	const lastArg = args[args.length-1];
-	if (lastArg.targets.length != 1) {
+async function huntersMarkItem({speaker, actor, token, character, item, args, scope, workflow}) {
+	if (workflow.targets.size != 1) {
 		ui.notifications.warn('Require exactly 1 target to cast Hunter\'s Mark'); 
 		return;
 	}
-	const target = lastArg.targets[0];
+	const target = workflow.targets.first();
 	let featureData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Mark New Target', false);
 	if (!featureData) return;
 	let seconds;
-	switch (this.castData.castLevel) {
+	switch (workflow.castData.castLevel) {
 		case 3:
 		case 4:
 			seconds = 28800;
@@ -57,7 +56,7 @@ async function huntersMarkItem({speaker, actor, token, character, item, args}) {
 			{
 				'key': 'flags.dnd5e.DamageBonusMacro',
 				'mode': 0,
-				'value': 'GG_huntersMarkDamage',
+				'value': 'function.garhisGrotto.macros.spells.huntersMark.damage',
 				'priority': 20
 			}
 		],
@@ -100,7 +99,7 @@ async function huntersMarkItem({speaker, actor, token, character, item, args}) {
 		await ggHelpers.updateEffect(conEffect, updates);
 	}
 }
-async function huntersMarkDamage(workflow) {
+async function huntersMarkDamage({speaker, actor, token, character, item, args, scope, workflow}) {
 	if (workflow.hitTargets.size != 1) return;
 	if (!["mwak","rwak"].includes(workflow.item.system.actionType)) return {};
 	let markedTarget = workflow.actor.flags['garhis-grotto'].spells.huntersMarkTarget;
@@ -108,16 +107,15 @@ async function huntersMarkDamage(workflow) {
 	if (targetToken.id != markedTarget) return;
 	let diceNum = 1;
 	if (workflow.isCritical) diceNum = 2;
-	let damageFormula = diceNum + 'd6[' + workflow.defaultDamageType + ']';
+	let damageFormula = `${diceNum}d6[${workflow.defaultDamageType}]`;
 	return {damageRoll: damageFormula, flavor: "Hunter's Mark"};
 }
-async function huntersMarkTransfer({speaker, actor, token, character, item, args}) {
-	const lastArg = args[args.length-1];
-	if (lastArg.targets.length != 1) {
+async function huntersMarkTransfer({speaker, actor, token, character, item, args, scope, workflow}) {
+	if (workflow.targets.length != 1) {
 		ui.notifications.warn('Can only transfer Hunter\'s Mark to a single target'); 
 		return;
 	}
-	let targetToken = lastArg.targets[0];
+	let targetToken = workflow.targets.first();
 	let targetActor = targetToken.actor;
 	let effect = ggHelpers.findEffect(actor, 'Hunter\'s Mark');
 	if (!effect) {

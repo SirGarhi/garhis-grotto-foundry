@@ -1,8 +1,29 @@
 ﻿import {ggHelpers} from '../../helperFunctions.js';
 import { spellEffects } from '../../effects/spellEffects.js';
 
-async function createHadarEffect(token) {
+async function createHadarEffect(token, spelldc) {
 	let effect = structuredClone(spellEffects.hungerHadar);
+	let changes = [
+		{
+			"key": "macro.CE",
+			"mode": 0,
+			"value": "Blinded",
+			"priority": 20
+		},
+		{
+			"key": "flags.midi-qol.OverTime",
+			"mode": 5,
+			"value": `turn=start,label=Hadar's Hungering Cold,damageRoll=2d6,damageType=cold`,
+			"priority": 20
+		},
+		{
+			"key": "flags.midi-qol.OverTime",
+			"mode": 5,
+			"value": `turn=end,label=Hadar's Hungering Acid,damageRoll=2d6,damageType=acid,saveRemove=false,saveDC=${spelldc},saveAbility=dex,saveDamage=nodamage,saveMagic=true`,
+			"priority": 20
+		}
+	]
+	effect.changes = changes;
 	await ggHelpers.createEffect(token.actor, effect);
 }
 
@@ -16,9 +37,12 @@ async function create(template) {
 	await new Promise(w => setTimeout(w, 15));
 	let tokens = game.modules.get("templatemacro").api.findContained(template);
 	await template.setFlag('garhis-grotto', 'containedTokens', tokens);
+	let item = await fromUuid(template.flags.dnd5e.origin);
+	const spelldc = ggHelpers.getSpellDCFromItem(item);
+	await template.setFlag('garhis-grotto', 'spelldc', spelldc);
 	async function initialEffects(item) {
 		let token = canvas.scene.tokens.get(item);
-		await createHadarEffect(token);
+		await createHadarEffect(token, template.flags['garhis-grotto'].spelldc);
 	}
 	tokens.forEach(initialEffects);
 }
@@ -33,7 +57,7 @@ async function remove(template) {
 }
 
 async function enter(template, token) {
-	await createHadarEffect(token.document);
+	await createHadarEffect(token, template.flags['garhis-grotto'].spelldc);
 	let tokens = template.flags['garhis-grotto'].containedTokens;
 	tokens.push(token.document.id);
 	await template.setFlag('garhis-grotto', 'containedTokens', tokens);
