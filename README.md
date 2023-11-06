@@ -25,15 +25,11 @@ Foundry Module implementing the Items, Spells, Features, and Creatures developed
 	- https://foundryvtt.com/packages/effectmacro
 * Active Token Effects
 	- https://foundryvtt.com/packages/ATL
-* Advanced Macros
-	- https://foundryvtt.com/packages/advanced-macros
 * Sequencer
 	- https://foundryvtt.com/packages/sequencer
-* Compendium Folders
-	- https://foundryvtt.com/packages/compendium-folders/
 * Template Macro
 	- https://foundryvtt.com/packages/templatemacro
-### Likely to become Hard Requirements in a future update
+### Looking in to
 * Items with Spells DnD 5e
 	- https://foundryvtt.com/packages/items-with-spells-5e
 * Arbron's Summoning (5e)
@@ -43,9 +39,6 @@ Foundry Module implementing the Items, Spells, Features, and Creatures developed
 * JB2A - Patreon Edition
 	- Without it you'll have broken images for some items/spells/features/tokens. I *may* create a separate compendium that utilizes the free version at some point.
 	- https://www.patreon.com/JB2A
-* Item Macro 
-	- Required if you want to take advantage of any of the manual tweaking possibilities of items, features, or spells. Everything will function fine without it though.
-	- https://foundryvtt.com/packages/itemacro
 * Item Collection
 	- Allows container items to actually have an inventory you can place other items in.
 	- Some items such as the *Survivalist's Pouch* signature item makes use of this module.
@@ -61,12 +54,12 @@ These modules do similar things as what I am. Rather than duplicating work, I'm 
 # Foundry and Module Settings
 ## Hard Requirements
 These Settings ***MUST*** be set correctly or things won't function at all.
+### User Roles
+* Trusted Player - Midi's latest versions locked some functionality behind the trusted player role, if you're using this much automation setting everyone to Trusted Player isn't a big deal in my opinion.
 ### User Permissions
 * **Configure Token Settings** - Required for Warp Gate to function.
 * **Create New Tokens** - Required for Warp Gate to function.
 * **Use File Browser** - Required for Warp Gate to function.
-### DFreds Convenient Effects
-* Must run the GG_updateConvenientEffects Macro found in the GG Macros folder of the world macro directory to create/update the required custom effects.
 ### Midi QOL
 * **Enable roll automation support** - Enabled and Locked
 #### Workflow Settings
@@ -76,9 +69,6 @@ These Settings ***MUST*** be set correctly or things won't function at all.
 * **Apply Convenient Effects** - Apply item effects, if absent apply CE
 ##### Misc Tab
 * **Add item on use macro to sheet** - Enabled
-### Item Macro (if installed)
-* **Character Sheet Hook** - Disabled
-* **Override default macro execution** - Disabled
 
 ## Soft Requirements
 Without these settings things *should* still function, but it kind of defeats the purpose of the way things are built.
@@ -109,11 +99,8 @@ Without these settings things *should* still function, but it kind of defeats th
 
 ## Highly Recommended
 ### Active-Auras
-* Auras in combat - Enabled
+* Auras in combat - Enabled if performance is an issue
 * Disable scrolling text for auras - Enabled
-### Compendium Folders
-* Default Keep ID - Enabled
-* Auto Create folders on Import - Enabled
 ### Midi QOL
 #### Workflow Settings
 ##### Workflow Tab
@@ -123,11 +110,11 @@ Without these settings things *should* still function, but it kind of defeats th
 ##### Concentration Tab
 * Enable Contentration Automation - Enabled
 * Remove concentration on failed save - Disabled (There's too many reaction abilities and ways to modify a failed save to make this worth it)
-* Single Concentration Check - Enabled
+* Single Concentration Check - Disabled to match RAW, but User Preference really
 * Remove concentration when effects removed - Check Effects and Templates
 ##### Misc Tab
 * Condense Attack/Damage Rolls - Enabled
-* Move roll formula to tooltip - Advantage Attribution (Informs you *why* Midi is automatically applying advantage or disadvantage)
+* Move roll formula to tooltip - Advantage Attribution (Informs you *why* Midi is automatically applying advantage or disadvantage, can be a bit hard to parse but better than nothing)
 ### Warp Gate
 * Revert button behavior - 'Show mutation stack dialog' and locked
 Several items in this pack utilize warpgate mutations to drive the changes. With default settings, if a player curiosly clicks the 'Revert' button at the top of their character sheet, the last applied mutation will be removed without warning. Showing the mutation stack dialog allows players to see what mutations are applied to their character and also know exactly what it is they might be removing.
@@ -157,7 +144,7 @@ Several items in this pack utilize warpgate mutations to drive the changes. With
 	- Enables you to lock settings that exist within the user scope instead of the world scope and force sync them for your users. Also overhauls the module management UI to provide a great deal more information.
 	- https://foundryvtt.com/packages/force-client-settings
 * Health Monitor
-	- Prints to the chat log whenever an actor's health changes. Useful to visually verify that Midi is properly applying damage.
+	- Prints to the chat log whenever an actor's health changes. Useful as a feedback check to make sure midi is properly applying damage.
 	- https://foundryvtt.com/packages/health-monitor
 
 # Mildly Recommended Foundry and Module Settings
@@ -183,9 +170,6 @@ These settings are in the foundry settings menu, not the window that opens when 
 * DAE Title Bar - Disabled
 ## Garhi's Grotto
 * Automate Rage Expiration - Enabled
-## Item Macro
-* Player Access - Enabled
-* Display Icon Only - Enabled
 ## Midi QOL
 ### Workflow Settings
 #### Workflow Tab
@@ -204,7 +188,7 @@ These settings are in the foundry settings menu, not the window that opens when 
 #### Mechanics Tab
 * Mark Wounded when hp falls below % - 50
 * Add effect when HP = 0 - Add effect as overlay
-* Check weapon range when attacking - Disabled (Reaction abilities like Attacks of Opportunity become annoying to use with this on)
+* Check weapon range when attacking - Disabled (Reaction abilities like Attacks of Opportunity become annoying to use with this on, if someone is abusing attacking outside their range, there are bigger issues at play)
 * Ability Check Advantage give Skill Advantage - Enabled
 #### Rules Tab
 * Optional Game Rules - Enabled
@@ -216,7 +200,7 @@ These settings are in the foundry settings menu, not the window that opens when 
 ## Walled Templates
 * Autotargeting and highlighting - Token area overlaps template
 * Autotargeting and highlighting area - 0.1
-In D&D 5e, only circular templates have an overlapping percentage requirement, rays, cones, and cubes effect every grid square they touch. Unfortunately, there's not a good module at the moment that implements that exact behavior and also handles walls. These settings feel like the best compromise to me.
+In D&D 5e, only circular templates have an overlapping percentage requirement, rays, cones, and cubes effect every grid square they touch. Unfortunately, there's not a good module at the moment that implements that exact behavior and also handles walls. These settings feel like the best compromise to me. Also, unless you're using 5-10-5 diagnal movement, circular templates should technically be squares anyways.
 ## D&D Beyond Importer Window
 These settings are in the window that pops up when you actually open the importer for use, not in the foundry settings menu.
 ### Core setup
