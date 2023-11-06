@@ -1,7 +1,7 @@
 ﻿import { ggHelpers } from "../../helperFunctions.js";
 import { itemEffects } from "../../effects/itemEffects.js";
 
-export async function shadowfellShard(workflow) {
+export async function shadowfellShard({speaker, actor, token, character, item, args, scope, workflow}) {
 	if (workflow.targets.size != 1) {
 		ui.notifications.warn('Shadowfell Shard can only be used on a single target');
 		return;
