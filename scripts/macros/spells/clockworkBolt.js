@@ -3,29 +3,31 @@ import { spellEffects } from '../../effects/spellEffects.js';
 
 async function applyShredding({speaker, actor, token, character, item, args, scope, workflow}) {
 	// console.log(args);
-	const lastArg = args[args.length-1];
-	if (lastArg.item.system.actionType !== 'rwak') return;
-	if ( lastArg.hitTargets.length > 0 ) {
-		let target = lastArg.hitTargets[0];
+	if (item.system.actionType !== 'rwak') return;
+	if ( workflow.hitTargets.size > 0 ) {
+		let target = workflow.hitTargets.first();
 		let targetActor = target.actor;
 
 		let effect = structuredClone(spellEffects.shredding);
-		effect.origin = lastArg.actorUuid;
+		effect.origin = actor.uuid;
 		ggHelpers.createEffect(targetActor, effect);
 	}
 }
 
-async function shreddingShrapnel({speaker, actor, token, character, item, args, scope, workflow}) {
-	// console.log(args);
+async function shreddingShrapnel({speaker, actor, token, character, item, args, scope}) {
 	const lastArg = args[args.length-1];
 	if (args[0] === "off" && args[1]["expiry-reason"]) {
 		let targetUuid = lastArg.tokenUuid;
 		let damageDice = 1;
 		let sourceActor = await fromUuid(lastArg.efData.origin);
+		let potent = '';
 		if (sourceActor.type === 'character') {
 			damageDice += Math.floor((sourceActor.system.details.level+1)/6);
+			if (sourceActor.items.find( itm => itm.name === 'Potent Spellcasting')) {
+				potent = `+${ggHelpers.getSpellModFromItem(sourceActor.items.find(itm=>itm.name==='Clockwork Bolt'))}`
+			}
 		}
-		let damageFormula = { parts: [[`${damageDice}d8`, "slashing"]] };
+		let damageFormula = { parts: [[`${damageDice}d8${potent}`, "slashing"]] };
 		const itemData = {
 			name: "Clockwork Shrapnel",
 			img: "icons/skills/ranged/arrow-flying-broadhead-metal.webp",

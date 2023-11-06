@@ -24,13 +24,13 @@ async function applyThrumming({speaker, actor, token, character, item, args, sco
 	}
 }
 
-async function thrummingExplosion({speaker, actor, token, character, item, args, scope, workflow}) {
+async function thrummingExplosion({speaker, actor, token, character, item, args, scope}) {
 	const lastArg = args[args.length-1];
 	if (args[0] === "off" && args[1]["expiry-reason"] === "midi-qol:isMoved") {
 		let targetUuid = lastArg.tokenUuid;
 		let damageDice = 1;
 		let sourceActor = await fromUuid(lastArg.efData.origin);
-		console.log(sourceActor);
+		// console.log(sourceActor);
 		let potent = '';
 		if (sourceActor.type === 'character') {
 			damageDice += Math.floor((sourceActor.system.details.level+1)/6);
