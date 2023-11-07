@@ -7,10 +7,10 @@
 async function consumeRallyingMark({speaker, actor, token, character, item, args, scope, workflow}) {
 	let markEffect = ggHelpers.findEffect(actor, 'Rallying Mark');
 	if( item.actor.uuid == markEffect.origin) {
-		console.warn("Attacking Actor is owner of Rallying Mark, aborting");
+		console.warn("GG | Warlord - Attacking Actor is owner of Rallying Mark, aborting");
 		return;
 	}
-	console.log(workflow);
+	// console.log(workflow);
 	// let targetToken = workflow.targets.first().document;
 	let numDice = markEffect.changes[1].value;
 	let warlord = await ggHelpers.getActorByUuid(markEffect.origin);
@@ -48,7 +48,7 @@ async function consumeRallyingMark({speaker, actor, token, character, item, args
 	// console.log(options);
 	let markDamage = await MidiQOL.completeItemUse(tempItem, config, options);
 	// console.log(markDamage);
-	const animFile = 'jb2a.explosion.05.yellowwhite';
+	const animFile = 'jb2a.claws.200px.dark_red';
 	const animation = Sequencer.Database.entryExists(animFile);
 	if (animation) {
 		// const animToken = canvas.tokens.get(token.uuid);

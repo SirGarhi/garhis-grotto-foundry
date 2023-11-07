@@ -2,6 +2,9 @@
 Foundry Module implementing the Items, Spells, Features, and Creatures developed by Garhi
 
 # Module Compatibility
+## Incompatibilities
+* Monk's Combat Details
+"Clear targets after turn" setting must be disabled on the GM account in order for Clockwork Bolt automation to fully function. If this setting is enabled, the Shrapnel damage will be rolled but not applied to the target at the end of the turn.
 ## Hard Requirements
 * DnD 5e System
 	- https://foundryvtt.com/packages/dnd5e

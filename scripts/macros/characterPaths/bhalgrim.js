@@ -1,7 +1,7 @@
 ﻿import {ggHelpers} from '../../helperFunctions.js';
 
 async function richochetAttack({speaker, actor, token, character, item, args, scope, workflow}) {
-	console.log(item);
+	// console.log(item);
 	if (item.system.actionType !== 'mwak') return;
 	if( workflow.hitTargets.size > 0 ) {
 		let target = canvas.tokens.get(workflow.hitTargets.first().id ?? args[0].hitTargets[0]._id);
@@ -15,8 +15,11 @@ async function richochetAttack({speaker, actor, token, character, item, args, sc
 			if (!splashTargetId) return;
 			const config = {};
 			const options = { targetUuids: [splashTargetId], showFullCard: false, createWorkflow: true, versatile: false, configureDialog: false };
-			const tempItem = item.clone({ "name": 'Richochet', "flags.autoanimations.isEnabled": false });
+			let tempItem = item.clone({ "name": 'Richochet', "flags.autoanimations.isEnabled": false });
 			tempItem.flags["midi-qol"].onUseMacroParts.items = tempItem.flags["midi-qol"].onUseMacroParts.items.slice(1);
+			// console.log(actor);
+			tempItem.system.attackBonus = tempItem.system.attackBonus + actor.system.attributes.prof;
+			// console.log(tempItem);
 			await MidiQOL.completeItemUse(tempItem, config, options);
 			// let origin = canvas.tokens.get(workflow.hitTargets.first().id ?? args[0].hitTargets[0]._id);
 			let splashTarget = await fromUuid(splashTargetId);
