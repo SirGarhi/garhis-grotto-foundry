@@ -140,46 +140,47 @@ async function chooseWeaponProficiency(actor) {
 			}
 		}
 	}
-	return await ggHelpers.buttonMenu('Choose a Weapon Proficiency', choices);
+	return await ggHelpers.buttonMenu('Choose a Weapon Proficiency', choices, {'height': Math.min(400,(choices.length*35+40))});
 }
 
 async function chooseToolProficiency(actor) {
+	console.log(actor);
 	let artTools = ['alchemist', 'brewer', 'calligrapher', 'carpenter', 'cartographer', 'cobbler', 'cook', 'glassblower', 'jeweler', 'leatherworker', 'mason', 'painter', 'potter', 'smith', 'tinker', 'weaver', 'woodcarver'];
 	let musicTools = ['bagpipes', 'drum', 'dulcimer', 'flute', 'horn', 'lute', 'lyre', 'panflute', 'shawm', 'viol'];
 	let vehicleTools = ['air', 'land', 'space', 'water'];
 	let gameTools = ['chess', 'card', 'dice'];
 	let miscKits = ['disg', 'forg', 'herb', 'navg', 'pois', 'thief'];
 	let choices = [];
-	if (!actor.system.traits.toolProf.value.find(val => val === 'art')) {
+	if (!('art' in actor.system.tools)) {
 		for( let prof of artTools ) {
-			if( !actor.system.traits.toolProf.value.find(val => val === prof) ) {
+			if( !(prof in actor.system.tools) || (actor.system.tools.prof?.value < 1)) {
 				choices.push(prof);
 			}
 		}
 	}
-	if (!actor.system.traits.toolProf.value.find(val => val === 'music')) {
+	if (!('music' in actor.system.tools)) {
 		for( let prof of musicTools ) {
-			if( !actor.system.traits.toolProf.value.find(val => val === prof) ) {
+			if( !(prof in actor.system.tools) || (actor.system.tools.prof?.value < 1)) {
 				choices.push(prof);
 			}
 		}
 	}
-	if (!actor.system.traits.toolProf.value.find(val => val === 'vehicle')) {
+	if (!('vehicle' in actor.system.tools)) {
 		for( let prof of vehicleTools ) {
-			if( !actor.system.traits.toolProf.value.find(val => val === prof) ) {
+			if( !(prof in actor.system.tools) || (actor.system.tools.prof?.value < 1)) {
 				choices.push(prof);
 			}
 		}
 	}
-	if (!actor.system.traits.toolProf.value.find(val => val === 'game')) {
+	if (!('game' in actor.system.tools)) {
 		for( let prof of gameTools ) {
-			if( !actor.system.traits.toolProf.value.find(val => val === prof) ) {
+			if( !(prof in actor.system.tools) || (actor.system.tools.prof?.value < 1)) {
 				choices.push(prof);
 			}
 		}
 	}
 	for( let prof of miscKits ) {
-		if( !actor.system.traits.toolProf.value.find(val => val === prof) ) {
+		if( !(prof in actor.system.tools) || (actor.system.tools.prof?.value < 1)) {
 			choices.push(prof);
 		}
 	}
@@ -306,14 +307,14 @@ async function chooseToolProficiency(actor) {
 					choices[i] = ['Poisoner\'s Kit', 'pois']; 
 					break; 
 				case 'thief':
-					choices[i] = ['Thieve\'s Tools', 'thief'];
+					choices[i] = ['Thieves\' Tools', 'thief'];
 					break;
 				default:
 					console.log("Failed Filtering Tool Options");
 			}
 		}
 	}
-	return await ggHelpers.buttonMenu('Choose a Tool Proficiency', choices, {'height': 600});
+	return await ggHelpers.buttonMenu('Choose a Tool Proficiency', choices, {'height': Math.min(400,(choices.length*35+40))});
 }
 
 async function chooseWeaponOrToolProficiency(actor) {
@@ -325,10 +326,26 @@ async function chooseWeaponOrToolProficiency(actor) {
 	switch (proficiencyCategory) {
 		case "wep":
 			proficiency = await chooseWeaponProficiency(actor);
-			if (proficiency) { return [proficiency, 'weaponProf']; } else { return false; }
+			if (proficiency) { 
+				return {
+					'key': `system.traits.weaponProf.value`,
+					'mode': CONST.ACTIVE_EFFECT_MODES.ADD,
+					'value': proficiency
+				}
+			} else { 
+				return false; 
+			}
 		case "tool":
 			proficiency = await chooseToolProficiency(actor);
-			if (proficiency) { return [proficiency, 'toolProf']; } else { return false; }
+			if (proficiency) { 
+				return {
+					'key': `system.tools.${proficiency}.prof`,
+					'mode': CONST.ACTIVE_EFFECT_MODES.CUSTOM,
+					'value': 1
+				}
+			} else { 
+				return false; 
+			}
 		default:
 			return false;
 	}
@@ -406,17 +423,16 @@ async function chooseSkillProficiency(actor) {
 			}
 		}
 	}
-	return await ggHelpers.buttonMenu('Choose a Skill Proficiency', choices);
+	return await ggHelpers.buttonMenu('Choose a Skill Proficiency', choices, {'height': Math.min(400,(choices.length*35+40))});
 }
 
-async function standardTrance(workflow) {
-	let actor = workflow.actor;
+async function standardTrance({speaker, actor, token, character, item, args, scope, workflow}) {
 	ggHelpers.removeEffect(ggHelpers.findEffect(actor, featureEffects.trance.label));
 	let changes = [];
 	let proficiency = await chooseWeaponOrToolProficiency(actor);
-	if (proficiency) changes.push({'key': 'system.traits.'+proficiency[1]+'.value', 'mode': CONST.ACTIVE_EFFECT_MODES.ADD, 'value': proficiency[0], 'priority': 20});
+	if (proficiency) changes.push(proficiency);
 	proficiency = await chooseWeaponOrToolProficiency(actor);
-	if (proficiency) changes.push({'key': 'system.traits.'+proficiency[1]+'.value', 'mode': CONST.ACTIVE_EFFECT_MODES.ADD, 'value': proficiency[0], 'priority': 20});
+	if (proficiency) changes.push(proficiency);
 	if ( changes.length < 1 ) {
 		ui.notifications.warn('No proficiencies chosen or all options already known, Trance effect will not be created.');
 		return;
@@ -427,14 +443,16 @@ async function standardTrance(workflow) {
 	ggHelpers.createEffect(actor, effect);
 }
 
-async function astralTrance(workflow) {
-	let actor = workflow.actor;
+async function astralTrance({speaker, actor, token, character, item, args, scope, workflow}) {
 	ggHelpers.removeEffect(ggHelpers.findEffect(actor, featureEffects.trance.label));
 	let changes = [];
 	let proficiency = await chooseWeaponOrToolProficiency(actor);
-	if (proficiency) changes.push({'key': 'system.traits.'+proficiency[1]+'.value', 'mode': CONST.ACTIVE_EFFECT_MODES.ADD, 'value': proficiency[0], 'priority': 20});
+	if (proficiency) changes.push(proficiency);
 	proficiency = await chooseSkillProficiency(actor);
-	if(proficiency) changes.push({'key': 'system.skills.'+proficiency+'.value', 'mode': CONST.ACTIVE_EFFECT_MODES.ADD, 'value': '1', 'priority': 20});
+	if(proficiency) changes.push(
+		{	'key': `system.skills.${proficiency}.value`, 
+			'mode': CONST.ACTIVE_EFFECT_MODES.ADD, 
+			'value': '1' });
 	if ( changes.length < 1 ) {
 		ui.notifications.warn('No proficiencies chosen or all choices already known, Trance effect will not be created.');
 		return;

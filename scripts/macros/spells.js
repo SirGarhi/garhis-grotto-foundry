@@ -15,6 +15,8 @@ import { heatMetal } from './spells/heatMetal.js';
 import { prismaticWeapon } from './spells/prismaticWeapon.js';
 import { clockworkBolt } from './spells/clockworkBolt.js';
 import { conjureSphere } from './spells/flamingSphere.js';
+import { electricArc } from './spells/electricArc.js';
+import { starfall } from './spells/starfall.js';
 
 export let spells = {
 	'hex': hex,
@@ -33,5 +35,7 @@ export let spells = {
 	'heatMetal': heatMetal,
 	'prismaticWeapon': prismaticWeapon,
 	'clockworkBolt': clockworkBolt,
-	'flamingSphere': conjureSphere
+	'flamingSphere': conjureSphere,
+	'electricArc': electricArc,
+	'starfall': starfall
 }

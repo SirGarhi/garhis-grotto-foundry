@@ -1,3 +1,5 @@
-2023/11/06-08:59:23.198 5b3c Recovering log #51
-2023/11/06-08:59:23.203 5b3c Delete type=0 #51
-2023/11/06-08:59:23.203 5b3c Delete type=3 #49
+2023/11/06-09:32:42.656 4ec0 Recovering log #55
+2023/11/06-09:32:42.656 4ec0 Level-0 table #57: started
+2023/11/06-09:32:42.662 4ec0 Level-0 table #57: 1782 bytes OK
+2023/11/06-09:32:42.667 4ec0 Delete type=0 #55
+2023/11/06-09:32:42.667 4ec0 Delete type=3 #54

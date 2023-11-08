@@ -1,3 +1,5 @@
-2023/11/06-09:32:42.677 4ec0 Recovering log #54
-2023/11/06-09:32:42.681 4ec0 Delete type=0 #54
-2023/11/06-09:32:42.681 4ec0 Delete type=3 #53
+2023/11/07-23:40:58.383 3bf4 Recovering log #56
+2023/11/07-23:40:58.383 3bf4 Level-0 table #58: started
+2023/11/07-23:40:58.386 3bf4 Level-0 table #58: 6709 bytes OK
+2023/11/07-23:40:58.390 3bf4 Delete type=0 #56
+2023/11/07-23:40:58.390 3bf4 Delete type=3 #55

@@ -7,9 +7,25 @@
 * Feature Descriptions/functionality
 
 ## Misc
-* Electric Arc
+
 
 # Changelog
+# 0.1.18
+## **BREAKING**
+The following must be replaced on the character sheet by fresh versions from the compendium(s)
+* Cloak of Displacement - Inventory Item
+* Trance - Racial Feature
+* Astral Trance - Racial Feature
+## New
+* Electric Arc - prompt to select secondary target and fires the jump at them, reusing the attack roll from the initial attack
+* Starfall - injects an at-will Starfall Impact ability for the duration of the spell
+## Changes
+* Cloak of Displacement - refactored to not use a convenient effect
+## Fixes
+* Trance/Astral Trance
+## Character Paths
+* Bhalgrim's Richochet force applies proficiency as attack bonus
+
 # 0.1.17
 ## **BREAKING**
 The Following must be replaced on the character sheet by fresh versions from the compendium(s)
@@ -19,23 +35,23 @@ The Following must be replaced on the character sheet by fresh versions from the
 * Booming Blade - Cantrip
 * Green Flame Blade - Cantrip
 * Auto Reckless - Optional Barbarian Feature
-## Fixes
-* More v11 updates
-* Fixed Hex/Hunter's Mark
-* Fixed Hunger of Hadar
-* Fixed Twilight Sanctuary
-## Changes
-* Sneak Attack - refactor to no longer rely on a world macro
-* Booming Blade - refactor to act as a Damage Bonus Macro so it has it's own entry on the chat card, removed reliance on world macros, removed different Potent vs. Non-Potent versions
-* Green Flame Blade - similar refactor to Booming Blade
-* Clockwork Bolt - similar refactor to Booming Blade
-* Auto Reckless - refactor to remove world macro
 ## New
 * Added Flaming Sphere
 * Updated Cloud of Daggers and Flaming Sphere to support picking a damage type to support scribes wizards, no validation checking to filter the possible choices at this time.
 * Rallying Mark Automation for Warlord
 * Heroic Strike Automation for Warlord
 * Urgent Orders/Helpful Word resource spending
+## Changes
+* Sneak Attack - refactor to no longer rely on a world macro
+* Booming Blade - refactor to act as a Damage Bonus Macro so it has it's own entry on the chat card, removed reliance on world macros, removed different Potent vs. Non-Potent versions
+* Green Flame Blade - similar refactor to Booming Blade
+* Clockwork Bolt - similar refactor to Booming Blade
+* Auto Reckless - refactor to remove world macro
+## Fixes
+* More v11 updates
+* Fixed Hex/Hunter's Mark
+* Fixed Hunger of Hadar
+* Fixed Twilight Sanctuary
 ## Character Paths
 * All non-played character's path abilities should be considered broken at this stage, most won't take much work to fix but not a priority unless someone starts using a similar ability.
 * Fixed Bhalgrim's Richochet Attack
