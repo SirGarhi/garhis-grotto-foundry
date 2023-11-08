@@ -105,7 +105,7 @@ export async function conjureSphere(args, promptDamageType) {
 				"onlyOnce": false
 			},
 			"dfreds-convenient-effects": {
-				"description": "Deals fire damage upon a creature ending their turn within the radius."
+				"description": `Deals ${damageType} damage upon a creature ending their turn within the radius.`
 			},
 			"dae": {
 				"showIcon": true
@@ -133,6 +133,7 @@ export async function conjureSphere(args, promptDamageType) {
 	let damage = { parts: [[`${lastArg.castData.castLevel}d6`, damageType]], versatile: "" };
 	let attackData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Flaming Sphere Ram', false);
 	attackData.system.damage = damage;
+	attackData.system.level = lastArg.castData.castLevel;
 	let summonEffect = ggHelpers.findEffect(lastArg.actor, 'Flaming Sphere');
 	if (summonEffect) {
 		let updates = {

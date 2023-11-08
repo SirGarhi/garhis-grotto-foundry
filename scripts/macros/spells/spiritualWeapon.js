@@ -5,10 +5,11 @@ export async function spiritualWeapon(args, summonImage, summonTokenImage) {
 	let token = canvas.tokens.get(lastArg.tokenId);
 	let summonName = `Spiritual Weapon - ${lastArg.actor.name}`;
 	let spellMod = lastArg.actor.system.abilities[lastArg.actor.system.attributes.spellcasting].mod;
-	let attackBonus = spellMod + lastArg.actor.system.attributes.prof + lastArg.actor.system.bonuses.msak.attack;
+	let attackBonus = spellMod + lastArg.actor.system.attributes.prof - 2 + lastArg.actor.system.bonuses.msak.attack;
 	let damageBonus = spellMod + lastArg.actor.system.bonuses.msak.damage;
 	let damage = { parts: [[`${Math.floor(lastArg.castData.castLevel/2)}d8+${damageBonus}`, "force"]], versatile: "" };
 	let attackData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Spiritual Weapon Attack', false);
+	attackData.system.level = lastArg.castData.castLevel;
 	attackData.system.damage = damage;
 	attackData.system.attackBonus = attackBonus;
 	attackData.img = summonImage;
@@ -53,9 +54,7 @@ export async function spiritualWeapon(args, summonImage, summonTokenImage) {
 			}
 		}
 	}
-	attackData.system.proficient = true;
 	attackData.system.attackBonus = "";
-	attackData.system.damage = { parts: [[`${Math.floor(lastArg.castData.castLevel/2)}d8+@mod`, "force"]], versatile: "" };
 	let actorUpdates = {
 		'embedded': {
 			'Item': {

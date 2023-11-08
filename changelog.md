@@ -21,6 +21,7 @@ The following must be replaced on the character sheet by fresh versions from the
 * Starfall - injects an at-will Starfall Impact ability for the duration of the spell
 ## Changes
 * Cloak of Displacement - refactored to not use a convenient effect
+* Cloud of Daggers, Flaming Sphere, Spiritual Weapon now all inject At-Will spells that reflect the level of the initial cast, instead of weapons.
 ## Fixes
 * Trance/Astral Trance
 ## Character Paths

@@ -132,6 +132,7 @@ export async function conjureCloud(args, promptDamageType) {
 	let damage = { parts: [[`${lastArg.castData.castLevel*2}d4`, damageType]], versatile: "" };
 	let attackData = await ggHelpers.getItemFromCompendium('garhis-grotto.gg-item-blueprints', 'Cloud of Daggers Slash', false);
 	attackData.system.damage = damage;
+	attackData.system.level = lastArg.castData.castLevel;
 	let summonEffect = ggHelpers.findEffect(lastArg.actor, 'Cloud of Daggers');
 	if (summonEffect) {
 		let updates = {

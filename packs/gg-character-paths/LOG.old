@@ -1,3 +1,24 @@
-2023/11/06-09:32:42.643 4ec0 Recovering log #54
-2023/11/06-09:32:42.647 4ec0 Delete type=0 #54
-2023/11/06-09:32:42.647 4ec0 Delete type=3 #53
+2023/11/07-23:40:58.312 17c Recovering log #56
+2023/11/07-23:40:58.312 17c Level-0 table #58: started
+2023/11/07-23:40:58.315 17c Level-0 table #58: 81979 bytes OK
+2023/11/07-23:40:58.320 17c Delete type=0 #56
+2023/11/07-23:40:58.320 17c Delete type=3 #55
+2023/11/08-10:04:31.121 2090 Level-0 table #61: started
+2023/11/08-10:04:31.127 2090 Level-0 table #61: 312 bytes OK
+2023/11/08-10:04:31.129 2090 Delete type=0 #59
+2023/11/08-10:04:31.131 2090 Manual compaction at level-0 from '!folders!0sz1Qqsmac5IVT4F' @ 72057594037927935 : 1 .. '!items.effects!zh1324cwJP2Oi9fD.fYWPw19cAgeTjUTX' @ 0 : 0; will stop at '!items.effects!cTGn7K67TMft4Qwm.js9gAki1hFNRSjII' @ 512 : 0
+2023/11/08-10:04:31.131 2090 Compacting 2@0 + 0@1 files
+2023/11/08-10:04:31.138 2090 Generated table #62@0: 23 keys, 753 bytes
+2023/11/08-10:04:31.138 2090 Compacted 2@0 + 0@1 files => 753 bytes
+2023/11/08-10:04:31.140 2090 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/11/08-10:04:31.140 2090 Delete type=2 #58
+2023/11/08-10:04:31.140 2090 Delete type=2 #61
+2023/11/08-10:04:31.148 2090 Manual compaction at level-0 from '!items.effects!cTGn7K67TMft4Qwm.js9gAki1hFNRSjII' @ 512 : 0 .. '!items.effects!zh1324cwJP2Oi9fD.fYWPw19cAgeTjUTX' @ 0 : 0; will stop at (end)
+2023/11/08-10:04:31.153 2090 Manual compaction at level-1 from '!folders!0sz1Qqsmac5IVT4F' @ 72057594037927935 : 1 .. '!items.effects!zh1324cwJP2Oi9fD.fYWPw19cAgeTjUTX' @ 0 : 0; will stop at '!items.effects!cTGn7K67TMft4Qwm.js9gAki1hFNRSjII' @ 512 : 0
+2023/11/08-10:04:31.153 2090 Compacting 1@1 + 1@2 files
+2023/11/08-10:04:31.159 2090 Generated table #63@1: 235 keys, 232899 bytes
+2023/11/08-10:04:31.159 2090 Compacted 1@1 + 1@2 files => 232899 bytes
+2023/11/08-10:04:31.160 2090 compacted to: files[ 0 0 1 0 0 0 0 ]
+2023/11/08-10:04:31.160 2090 Delete type=2 #52
+2023/11/08-10:04:31.160 2090 Delete type=2 #62
+2023/11/08-10:04:31.162 2090 Manual compaction at level-1 from '!items.effects!cTGn7K67TMft4Qwm.js9gAki1hFNRSjII' @ 512 : 0 .. '!items.effects!zh1324cwJP2Oi9fD.fYWPw19cAgeTjUTX' @ 0 : 0; will stop at (end)

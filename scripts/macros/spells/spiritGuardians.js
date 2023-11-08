@@ -6,6 +6,7 @@ export async function spiritGuardians(args) {
 	if (!spellData) return;
 	let damage = { parts: [[`${lastArg.castData.castLevel}d8`, 'radiant']]};
 	spellData.damage = damage;
+	spellData.level = lastArg.castData.castLevel;
 	let token = canvas.tokens.get(lastArg.tokenId)
 	let actorUpdates = {
 		'embedded': {
