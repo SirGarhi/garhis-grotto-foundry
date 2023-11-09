@@ -131,7 +131,7 @@
 			"type": "Item",
 			"label": "Garhi's Grotto - Spells",
 			"module": "garhis-grotto",
-			"path": "packs/gg-spells.db",
+			"path": "packs/gg-spells",
 			"name": "gg-spells",
 			"system": "dnd5e"
 		},
@@ -139,7 +139,7 @@
 			"type": "Item",
 			"label": "Garhi's Grotto - Features",
 			"module": "garhis-grotto",
-			"path": "packs/gg-features.db",
+			"path": "packs/gg-features",
 			"name": "gg-features",
 			"system": "dnd5e"
 		},
@@ -147,7 +147,7 @@
 			"type": "Item",
 			"label": "Garhi's Grotto - Character Path Features",
 			"module": "garhis-grotto",
-			"path": "packs/gg-character-paths.db",
+			"path": "packs/gg-character-paths",
 			"name": "gg-character-paths",
 			"system": "dnd5e"
 		},
@@ -155,7 +155,7 @@
 			"type": "Item",
 			"label": "Garhi's Grotto - Awakened Weapons",
 			"module": "garhis-grotto",
-			"path": "packs/gg-awakened-weapons.db",
+			"path": "packs/gg-awakened-weapons",
 			"name": "gg-awakened-weapons",
 			"system": "dnd5e"
 		},
@@ -163,7 +163,7 @@
 			"type": "Item",
 			"label": "Garhi's Grotto - Item Blueprints",
 			"module": "garhis-grotto",
-			"path": "packs/gg-item-blueprints.db",
+			"path": "packs/gg-item-blueprints",
 			"name": "gg-item-blueprints",
 			"system": "dnd5e"
 		},
@@ -171,7 +171,7 @@
 			"type": "JournalEntry",
 			"label": "Garhi's Grotto - Journals",
 			"module": "garhis-grotto",
-			"path": "packs/gg-journals.db",
+			"path": "packs/gg-journals",
 			"name": "gg-journals",
 			"system": "dnd5e"
 		},
@@ -179,7 +179,7 @@
 			"type": "Item",
 			"label": "Garhi's Grotto - Inventory Items",
 			"module": "garhis-grotto",
-			"path": "packs/gg-inventory-items.db",
+			"path": "packs/gg-inventory-items",
 			"name": "gg-inventory-items",
 			"system": "dnd5e"
 		},
@@ -187,7 +187,7 @@
 			"type": "Actor",
 			"label": "Garhi's Grotto - Actor Blueprints",
 			"module": "garhis-grotto",
-			"path": "packs/gg-actor-blueprints.db",
+			"path": "packs/gg-actor-blueprints",
 			"name": "gg-actor-blueprints",
 			"system": "dnd5e"
 		},
@@ -195,7 +195,7 @@
 			"type": "Actor",
 			"label": "Garhi's Grotto - Creatures",
 			"module": "garhis-grotto",
-			"path": "packs/gg-creatures.db",
+			"path": "packs/gg-creatures",
 			"name": "gg-creatures",
 			"system": "dnd5e"
 		}
